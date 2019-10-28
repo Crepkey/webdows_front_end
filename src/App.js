@@ -1,8 +1,11 @@
 import React from 'react';
 import './App.css';
 
+import DraggableItem from "./components/draggableItem";
+
 function App() {
-  return (<h1>Hello World</h1>
+  return (
+      <DraggableItem/>
   );
 }
 

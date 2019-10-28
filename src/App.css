@@ -1,3 +1,10 @@
 h1{
   color: #e96800;
 }
+
+div{
+  border: solid;
+  width: 200px;
+  height: 200px;
+  display: flex
+}
