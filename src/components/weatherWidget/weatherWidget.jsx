@@ -15,7 +15,18 @@ class WeatherWidget extends Component {
       this.setState({ currentCoordinates });
     };
 
-    navigator.geolocation.getCurrentPosition(success);
+    const error = message => {
+      const currentCoordinates = message;
+      this.setState({ currentCoordinates });
+    };
+
+    const settings = {
+      enableHighAccuracy: true /* We want to enable high accuracy in the defining of coordinates*/,
+      timeout: 5000 /* We don't want to wait longer than 5 seconds for a response */,
+      maximumAge: 10000 /* We don't want gps data that is older than 10 seconds */
+    };
+
+    navigator.geolocation.getCurrentPosition(success, error, settings);
   };
 
   componentDidMount() {
