@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
 
-import DraggableItem from "./components/draggableItem";
+import WeatherWidget from "./components/weatherWidget/weatherWidget";
 
 function App() {
   return (
-      <DraggableItem/>
+      <WeatherWidget/>
   );
 }
 
