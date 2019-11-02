@@ -1,20 +1,36 @@
-import React, {Component} from 'react';
-import Draggable from 'react-draggable';
+import React, { Component } from "react";
+import Draggable from "react-draggable";
 
 class WeatherWidget extends Component {
-    state={
+  state = {
+    currentCoordinates: {}
+  };
 
+  getCurrentCoordinates = () => {
+    const success = position => {
+      const currentCoordinates = {
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude
+      };
+      this.setState({ currentCoordinates });
     };
 
-    render() {
-        return (
-            <Draggable>
-                <div>
-                    <h1>HELLO WORLD</h1>
-                </div>
-            </Draggable>
-        );
-    }
+    navigator.geolocation.getCurrentPosition(success);
+  };
+
+  componentDidMount() {
+    this.getCurrentCoordinates();
+  }
+
+  render() {
+    return (
+      <Draggable>
+        <div>
+          <h1>{this.state.currentCoordinates.latitude}</h1>
+        </div>
+      </Draggable>
+    );
+  }
 }
 
 export default WeatherWidget;
