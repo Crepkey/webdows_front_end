@@ -29,8 +29,16 @@ class WeatherWidget extends Component {
     navigator.geolocation.getCurrentPosition(success, error, settings);
   };
 
+  getLocationKey = () => {
+    const API_address =
+      process.env.REACT_APP_ACCU_WEATHER_GET_LOCATION_KEY_API_URL;
+    const header = new Headers();
+    fetch(API_address, header);
+  };
+
   componentDidMount() {
     this.getCurrentCoordinates();
+    console.log(process.env.REACT_APP_ACCU_WEATHER_API_KEY);
   }
 
   render() {
@@ -38,6 +46,8 @@ class WeatherWidget extends Component {
       <Draggable>
         <div>
           <h1>{this.state.currentCoordinates.latitude}</h1>
+          <h2>VALAMI</h2>
+          <h1>{process.env.REACT_APP_ACCU_WEATHER_API_KEY}</h1>
         </div>
       </Draggable>
     );
