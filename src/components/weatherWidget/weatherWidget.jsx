@@ -20,13 +20,13 @@ class WeatherWidget extends Component {
       return;
     }
 
-    const success = position => {
+    const success = async position => {
       const currentCoordinates = {
         latitude: position.coords.latitude,
         longitude: position.coords.longitude
       };
       this.setState({ currentCoordinates });
-      this.getLocationKey();
+      const locationKey = await this.getLocationKey();
     };
 
     const error = message => {
@@ -54,19 +54,23 @@ class WeatherWidget extends Component {
       toplevel: false
     };
 
-    let queryString =
+    let requestURL =
       process.env.REACT_APP_ACCU_WEATHER_GET_LOCATION_KEY_API_URL + "?";
 
     for (let key in queryParamters) {
-      queryString += key + "=" + queryParamters[key] + "&";
+      requestURL += key + "=" + queryParamters[key] + "&";
     }
 
-    queryString = queryString.substring(
+    requestURL = requestURL.substring(
       0,
-      queryString.length - 1 /* Removing the last unnecessary "&" character */
+      requestURL.length - 1 /* Removing the last unnecessary "&" character */
     );
 
-    console.log(queryString);
+    return fetch(requestURL)
+      .then(response => response.json())
+      .then(data => {
+        return data.Key;
+      });
   };
 
   componentDidMount() {
