@@ -6,6 +6,10 @@ class WeatherWidget extends Component {
     currentCoordinates: {}
   };
 
+  componentDidMount() {
+    this.getWeather();
+  }
+
   getWeather = () => {
     if (!navigator.geolocation) {
       let locality = prompt(
@@ -27,6 +31,11 @@ class WeatherWidget extends Component {
       };
       this.setState({ currentCoordinates });
       const locationKey = await this.getLocationKey();
+      const currentWeather = await this.getCurrentWeatherConditions(
+        locationKey
+      );
+      this.setState({ currentWeather: currentWeather[0] });
+      console.log(this.state);
     };
 
     const error = message => {
@@ -43,6 +52,7 @@ class WeatherWidget extends Component {
   };
 
   getLocationKey = () => {
+    //REFACTOR: Link creation step could be a new function because of it is twice in that code
     const queryParamters = {
       apikey: process.env.REACT_APP_ACCU_WEATHER_API_KEY,
       q:
@@ -73,9 +83,32 @@ class WeatherWidget extends Component {
       });
   };
 
-  componentDidMount() {
-    this.getWeather();
-  }
+  getCurrentWeatherConditions = async locationKey => {
+    //REFACTOR: This code is reapeated. It is necessary to grab it and reorganizing it to a new function
+    const queryParamters = {
+      apikey: process.env.REACT_APP_ACCU_WEATHER_API_KEY,
+      language: "en-us",
+      details: false
+    };
+
+    let requestURL =
+      process.env.REACT_APP_ACCU_WEATHER_GET_CURRENT_CONDITION_API_URL +
+      locationKey +
+      "?";
+
+    for (let key in queryParamters) {
+      requestURL += key + "=" + queryParamters[key] + "&";
+    }
+
+    requestURL = requestURL.substring(
+      0,
+      requestURL.length - 1 /* Removing the last unnecessary "&" character */
+    );
+
+    return fetch(requestURL).then(response => {
+      return response.json();
+    });
+  };
 
   render() {
     return (
