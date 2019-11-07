@@ -53,7 +53,7 @@ class WeatherWidget extends Component {
 
   getLocationKey = () => {
     //REFACTOR: Link creation step could be a new function because of it is twice in that code
-    const queryParamters = {
+    const queryParameters = {
       apikey: process.env.REACT_APP_ACCU_WEATHER_API_KEY,
       q:
         this.state.currentCoordinates.latitude +
@@ -67,15 +67,15 @@ class WeatherWidget extends Component {
     let requestURL =
       process.env.REACT_APP_ACCU_WEATHER_GET_LOCATION_KEY_API_URL + "?";
 
-    for (let key in queryParamters) {
-      requestURL += key + "=" + queryParamters[key] + "&";
+    for (let key in queryParameters) {
+      requestURL += key + "=" + queryParameters[key] + "&";
     }
 
     requestURL = requestURL.substring(
       0,
       requestURL.length - 1 /* Removing the last unnecessary "&" character */
     );
-
+    console.log(requestURL);
     return fetch(requestURL)
       .then(response => response.json())
       .then(data => {
@@ -85,7 +85,7 @@ class WeatherWidget extends Component {
 
   getCurrentWeatherConditions = async locationKey => {
     //REFACTOR: This code is reapeated. It is necessary to grab it and reorganizing it to a new function
-    const queryParamters = {
+    const queryParameters = {
       apikey: process.env.REACT_APP_ACCU_WEATHER_API_KEY,
       language: "en-us",
       details: false
@@ -96,15 +96,14 @@ class WeatherWidget extends Component {
       locationKey +
       "?";
 
-    for (let key in queryParamters) {
-      requestURL += key + "=" + queryParamters[key] + "&";
+    for (let key in queryParameters) {
+      requestURL += key + "=" + queryParameters[key] + "&";
     }
 
     requestURL = requestURL.substring(
       0,
       requestURL.length - 1 /* Removing the last unnecessary "&" character */
     );
-
     return fetch(requestURL).then(response => {
       return response.json();
     });
