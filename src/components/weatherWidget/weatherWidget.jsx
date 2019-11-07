@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Draggable from "react-draggable";
+import { createURL } from "../../util/util";
 
 class WeatherWidget extends Component {
   state = {
@@ -52,7 +53,6 @@ class WeatherWidget extends Component {
   };
 
   getLocationKey = () => {
-    //REFACTOR: Link creation step could be a new function because of it is twice in that code
     const queryParameters = {
       apikey: process.env.REACT_APP_ACCU_WEATHER_API_KEY,
       q:
@@ -64,18 +64,10 @@ class WeatherWidget extends Component {
       toplevel: false
     };
 
-    let requestURL =
-      process.env.REACT_APP_ACCU_WEATHER_GET_LOCATION_KEY_API_URL + "?";
+    let baseURL = process.env.REACT_APP_ACCU_WEATHER_GET_LOCATION_KEY_API_URL;
 
-    for (let key in queryParameters) {
-      requestURL += key + "=" + queryParameters[key] + "&";
-    }
+    const requestURL = createURL(baseURL, queryParameters);
 
-    requestURL = requestURL.substring(
-      0,
-      requestURL.length - 1 /* Removing the last unnecessary "&" character */
-    );
-    console.log(requestURL);
     return fetch(requestURL)
       .then(response => response.json())
       .then(data => {
@@ -84,29 +76,19 @@ class WeatherWidget extends Component {
   };
 
   getCurrentWeatherConditions = async locationKey => {
-    //REFACTOR: This code is reapeated. It is necessary to grab it and reorganizing it to a new function
     const queryParameters = {
       apikey: process.env.REACT_APP_ACCU_WEATHER_API_KEY,
       language: "en-us",
       details: false
     };
 
-    let requestURL =
+    let baseURL =
       process.env.REACT_APP_ACCU_WEATHER_GET_CURRENT_CONDITION_API_URL +
-      locationKey +
-      "?";
+      locationKey;
 
-    for (let key in queryParameters) {
-      requestURL += key + "=" + queryParameters[key] + "&";
-    }
+    const requestURL = createURL(baseURL, queryParameters);
 
-    requestURL = requestURL.substring(
-      0,
-      requestURL.length - 1 /* Removing the last unnecessary "&" character */
-    );
-    return fetch(requestURL).then(response => {
-      return response.json();
-    });
+    return fetch(requestURL).then(response => response.json());
   };
 
   render() {

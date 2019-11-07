@@ -8,7 +8,7 @@
 export function createURL(baseURL, queryParams) {
   let basicURL = baseURL + "?";
   for (let key in queryParams) {
-    baseURL += key + "=" + queryParams[key] + "&";
+    basicURL += key + "=" + queryParams[key] + "&";
   }
   basicURL = basicURL.substring(
     0,
