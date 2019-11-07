@@ -6,18 +6,31 @@ class WeatherWidget extends Component {
     currentCoordinates: {}
   };
 
-  getCurrentCoordinates = () => {
+  getWeather = () => {
+    if (!navigator.geolocation) {
+      let locality = prompt(
+        "Geolocation is not supported by your browser. Please type the name of your locality:",
+        "Budapest"
+      );
+      if (locality === null) {
+        const currentCoordinates = `Your current coordinates are unavailable. 
+          Please check the list of supported browser or type your locality manually by the refreshing of your browser`;
+        this.setState({ currentCoordinates });
+      }
+      return;
+    }
+
     const success = position => {
       const currentCoordinates = {
         latitude: position.coords.latitude,
         longitude: position.coords.longitude
       };
       this.setState({ currentCoordinates });
+      this.getLocationKey();
     };
 
     const error = message => {
-      const currentCoordinates = message;
-      this.setState({ currentCoordinates });
+      alert(`The following error happened: ${message}`);
     };
 
     const settings = {
@@ -30,15 +43,34 @@ class WeatherWidget extends Component {
   };
 
   getLocationKey = () => {
-    const API_address =
-      process.env.REACT_APP_ACCU_WEATHER_GET_LOCATION_KEY_API_URL;
-    const header = new Headers();
-    fetch(API_address, header);
+    const queryParamters = {
+      apikey: process.env.REACT_APP_ACCU_WEATHER_API_KEY,
+      q:
+        this.state.currentCoordinates.latitude +
+        "%2C" +
+        this.state.currentCoordinates.longitude,
+      language: "en-us",
+      details: false,
+      toplevel: false
+    };
+
+    let queryString =
+      process.env.REACT_APP_ACCU_WEATHER_GET_LOCATION_KEY_API_URL + "?";
+
+    for (let key in queryParamters) {
+      queryString += key + "=" + queryParamters[key] + "&";
+    }
+
+    queryString = queryString.substring(
+      0,
+      queryString.length - 1 /* Removing the last unnecessary "&" character */
+    );
+
+    console.log(queryString);
   };
 
   componentDidMount() {
-    this.getCurrentCoordinates();
-    console.log(process.env.REACT_APP_ACCU_WEATHER_API_KEY);
+    this.getWeather();
   }
 
   render() {
