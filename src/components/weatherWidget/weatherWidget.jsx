@@ -72,7 +72,8 @@ class WeatherWidget extends Component {
       .then(response => response.json())
       .then(data => {
         return data.Key;
-      });
+      })
+      .catch(err => this.setState({ error: err }));
   };
 
   getCurrentWeatherConditions = async locationKey => {
@@ -88,7 +89,9 @@ class WeatherWidget extends Component {
 
     const requestURL = createURL(baseURL, queryParameters);
 
-    return fetch(requestURL).then(response => response.json());
+    return fetch(requestURL)
+      .then(response => response.json())
+      .catch(err => this.setState({ error: err }));
   };
 
   render() {
