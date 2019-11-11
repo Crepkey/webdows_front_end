@@ -4,7 +4,7 @@ class WeatherForecasts extends Component {
   state = {};
   render() {
     return (
-      <div>
+      <div className="weather-forecasts">
         <h1>Weather Forecasts</h1>
       </div>
     );

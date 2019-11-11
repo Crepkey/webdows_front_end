@@ -122,8 +122,8 @@ class WeatherWidget extends Component {
     return (
       <Draggable>
         <div className="weather-widget">
-          <CurrentWeather className="current-weather" />
-          <WeatherForecasts lassName="weather-forecasts" />
+          <CurrentWeather />
+          <WeatherForecasts />
         </div>
       </Draggable>
     );
