@@ -35,7 +35,13 @@ class WeatherWidget extends Component {
       const currentWeather = await this.getCurrentWeatherConditions(
         locationKey
       );
-      this.setState({ currentWeather: currentWeather[0] });
+      const fiveDaysForcasts = await this.getFiveDaysOfDailyForecasts(
+        locationKey
+      );
+      this.setState({
+        currentWeather: currentWeather[0],
+        weatherForecasts: fiveDaysForcasts
+      });
       console.log(this.state);
     };
 
@@ -48,7 +54,6 @@ class WeatherWidget extends Component {
       timeout: 5000 /* We don't want to wait longer than 5 seconds for a response */,
       maximumAge: 10000 /* We don't want gps data that is older than 10 seconds */
     };
-
     navigator.geolocation.getCurrentPosition(success, error, settings);
   };
 
@@ -86,6 +91,23 @@ class WeatherWidget extends Component {
     let baseURL =
       process.env.REACT_APP_ACCU_WEATHER_GET_CURRENT_CONDITION_API_URL +
       locationKey;
+
+    const requestURL = createURL(baseURL, queryParameters);
+
+    return fetch(requestURL)
+      .then(response => response.json())
+      .catch(err => this.setState({ error: err }));
+  };
+
+  getFiveDaysOfDailyForecasts = locationkey => {
+    const queryParameters = {
+      apikey: process.env.REACT_APP_ACCU_WEATHER_API_KEY,
+      language: "en-us",
+      details: false
+    };
+
+    let baseURL =
+      process.env.REACT_APP_ACCU_WEATHER_GET_5DAYS_FORECASTS + locationkey;
 
     const requestURL = createURL(baseURL, queryParameters);
 
