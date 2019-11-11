@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Draggable from "react-draggable";
 import { createURL } from "../../util/util";
+import CurrentWeather from "./currentWeather/currentWeather";
+import WeatherForecasts from "./weatherForecasts/weatherForecasts";
 
 class WeatherWidget extends Component {
   state = {
@@ -85,7 +87,7 @@ class WeatherWidget extends Component {
     const queryParameters = {
       apikey: process.env.REACT_APP_ACCU_WEATHER_API_KEY,
       language: "en-us",
-      details: false
+      details: true
     };
 
     let baseURL =
@@ -119,10 +121,9 @@ class WeatherWidget extends Component {
   render() {
     return (
       <Draggable>
-        <div>
-          <h1>{this.state.currentCoordinates.latitude}</h1>
-          <h2>VALAMI</h2>
-          <h1>{process.env.REACT_APP_ACCU_WEATHER_API_KEY}</h1>
+        <div className="weather-widget">
+          <CurrentWeather className="current-weather" />
+          <WeatherForecasts lassName="weather-forecasts" />
         </div>
       </Draggable>
     );
