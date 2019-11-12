@@ -1,14 +1,14 @@
-import React, { Component } from "react";
+import React from "react";
+import ADayOfForecasts from "./aDayOfForecasts";
 
-class WeatherForecasts extends Component {
-  state = {};
-  render() {
-    return (
-      <div className="weather-forecasts">
-        <h1>Weather Forecasts</h1>
-      </div>
-    );
-  }
-}
+const weatherForecasts = props => {
+  console.log(props.weatherForecasts);
+  return (
+    <div className="weather-forecasts">
+      <h1>Weather Forecasts</h1>
+      <ADayOfForecasts />
+    </div>
+  );
+};
 
-export default WeatherForecasts;
+export default weatherForecasts;

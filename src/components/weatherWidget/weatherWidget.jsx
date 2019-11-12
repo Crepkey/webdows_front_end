@@ -46,7 +46,6 @@ class WeatherWidget extends Component {
         currentWeather: currentWeather[0],
         weatherForecasts: fiveDaysForcasts
       });
-      console.log(this.state);
     };
 
     const error = message => {
@@ -61,7 +60,7 @@ class WeatherWidget extends Component {
     navigator.geolocation.getCurrentPosition(success, error, settings);
   };
 
-  getLocationKey = () => {
+  getLocationKey = async () => {
     const queryParameters = {
       apikey: process.env.REACT_APP_ACCU_WEATHER_API_KEY,
       q:
@@ -103,7 +102,7 @@ class WeatherWidget extends Component {
       .catch(err => this.setState({ error: err }));
   };
 
-  getFiveDaysOfDailyForecasts = locationkey => {
+  getFiveDaysOfDailyForecasts = async locationkey => {
     const queryParameters = {
       apikey: process.env.REACT_APP_ACCU_WEATHER_API_KEY,
       language: "en-us",
@@ -124,8 +123,12 @@ class WeatherWidget extends Component {
     return (
       <Draggable>
         <div className="weather-widget">
-          <CurrentWeather currentWeather={this.state.currentWeather} />
-          <WeatherForecasts weatherForecasts={this.state.weatherForecasts} />
+          {this.state.currentWeather.length !== 0 && (
+            <CurrentWeather currentWeather={this.state.currentWeather} />
+          )}
+          {this.state.weatherForecasts !== 0 && (
+            <WeatherForecasts weatherForecasts={this.state.weatherForecasts} />
+          )}
         </div>
       </Draggable>
     );
