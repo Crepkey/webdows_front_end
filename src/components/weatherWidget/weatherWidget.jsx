@@ -6,7 +6,9 @@ import WeatherForecasts from "./weatherForecasts/weatherForecasts";
 
 class WeatherWidget extends Component {
   state = {
-    currentCoordinates: {}
+    currentCoordinates: {},
+    currentWeather: {},
+    weatherForecasts: {}
   };
 
   componentDidMount() {
@@ -122,8 +124,8 @@ class WeatherWidget extends Component {
     return (
       <Draggable>
         <div className="weather-widget">
-          <CurrentWeather />
-          <WeatherForecasts />
+          <CurrentWeather currentWeather={this.state.currentWeather} />
+          <WeatherForecasts weatherForecasts={this.state.weatherForecasts} />
         </div>
       </Draggable>
     );

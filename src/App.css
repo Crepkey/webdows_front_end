@@ -4,18 +4,21 @@ h1 {
 
 .weather-widget {
   border: solid;
-  width: auto;
-  height: auto;
-  display: flex;
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
   margin: 100px;
+  padding: 30px;
 }
 
 .current-weather {
   border: solid;
-  margin: 100px;
+  margin: 10px;
 }
 
 .weather-forecasts {
   border: solid;
-  margin: 100px;
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
 }
