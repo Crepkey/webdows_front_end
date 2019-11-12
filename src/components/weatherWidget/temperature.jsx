@@ -7,7 +7,7 @@ const temperature = props => {
         props.color === "blue" ? "low-temperature" : "high-temperature"
       }
     >
-      Valami
+      {props.value} {props.unit === "C" ? "°C" : "°F"}
     </h3>
   );
 };

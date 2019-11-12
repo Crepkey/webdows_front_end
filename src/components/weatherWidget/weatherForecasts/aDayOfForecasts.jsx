@@ -3,12 +3,14 @@ import Temperature from "../temperature";
 
 const aDayOfForecasts = props => {
   return (
-    <Temperature
-      key={props.detailsOfTheDay.Date}
-      color={"red"}
-      value={props.detailsOfTheDay.Temperature.Minimum.Value}
-      unit={props.detailsOfTheDay.Temperature.Minimum.Unit}
-    />
+    <div className="a-day-of-forecasts">
+      <Temperature
+        key={props.detailsOfTheDay.Date}
+        color={"red"}
+        value={props.detailsOfTheDay.Temperature.Minimum.Value}
+        unit={props.detailsOfTheDay.Temperature.Minimum.Unit}
+      />
+    </div>
   );
 };
 
