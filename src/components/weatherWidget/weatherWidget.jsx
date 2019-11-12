@@ -106,7 +106,8 @@ class WeatherWidget extends Component {
     const queryParameters = {
       apikey: process.env.REACT_APP_ACCU_WEATHER_API_KEY,
       language: "en-us",
-      details: false
+      details: false,
+      metric: true
     };
 
     let baseURL =
@@ -123,12 +124,8 @@ class WeatherWidget extends Component {
     return (
       <Draggable>
         <div className="weather-widget">
-          {this.state.currentWeather.length !== 0 && (
-            <CurrentWeather currentWeather={this.state.currentWeather} />
-          )}
-          {this.state.weatherForecasts !== 0 && (
-            <WeatherForecasts weatherForecasts={this.state.weatherForecasts} />
-          )}
+          <CurrentWeather currentWeather={this.state.currentWeather} />
+          <WeatherForecasts weatherForecasts={this.state.weatherForecasts} />
         </div>
       </Draggable>
     );

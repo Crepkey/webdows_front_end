@@ -1,7 +1,7 @@
 import React from "react";
 
-const aDayOfForecasts = () => {
-  return <h2>Hello World</h2>;
+const aDayOfForecasts = props => {
+  return <h3>{props.detailsOfTheDay.Temperature.Minimum.Value}</h3>;
 };
 
 export default aDayOfForecasts;
