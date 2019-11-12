@@ -22,3 +22,11 @@ h1 {
   flex-direction: row;
   margin: 10px;
 }
+
+.high-temperature {
+  color: #ed5a54;
+}
+
+.low-temperature {
+  color: #3f88c5;
+}
