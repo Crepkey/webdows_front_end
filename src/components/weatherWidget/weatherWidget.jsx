@@ -54,7 +54,7 @@ class WeatherWidget extends Component {
 
     const settings = {
       enableHighAccuracy: true /* We want to enable high accuracy in the defining of coordinates*/,
-      timeout: 5000 /* We don't want to wait longer than 5 seconds for a response */,
+      timeout: 10000 /* We don't want to wait longer than 5 seconds for a response */,
       maximumAge: 10000 /* We don't want gps data that is older than 10 seconds */
     };
     navigator.geolocation.getCurrentPosition(success, error, settings);

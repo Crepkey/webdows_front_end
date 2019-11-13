@@ -3,6 +3,7 @@ h1 {
 }
 
 .weather-widget {
+  background-color: #233343;
   border: solid;
   display: inline-flex;
   flex-direction: row;
