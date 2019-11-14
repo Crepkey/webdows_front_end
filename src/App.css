@@ -2,6 +2,10 @@ h1 {
   color: #e96800;
 }
 
+h3 {
+  color: white;
+}
+
 .weather-widget {
   background-color: #233343;
   border: solid;
