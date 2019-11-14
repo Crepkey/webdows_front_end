@@ -9,7 +9,10 @@ const ADayOfForecasts = props => {
       <WeekDay date={props.detailsOfTheDay.Date} />
       <WeatherIcon weatherIconNumber={props.detailsOfTheDay.Day.Icon} />
       {/* Icon Phrase which descripes the weather in one word */}
-      <h3>{props.detailsOfTheDay.Day.IconPhrase}</h3>
+      {/* TODO: Ask Balázs for a better solution which don't use div to enhance the space*/}
+      <div className="icon-phrase">
+        <h3>{props.detailsOfTheDay.Day.IconPhrase}</h3>
+      </div>
       {/* Maximum temperature */}
       <Temperature
         key={props.detailsOfTheDay.Date + "_max"}
