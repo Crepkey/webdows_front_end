@@ -1,14 +1,13 @@
 import React, { Component } from "react";
+import CurrentWeatherDetails from "./currentDetails";
 
-class CurrentWeather extends Component {
-  state = {};
-  render() {
-    return (
-      <div className="current-weather">
-        <h1>Current Weather</h1>
-      </div>
-    );
-  }
-}
+const CurrentWeather = props => {
+  return (
+    <div className="current-weather">
+      <h3>Current Weather</h3>
+      <CurrentWeatherDetails />
+    </div>
+  );
+};
 
 export default CurrentWeather;

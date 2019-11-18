@@ -18,7 +18,13 @@ h3 {
 
 .current-weather {
   border: solid;
-  margin: 10px;
+  border-radius: 25px;
+  border-color: #18232e;
+  margin: 5px;
+  padding: 5px;
+  text-align: center;
+  width: 128px;
+  background-color: #18232e;
 }
 
 .weather-forecasts {
