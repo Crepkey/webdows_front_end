@@ -11,7 +11,7 @@ h3 {
   border: solid;
   display: inline-flex;
   flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   margin: 100px;
   padding: 30px;
 }
@@ -24,6 +24,7 @@ h3 {
 .weather-forecasts {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   margin: 10px;
 }
 
