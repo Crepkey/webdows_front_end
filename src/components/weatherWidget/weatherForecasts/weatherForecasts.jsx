@@ -1,7 +1,7 @@
 import React from "react";
 import ADayOfForecasts from "./aDayOfForecasts";
 
-const weatherForecasts = props => {
+const WeatherForecasts = props => {
   return (
     <div className="weather-forecasts">
       {/* TODO: Here I need to change this solution to REACT SUSPENSE */}
@@ -13,4 +13,4 @@ const weatherForecasts = props => {
   );
 };
 
-export default weatherForecasts;
+export default WeatherForecasts;

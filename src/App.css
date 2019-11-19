@@ -44,6 +44,10 @@ h3 {
   color: #3f88c5;
 }
 
+.large-font-size {
+  font-size: 300%;
+}
+
 .a-day-of-forecasts {
   border: solid;
   border-radius: 25px;
