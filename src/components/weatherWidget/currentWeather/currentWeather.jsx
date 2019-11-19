@@ -1,10 +1,15 @@
-import React, { Component } from "react";
+import React from "react";
 import CurrentWeatherDetails from "./currentDetails";
+import CurrentWeatherMain from "./currentMain";
 
 const CurrentWeather = props => {
+  /* TODO: Why does not the object destructuring work here? */
   return (
     <div className="current-weather">
-      <h3>Current Weather</h3>
+      <CurrentWeatherMain
+        weatherIconNumber={props.currentWeather.WeatherIcon}
+        weatherText={props.currentWeather.WeatherText}
+      />
       <CurrentWeatherDetails />
     </div>
   );

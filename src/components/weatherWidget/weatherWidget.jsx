@@ -124,7 +124,9 @@ class WeatherWidget extends Component {
     return (
       <Draggable>
         <div className="weather-widget">
-          <CurrentWeather currentWeather={this.state.currentWeather} />
+          {this.state.currentWeather !== undefined && (
+            <CurrentWeather currentWeather={this.state.currentWeather} />
+          )}
           <WeatherForecasts weatherForecasts={this.state.weatherForecasts} />
         </div>
       </Draggable>
