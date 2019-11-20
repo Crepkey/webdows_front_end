@@ -29,6 +29,8 @@ import weather_icon_44 from "../../img/weather_icon_44.png";
 /*TODO: I should change the statical image import to a webpack solution like this: 
 https://stackoverflow.com/questions/53762640/how-to-import-all-images-from-a-folder-in-reactjs */
 
+/* TODO: I would be great if I can define the size of weather icon based on incoming prop */
+
 const WeatherIcon = props => {
   switch (props.weatherIconNumber) {
     case 1:

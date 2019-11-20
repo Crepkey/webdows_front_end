@@ -10,10 +10,8 @@ const CurrentWeatherMain = props => {
         data={props.weatherIconNumber}
         name="weatherIconNumber"
         type={1}
-        height="140px"
-        width="140px"
+        style={{ padding: "33px", width: "63", height: "63" }}
       >
-        {/* TODO: I would be great if I can define the size of weather icon as a prop */}
         <WeatherIcon weatherIconNumber />
       </Loader>
       <h3>{props.weatherText}</h3>

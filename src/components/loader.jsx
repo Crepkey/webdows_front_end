@@ -7,6 +7,7 @@ const Loader = props => {
 
   if (data === undefined) {
     switch (type) {
+      /* REFACTOR: This switch-case should be in LoaderIcon component */
       case 1:
         return (
           <div style={style}>
