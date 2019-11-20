@@ -1,7 +1,6 @@
 import React from "react";
 import DetailsIcon from "./detailsIcon";
 import Temperature from "../temperature";
-import Loader1 from "../../loader1";
 
 const CurrentWeatherDetails = props => {
   return (
@@ -14,7 +13,6 @@ const CurrentWeatherDetails = props => {
           size="large"
         />
       )}
-      <Loader1 />
       <DetailsIcon iconType="humidity" />
       {/* TODO: I must use a new umbrella icon which fits mush more better to the current elements */}
       <DetailsIcon iconType="umbrella" />
