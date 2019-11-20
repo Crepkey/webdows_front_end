@@ -18,7 +18,8 @@ const Loader = props => {
         </div>
       );
     }
-  } else return props.children;
+  }
+  return React.cloneElement(props.children, { [props.name]: props.data });
 };
 
 export default Loader;
