@@ -4,17 +4,26 @@ import Loader from "../../loader";
 
 const CurrentWeatherMain = props => {
   return (
-    <div>
+    <div className="current-weather-main">
       <h3>Current Weather</h3>
+
       <Loader
-        data={props.weatherIconNumber}
-        name="weatherIconNumber"
         type={1}
-        style={{ padding: "33px", width: "63", height: "63" }}
+        name="weatherIconNumber"
+        data={props.weatherIconNumber}
+        style={{ padding: "10px 33px 10px 33px" }}
       >
         <WeatherIcon weatherIconNumber />
       </Loader>
-      <h3>{props.weatherText}</h3>
+
+      <Loader
+        type={2}
+        name="weatherText"
+        data={props.weatherText}
+        style={{ padding: "5px 40px 5px 40px" }}
+      >
+        <h3>{props.weatherText}</h3>
+      </Loader>
     </div>
   );
 };
