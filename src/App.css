@@ -36,6 +36,10 @@ h3 {
   width: 128px;
 }
 
+.current-weather-details-icon {
+  float: left;
+}
+
 .weather-forecasts {
   display: flex;
   flex-direction: row;
