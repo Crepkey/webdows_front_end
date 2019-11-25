@@ -2,6 +2,7 @@ import React from "react";
 import DetailsIcon from "./detailsIcon";
 import Temperature from "../temperature";
 import Humidity from "./humidity";
+import ChanceForRain from "./chanceForRain";
 
 const CurrentWeatherDetails = props => {
   return (
@@ -16,7 +17,9 @@ const CurrentWeatherDetails = props => {
       )}
       <Humidity relativeHumidity={props.currentWeather.RelativeHumidity} />
       {/* TODO: I must use a new umbrella icon which fits mush more better to the current elements */}
-      <DetailsIcon iconType="umbrella" />
+      <ChanceForRain
+        PrecipitationSummary={props.currentWeather.PrecipitationSummary}
+      />
       <DetailsIcon iconType="wind" />
     </div>
   );

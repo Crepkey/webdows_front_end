@@ -5,8 +5,6 @@ import Umbrella from "../../../img/weather_icon_45.png";
 import Wind from "../../../img/weather_icon_05.png";
 import NoPicture from "../../../img/weather_icon_0.png";
 
-/* TODO: Why are the icons' size bigger in the browser than those was in Photoshop. This is true the entire design too.*/
-
 const DetailsIcon = props => {
   switch (props.iconType) {
     case "humidity":
