@@ -1,8 +1,10 @@
 import React from "react";
-import DetailsIcon from "./detailsIcon";
 import Temperature from "../temperature";
 import Humidity from "./humidity";
 import ChanceForRain from "./avgOfRain";
+import Wind from "./wind";
+
+/* REFACTOR: Here I use three different comp but I could solve it only one comp */
 
 const CurrentWeatherDetails = props => {
   return (
@@ -20,7 +22,9 @@ const CurrentWeatherDetails = props => {
       <ChanceForRain
         PrecipitationSummary={props.currentWeather.PrecipitationSummary}
       />
-      <DetailsIcon iconType="wind" />
+      {props.currentWeather.Wind !== undefined && (
+        <Wind WindSpeed={props.currentWeather.Wind.Speed.Metric.Value} />
+      )}
     </div>
   );
 };
