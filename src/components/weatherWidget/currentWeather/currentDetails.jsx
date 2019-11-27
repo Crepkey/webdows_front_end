@@ -1,7 +1,7 @@
 import React from "react";
 import Temperature from "../temperature";
 import Humidity from "./humidity";
-import ChanceForRain from "./avgOfRain";
+import AvgOfRain from "./avgOfRain";
 import Wind from "./wind";
 
 /* REFACTOR: Here I use three different comp but I could solve it only one comp */
@@ -19,7 +19,7 @@ const CurrentWeatherDetails = props => {
       )}
       <Humidity relativeHumidity={props.currentWeather.RelativeHumidity} />
       {/* TODO: I must use a new umbrella icon which fits mush more better to the current elements */}
-      <ChanceForRain
+      <AvgOfRain
         PrecipitationSummary={props.currentWeather.PrecipitationSummary}
       />
       {props.currentWeather.Wind !== undefined && (

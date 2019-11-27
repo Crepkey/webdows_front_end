@@ -18,7 +18,7 @@ const CurrentWeatherMain = props => {
 
       <Loader
         type={2}
-        name="weatherText"
+        name="weathertext"
         data={props.weatherText}
         style={{ padding: "5px 40px 5px 40px" }}
       >
