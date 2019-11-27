@@ -32,7 +32,9 @@ https://stackoverflow.com/questions/53762640/how-to-import-all-images-from-a-fol
 /* TODO: I would be great if I can define the size of weather icon based on incoming prop */
 
 const WeatherIcon = props => {
-  switch (props.weatherIconNumber) {
+  const { style, weatherIconNumber } = props;
+
+  switch (weatherIconNumber) {
     case 1:
     case 2:
       return <img src={weather_icon_01} alt="weather_icon_01" />;
