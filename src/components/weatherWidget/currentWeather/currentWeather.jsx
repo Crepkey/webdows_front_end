@@ -6,7 +6,7 @@ const CurrentWeather = props => {
   return (
     <div className="current-weather">
       <CurrentWeatherMain
-        weatherIconNumber={props.currentWeather.WeatherIcon}
+        weatherIconType={props.currentWeather.WeatherIcon}
         weatherText={props.currentWeather.WeatherText}
       />
       <CurrentWeatherDetails currentWeather={props.currentWeather} />

@@ -2,9 +2,7 @@ import React from "react";
 import Temperature from "../temperature";
 import CurrentDetail from "./currentDetail";
 
-{
-  /* TODO: I must use a new umbrella icon which fits mush more better to the current elements */
-}
+/* TODO: I must use a new umbrella icon which fits mush more better to the current elements */
 
 const CurrentWeatherDetails = props => {
   const calculateAvgOfRain = () => {

@@ -7,7 +7,7 @@ const ADayOfForecasts = props => {
   return (
     <div className="a-day-of-forecasts">
       <WeekDay date={props.detailsOfTheDay.Date} />
-      <WeatherIcon weatherIconNumber={props.detailsOfTheDay.Day.Icon} />
+      <WeatherIcon weatherIconType={props.detailsOfTheDay.Day.Icon} />
       {/* Icon Phrase which descripes the weather in one word */}
       <div className="icon-phrase">
         <h3>{props.detailsOfTheDay.Day.IconPhrase}</h3>
