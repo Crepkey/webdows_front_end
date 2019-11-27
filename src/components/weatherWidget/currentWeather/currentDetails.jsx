@@ -2,7 +2,7 @@ import React from "react";
 import DetailsIcon from "./detailsIcon";
 import Temperature from "../temperature";
 import Humidity from "./humidity";
-import ChanceForRain from "./chanceForRain";
+import ChanceForRain from "./avgOfRain";
 
 const CurrentWeatherDetails = props => {
   return (

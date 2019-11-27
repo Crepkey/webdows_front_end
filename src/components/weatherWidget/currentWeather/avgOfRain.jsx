@@ -1,7 +1,7 @@
 import React from "react";
 import DetailsIcon from "./detailsIcon";
 
-const ChanceForRain = props => {
+const AvgOfRain = props => {
   /* TODO: This is a little cheat, I need to find a correct solution for calculation */
   const calculateChanceForRain = () => {
     let totalRainAmount;
@@ -19,10 +19,11 @@ const ChanceForRain = props => {
     <div className="current-weather-details">
       <DetailsIcon iconType="umbrella" />
       <h3>
-        {props.PrecipitationSummary !== undefined && calculateChanceForRain()} %
+        {props.PrecipitationSummary !== undefined && calculateChanceForRain()}{" "}
+        mm
       </h3>
     </div>
   );
 };
 
-export default ChanceForRain;
+export default AvgOfRain;
