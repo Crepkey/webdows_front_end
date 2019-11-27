@@ -5,6 +5,8 @@ import CurrentDetail from "./currentDetail";
 /* TODO: I must use a new umbrella icon which fits mush more better to the current elements */
 
 const CurrentWeatherDetails = props => {
+  const iconStyle = { float: "left", width: "64px", height: "47px" };
+
   const calculateAvgOfRain = () => {
     let totalRainAmount;
     const allDaysOfForecasts = Object.keys(
@@ -34,7 +36,7 @@ const CurrentWeatherDetails = props => {
       <CurrentDetail
         weatherIconType="Humidity"
         data={props.currentWeather.RelativeHumidity}
-        style={{ float: "left", width: "64px", height: "47px" }}
+        style={iconStyle}
         suffix="%"
       />
       <CurrentDetail
@@ -43,7 +45,7 @@ const CurrentWeatherDetails = props => {
           props.currentWeather.PrecipitationSummary !== undefined &&
           calculateAvgOfRain()
         }
-        style={{ float: "left", width: "64px", height: "47px" }}
+        style={iconStyle}
         suffix="mm"
       />
       <CurrentDetail
@@ -52,7 +54,7 @@ const CurrentWeatherDetails = props => {
           props.currentWeather.Wind !== undefined &&
           props.currentWeather.Wind.Speed.Metric.Value
         }
-        style={{ float: "left", width: "64px", height: "47px" }}
+        style={iconStyle}
         suffix="km"
       />
     </div>
