@@ -1,12 +1,27 @@
 import React from "react";
 import Temperature from "../temperature";
-import Humidity from "./humidity";
-import AvgOfRain from "./avgOfRain";
-import Wind from "./wind";
+import CurrentDetail from "./currentDetail";
 
-/* REFACTOR: Here I use three different comp but I could solve it only one comp */
+{
+  /* TODO: I must use a new umbrella icon which fits mush more better to the current elements */
+}
 
 const CurrentWeatherDetails = props => {
+  const calculateAvgOfRain = () => {
+    let totalRainAmount;
+    const allDaysOfForecasts = Object.keys(
+      props.currentWeather.PrecipitationSummary
+    ).length;
+    for (let pastPrecipitation in props.currentWeather.PrecipitationSummary) {
+      totalRainAmount +=
+        props.currentWeather.PrecipitationSummary[pastPrecipitation].Metric
+          .Value;
+    }
+    const result = totalRainAmount / allDaysOfForecasts;
+
+    return isNaN(result) ? 0 : result;
+  };
+
   return (
     <div>
       <h3>Details</h3>
@@ -17,14 +32,31 @@ const CurrentWeatherDetails = props => {
           size="large"
         />
       )}
-      <Humidity relativeHumidity={props.currentWeather.RelativeHumidity} />
-      {/* TODO: I must use a new umbrella icon which fits mush more better to the current elements */}
-      <AvgOfRain
-        PrecipitationSummary={props.currentWeather.PrecipitationSummary}
+      {/* Humidity */}
+      <CurrentDetail
+        weatherIconType="Humidity"
+        data={props.currentWeather.RelativeHumidity}
+        style={{ float: "left", width: "64px", height: "47px" }}
+        suffix="%"
       />
-      {props.currentWeather.Wind !== undefined && (
-        <Wind WindSpeed={props.currentWeather.Wind.Speed.Metric.Value} />
-      )}
+      <CurrentDetail
+        weatherIconType="Umbrella"
+        data={
+          props.currentWeather.PrecipitationSummary !== undefined &&
+          calculateAvgOfRain()
+        }
+        style={{ float: "left", width: "64px", height: "47px" }}
+        suffix="mm"
+      />
+      <CurrentDetail
+        weatherIconType="Wind"
+        data={
+          props.currentWeather.Wind !== undefined &&
+          props.currentWeather.Wind.Speed.Metric.Value
+        }
+        style={{ float: "left", width: "64px", height: "47px" }}
+        suffix="km"
+      />
     </div>
   );
 };
