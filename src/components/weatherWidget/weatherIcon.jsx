@@ -6,6 +6,7 @@ import weather_icon_03 from "../../img/weather_icon_03.png";
 import weather_icon_04 from "../../img/weather_icon_04.png";
 import weather_icon_05 from "../../img/weather_icon_05.png";
 import weather_icon_06 from "../../img/weather_icon_06.png";
+import weather_icon_07 from "../../img/weather_icon_07.png";
 import weather_icon_08 from "../../img/weather_icon_08.png";
 import weather_icon_11 from "../../img/weather_icon_11.png";
 import weather_icon_12 from "../../img/weather_icon_12.png";
@@ -25,6 +26,7 @@ import weather_icon_34 from "../../img/weather_icon_34.png";
 import weather_icon_35 from "../../img/weather_icon_35.png";
 import weather_icon_40 from "../../img/weather_icon_40.png";
 import weather_icon_44 from "../../img/weather_icon_44.png";
+import weather_icon_45 from "../../img/weather_icon_45.png";
 
 /*TODO: I should change the statical image import to a webpack solution like this: 
 https://stackoverflow.com/questions/53762640/how-to-import-all-images-from-a-folder-in-reactjs */
@@ -32,9 +34,9 @@ https://stackoverflow.com/questions/53762640/how-to-import-all-images-from-a-fol
 /* TODO: I would be great if I can define the size of weather icon based on incoming prop */
 
 const WeatherIcon = props => {
-  const { style, weatherIconNumber } = props;
+  const { style, weatherIconType } = props;
 
-  switch (weatherIconNumber) {
+  switch (weatherIconType) {
     case 1:
     case 2:
       return <img src={weather_icon_01} style={style} alt="weather_icon_01" />;
@@ -100,6 +102,16 @@ const WeatherIcon = props => {
     case 41:
     case 42:
       return <img src={weather_icon_34} style={style} alt="weather_icon_34" />;
+
+    /* Until that point the icon numbers come from the API */
+
+    case "Umbrella":
+      return <img src={weather_icon_45} style={style} alt="weather_icon_45" />;
+    case "Humidity":
+      return <img src={weather_icon_07} style={style} alt="weather_icon_07" />;
+    case "Wind":
+      return <img src={weather_icon_05} style={style} alt="weather_icon_05" />;
+
     default:
       return <img src={weather_icon_0} style={style} alt="weather_icon_0" />;
   }
