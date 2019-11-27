@@ -40,6 +40,11 @@ h3 {
   float: left;
 }
 
+.current-weather-details {
+  height: 47px;
+  line-height: 47px;
+}
+
 .weather-forecasts {
   display: flex;
   flex-direction: row;
@@ -69,6 +74,7 @@ h3 {
   width: 128px;
   background-color: #18232e;
 }
+
 .icon-phrase {
   height: 44px;
 }

@@ -16,7 +16,7 @@ const ChanceForRain = props => {
   };
 
   return (
-    <div>
+    <div className="current-weather-details">
       <DetailsIcon iconType="umbrella" />
       <h3>
         {props.PrecipitationSummary !== undefined && calculateChanceForRain()} %
