@@ -20,7 +20,7 @@ const CurrentWeatherMain = props => {
         data={props.weatherText}
         style={{ padding: "5px 40px 5px 40px" }}
       >
-        <h3>{props.weatherText}</h3>
+        <h3 className="large-text">{props.weatherText}</h3>
       </Loader>
     </div>
   );

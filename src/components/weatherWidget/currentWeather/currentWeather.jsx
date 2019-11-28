@@ -5,7 +5,7 @@ import CurrentWeatherMain from "./currentMain";
 const CurrentWeather = props => {
   return (
     <div className="current-weather">
-      <h3>Current Conditions</h3>
+      <h3 className="large-text">Current Conditions</h3>
       <div className="current-weather-container">
         <CurrentWeatherMain
           weatherIconType={props.currentWeather.WeatherIcon}
