@@ -37,6 +37,12 @@ h3 {
   line-height: 47px;
 }
 
+.current-weather-details-text {
+  color: white;
+  font-weight: bold;
+  font-size: 120%;
+}
+
 .weather-forecasts {
   display: flex;
   flex-direction: row;
@@ -46,14 +52,23 @@ h3 {
 
 .high-temperature {
   color: #ed5a54;
+  font-weight: bold;
+  font-size: 120%;
+  margin: 19.2px 0px 19.2px 0px;
 }
 
 .low-temperature {
   color: #3f88c5;
+  font-weight: bold;
+  font-size: 120%;
+  margin: 19.2px 0px 19.2px 0px;
 }
 
-.large-font-size {
+.large-temperature {
+  color: white;
   font-size: 300%;
+  font-weight: bold;
+  margin: 0px;
 }
 
 .a-day-of-forecasts {

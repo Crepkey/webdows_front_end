@@ -11,16 +11,16 @@ const Temperature = props => {
     }
 
     if (props.size === "large") {
-      className += " large-font-size";
+      className = "large-temperature";
     }
 
     return className;
   };
 
   return (
-    <h3 className={setClassName()}>
+    <div className={setClassName()}>
       {props.value} {props.unit === "C" ? "°C" : "°F"}
-    </h3>
+    </div>
   );
 };
 

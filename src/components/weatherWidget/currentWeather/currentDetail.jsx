@@ -7,7 +7,9 @@ const CurrentDetail = props => {
   return (
     <div className="current-weather-details">
       <WeatherIcon weatherIconType={weatherIconType} style={style} />
-      <h3>{data + " " + suffix}</h3>
+      <span className="current-weather-details-text">
+        {data + " " + suffix}
+      </span>
     </div>
   );
 };
