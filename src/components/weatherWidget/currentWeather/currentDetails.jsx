@@ -25,6 +25,9 @@ const CurrentWeatherDetails = props => {
   return (
     <div>
       <h3>Details</h3>
+
+      {/* Temperature */}
+
       {props.currentWeather.Temperature !== undefined && (
         <Temperature
           value={props.currentWeather.Temperature.Metric.Value}
@@ -32,13 +35,18 @@ const CurrentWeatherDetails = props => {
           size="large"
         />
       )}
+
       {/* Humidity */}
+
       <CurrentDetail
         weatherIconType="Humidity"
         data={props.currentWeather.RelativeHumidity}
         style={iconStyle}
         suffix="%"
       />
+
+      {/* Umbrella */}
+
       <CurrentDetail
         weatherIconType="Umbrella"
         data={
@@ -48,6 +56,9 @@ const CurrentWeatherDetails = props => {
         style={iconStyle}
         suffix="mm"
       />
+
+      {/* Wind */}
+
       <CurrentDetail
         weatherIconType="Wind"
         data={
