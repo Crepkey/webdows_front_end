@@ -5,11 +5,14 @@ import CurrentWeatherMain from "./currentMain";
 const CurrentWeather = props => {
   return (
     <div className="current-weather">
-      <CurrentWeatherMain
-        weatherIconType={props.currentWeather.WeatherIcon}
-        weatherText={props.currentWeather.WeatherText}
-      />
-      <CurrentWeatherDetails currentWeather={props.currentWeather} />
+      <h3>Current Conditions</h3>
+      <div className="current-weather-container">
+        <CurrentWeatherMain
+          weatherIconType={props.currentWeather.WeatherIcon}
+          weatherText={props.currentWeather.WeatherText}
+        />
+        <CurrentWeatherDetails currentWeather={props.currentWeather} />
+      </div>
     </div>
   );
 };

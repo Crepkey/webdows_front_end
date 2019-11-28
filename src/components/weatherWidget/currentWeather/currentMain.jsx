@@ -5,8 +5,6 @@ import Loader from "../../loader";
 const CurrentWeatherMain = props => {
   return (
     <div className="current-weather-main">
-      <h3>Current Weather</h3>
-
       <Loader
         type={1}
         name="weatherIconType"

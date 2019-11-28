@@ -24,8 +24,6 @@ const CurrentWeatherDetails = props => {
 
   return (
     <div>
-      <h3>Details</h3>
-
       {/* Temperature */}
 
       {props.currentWeather.Temperature !== undefined && (
