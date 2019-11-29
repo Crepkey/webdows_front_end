@@ -43,7 +43,7 @@ const CurrentWeatherDetails = props => {
         suffix="%"
       />
 
-      {/* Umbrella */}
+      {/* AVG of Rain */}
 
       <CurrentDetail
         weatherIconType="Umbrella"
