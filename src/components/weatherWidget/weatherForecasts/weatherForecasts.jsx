@@ -7,11 +7,7 @@ const WeatherForecasts = props => {
     <div className="weather-forecasts">
       {(
         props.weatherForecasts.DailyForecasts || [
-          undefined,
-          undefined,
-          undefined,
-          undefined,
-          undefined
+          ...Array(5).map(x => undefined)
         ]
       ).map(day => (
         <Loader
