@@ -21,14 +21,15 @@ const WeatherForecasts = props => {
         props.weatherForecasts.DailyForecasts || [
           ...Array(5).map(x => undefined)
         ]
-      ).map(day => (
+      ).map((day, index) => (
         <Loader
+          key={index}
           type={1}
           data={day}
           name="detailsOfTheDay"
           style={loadingAnimStyle}
         >
-          <ADayOfForecasts />
+          <ADayOfForecasts key={index} />
         </Loader>
       ))}
     </div>
