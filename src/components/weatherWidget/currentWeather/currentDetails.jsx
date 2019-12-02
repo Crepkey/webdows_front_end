@@ -7,8 +7,9 @@ import CurrentDetail from "./currentDetail";
 const CurrentWeatherDetails = props => {
   const iconStyle = { float: "left", width: "64px", height: "47px" };
 
+  /* REFACTOR: Do it more readable */
   const calculateAvgOfRain = () => {
-    let totalRainAmount;
+    let totalRainAmount = 0;
     const allDaysOfForecasts = Object.keys(
       props.currentWeather.PrecipitationSummary
     ).length;
@@ -18,8 +19,8 @@ const CurrentWeatherDetails = props => {
           .Value;
     }
     const result = totalRainAmount / allDaysOfForecasts;
-
-    return isNaN(result) ? 0 : result;
+    const roundedResult = result.toString().slice(0, 3);
+    return roundedResult;
   };
 
   return (
