@@ -3,7 +3,6 @@ import Draggable from "react-draggable";
 import { createURL } from "../../util/util";
 import CurrentWeather from "./currentWeather/currentWeather";
 import WeatherForecasts from "./weatherForecasts/weatherForecasts";
-import Loader from "../loader";
 
 class WeatherWidget extends Component {
   state = {
