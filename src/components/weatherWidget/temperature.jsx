@@ -9,11 +9,9 @@ const Temperature = props => {
     } else if (props.color === "red") {
       className = "high-temperature";
     }
-
     if (props.size === "large") {
       className = "large-temperature";
     }
-
     return className;
   };
 
