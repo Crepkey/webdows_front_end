@@ -15,6 +15,7 @@ const WeatherForecasts = props => {
     backgroundColor: "#18232e"
   };
 
+  /* REFACTOR: This nested mapping is a little bit complicated to read */
   return (
     <React.Fragment>
       {(

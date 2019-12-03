@@ -24,7 +24,7 @@ const CurrentWeatherDetails = props => {
   };
 
   return (
-    <div>
+    <div className="current-weather-details">
       {/* Temperature */}
 
       {props.currentWeather.Temperature !== undefined && (

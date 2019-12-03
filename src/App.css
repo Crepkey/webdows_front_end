@@ -44,11 +44,15 @@ h3 {
 }
 
 .current-weather-details {
+  min-width: 128px;
+}
+
+.current-weather-detail {
   height: 47px;
   line-height: 47px;
 }
 
-.current-weather-details-text {
+.current-weather-detail-text {
   color: white;
   font-weight: bold;
   font-size: 120%;

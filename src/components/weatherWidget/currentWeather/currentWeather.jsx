@@ -8,13 +8,14 @@ const CurrentWeather = props => {
     border: "solid",
     borderRadius: "25px",
     borderColor: "#18232e",
-    margin: "5px",
-    padding: "5px",
-    width: "256px",
-    height: "341px",
+    margin: "5px 15px 5px 5px",
+    padding: "65px 55px 25px 90px",
+    width: "162px",
+    height: "244px",
     backgroundColor: "#18232e"
   };
 
+  /* REFACTOR: */
   return Object.keys(props.currentWeather).length === 0 ? (
     <Loader type={2} style={loadingAnimStyle} />
   ) : (
