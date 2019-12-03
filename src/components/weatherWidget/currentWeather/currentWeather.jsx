@@ -9,16 +9,15 @@ const CurrentWeather = props => {
     borderRadius: "25px",
     borderColor: "#18232e",
     margin: "5px 15px 5px 5px",
-    padding: "65px 55px 25px 90px",
+    padding: "65px 50px 25px 84px",
     width: "162px",
     height: "244px",
     backgroundColor: "#18232e"
   };
 
-  /* REFACTOR: */
-  return Object.keys(props.currentWeather).length === 0 ? (
-    <Loader type={2} style={loadingAnimStyle} />
-  ) : (
+  const loader = <Loader type={2} style={loadingAnimStyle} />;
+
+  const currentWeatherComponents = (
     <div className="current-weather">
       <h3 className="large-text">Current Conditions</h3>
       <div className="current-weather-container">
@@ -30,6 +29,10 @@ const CurrentWeather = props => {
       </div>
     </div>
   );
+
+  return Object.keys(props.currentWeather).length === 0
+    ? loader
+    : currentWeatherComponents;
 };
 
 export default CurrentWeather;

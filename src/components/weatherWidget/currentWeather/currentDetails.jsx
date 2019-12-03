@@ -7,7 +7,8 @@ import CurrentDetail from "./currentDetail";
 const CurrentWeatherDetails = props => {
   const iconStyle = { float: "left", width: "64px", height: "47px" };
 
-  /* REFACTOR: Do it more readable */
+  const { PrecipitationSummary } = props.currentWeather;
+
   const calculateAvgOfRain = () => {
     let totalRainAmount = 0;
     const allDaysOfForecasts = Object.keys(
