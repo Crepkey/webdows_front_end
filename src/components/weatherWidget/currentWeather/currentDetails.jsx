@@ -7,19 +7,15 @@ import CurrentDetail from "./currentDetail";
 const CurrentWeatherDetails = props => {
   const iconStyle = { float: "left", width: "64px", height: "47px" };
 
-  const { PrecipitationSummary } = props.currentWeather;
+  const { PrecipitationSummary: summary } = props.currentWeather;
 
   const calculateAvgOfRain = () => {
-    let totalRainAmount = 0;
-    const allDaysOfForecasts = Object.keys(
-      props.currentWeather.PrecipitationSummary
-    ).length;
-    for (let pastPrecipitation in props.currentWeather.PrecipitationSummary) {
-      totalRainAmount +=
-        props.currentWeather.PrecipitationSummary[pastPrecipitation].Metric
-          .Value;
+    let total = 0;
+    const days = Object.keys(summary).length;
+    for (let day in summary) {
+      total += summary[day].Metric.Value;
     }
-    const result = totalRainAmount / allDaysOfForecasts;
+    const result = total / days;
     const roundedResult = result.toString().slice(0, 3);
     return roundedResult;
   };
