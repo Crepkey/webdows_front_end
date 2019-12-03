@@ -5,7 +5,7 @@ import { ReactComponent as Loader2 } from "../svg/loader_2.svg";
 const Loader = props => {
   const { data, type, style, children } = props;
 
-  if (Object.values(data).includes(undefined)) {
+  if (data === undefined || Object.values(data).includes(undefined)) {
     switch (type) {
       case 1:
         return (

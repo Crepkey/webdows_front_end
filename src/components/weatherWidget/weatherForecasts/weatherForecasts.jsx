@@ -16,7 +16,7 @@ const WeatherForecasts = props => {
   };
 
   return (
-    <div className="weather-forecasts">
+    <React.Fragment>
       {(
         props.weatherForecasts.DailyForecasts || [
           ...Array(5).map(x => undefined)
@@ -31,7 +31,7 @@ const WeatherForecasts = props => {
           <ADayOfForecasts key={index} />
         </Loader>
       ))}
-    </div>
+    </React.Fragment>
   );
 };
 
