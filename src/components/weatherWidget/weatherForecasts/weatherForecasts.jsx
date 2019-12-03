@@ -3,6 +3,10 @@ import ADayOfForecasts from "./aDayOfForecasts";
 import Loader from "../../loader";
 
 const WeatherForecasts = props => {
+  const dailyForecasts = props.weatherForecasts.DailyForecasts;
+
+  const arrayOfUndefined = [...Array(5).map(x => undefined)];
+
   const loadingAnimStyle = {
     border: "solid",
     borderRadius: "25px",
@@ -15,14 +19,11 @@ const WeatherForecasts = props => {
     backgroundColor: "#18232e"
   };
 
-  /* REFACTOR: This nested mapping is a little bit complicated to read */
   return (
     <React.Fragment>
-      {(
-        props.weatherForecasts.DailyForecasts || [
-          ...Array(5).map(x => undefined)
-        ]
-      ).map((day, index) => (
+      {/* If the dailyForecasts is undefined ergo false 
+      this expression will return the array which contains only undefineds */}
+      {(dailyForecasts || arrayOfUndefined).map((day, index) => (
         <Loader
           key={index}
           type={1}
