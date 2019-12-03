@@ -7,8 +7,7 @@ const CurrentWeatherMain = props => {
     <div className="current-weather-main">
       <Loader
         type={1}
-        name="weatherIconType"
-        data={props.weatherIconType}
+        data={{ weatherIconType: props.weatherIconType }}
         style={{ padding: "10px 33px 10px 33px" }}
       >
         <WeatherIcon />
@@ -16,8 +15,7 @@ const CurrentWeatherMain = props => {
 
       <Loader
         type={2}
-        name="weathertext"
-        data={props.weatherText}
+        data={{ weathertext: props.weatherText }}
         style={{ padding: "5px 40px 5px 40px" }}
       >
         <h3 className="large-text">{props.weatherText}</h3>

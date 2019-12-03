@@ -3,9 +3,9 @@ import { ReactComponent as Loader1 } from "../svg/loader_1.svg";
 import { ReactComponent as Loader2 } from "../svg/loader_2.svg";
 
 const Loader = props => {
-  const { data, type, style, name, children } = props;
+  const { data, type, style, children } = props;
 
-  if (data === undefined) {
+  if (Object.values(data).includes(undefined)) {
     switch (type) {
       case 1:
         return (
@@ -28,7 +28,7 @@ const Loader = props => {
     }
   }
 
-  return React.cloneElement(children, { [name]: data });
+  return React.cloneElement(children, data);
 };
 
 export default Loader;

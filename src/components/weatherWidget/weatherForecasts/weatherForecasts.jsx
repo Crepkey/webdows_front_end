@@ -25,8 +25,7 @@ const WeatherForecasts = props => {
         <Loader
           key={index}
           type={1}
-          data={day}
-          name="detailsOfTheDay"
+          data={{ detailsOfTheDay: day }}
           style={loadingAnimStyle}
         >
           <ADayOfForecasts key={index} />
