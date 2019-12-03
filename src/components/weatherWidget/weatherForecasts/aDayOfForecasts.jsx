@@ -4,27 +4,45 @@ import WeatherIcon from "../weatherIcon";
 import WeekDay from "./weekDay";
 
 const ADayOfForecasts = props => {
+  const date = props.detailsOfTheDay.Date;
+
+  const { Icon, IconPhrase } = props.detailsOfTheDay.Day;
+
+  const {
+    Value: maxValue,
+    Unit: maxUnit
+  } = props.detailsOfTheDay.Temperature.Maximum;
+
+  const {
+    Value: minValue,
+    Unit: minUnit
+  } = props.detailsOfTheDay.Temperature.Minimum;
+
   return (
     <div className="a-day-of-forecasts">
-      <WeekDay date={props.detailsOfTheDay.Date} />
-      <WeatherIcon weatherIconType={props.detailsOfTheDay.Day.Icon} />
+      <WeekDay date={date} />
+
+      <WeatherIcon weatherIconType={Icon} />
+
       {/* Icon Phrase which descripes the weather in one word */}
       <div className="icon-phrase">
-        <h3>{props.detailsOfTheDay.Day.IconPhrase}</h3>
+        <h3>{IconPhrase}</h3>
       </div>
+
       {/* Maximum temperature */}
       <Temperature
-        key={props.detailsOfTheDay.Date + "_max"}
+        key={date + "_max"}
         color={"red"}
-        value={props.detailsOfTheDay.Temperature.Maximum.Value}
-        unit={props.detailsOfTheDay.Temperature.Maximum.Unit}
+        value={maxValue}
+        unit={maxUnit}
       />
+
       {/* Minimum temperature */}
       <Temperature
-        key={props.detailsOfTheDay.Date + "_min"}
+        key={date + "_min"}
         color={"blue"}
-        value={props.detailsOfTheDay.Temperature.Minimum.Value}
-        unit={props.detailsOfTheDay.Temperature.Minimum.Unit}
+        value={minValue}
+        unit={minUnit}
       />
     </div>
   );
