@@ -11,7 +11,7 @@ function App() {
       <Window>
         <DummyDiv />
       </Window>
-      <WeatherWidget />
+      {/*       <WeatherWidget /> */}
     </React.Fragment>
   );
 }

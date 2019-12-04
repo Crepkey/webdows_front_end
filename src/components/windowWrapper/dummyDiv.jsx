@@ -2,10 +2,8 @@ import React from "react";
 
 const DummyDiv = () => {
   return (
-    <div>
-      <h1 style={{ border: "solid", borderColor: "white", width: "256px" }}>
-        Valami
-      </h1>
+    <div style={{ border: "solid", borderColor: "white", width: "500px" }}>
+      <span>Valami</span>
     </div>
   );
 };

@@ -5,8 +5,27 @@ class Window extends Component {
   state = {};
   render() {
     return (
-      <Draggable>
-        <div>{this.props.children}</div>
+      <Draggable handle="strong">
+        <div
+          style={{
+            border: "solid",
+            borderColor: "orange",
+            display: "inline-block"
+          }}
+        >
+          <strong>
+            <div
+              style={{
+                border: "solid",
+                borderColor: "orange",
+                background: "orange"
+              }}
+            >
+              Title bar
+            </div>
+          </strong>
+          {this.props.children}
+        </div>
       </Draggable>
     );
   }
