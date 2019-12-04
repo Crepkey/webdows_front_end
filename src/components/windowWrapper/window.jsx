@@ -10,6 +10,9 @@ const Frame = Styled.div`
   -webkit-background-clip: padding-box; /* for Safari */
   background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */
   display: inline-block;
+  -webkit-box-shadow: 14px 18px 19px -2px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 14px 18px 19px -2px rgba(0, 0, 0, 0.75);
+  box-shadow: 14px 18px 19px -2px rgba(0, 0, 0, 0.75);
 `;
 
 const TitleBar = Styled.div`
