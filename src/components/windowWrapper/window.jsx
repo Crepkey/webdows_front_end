@@ -1,31 +1,30 @@
 import React, { Component } from "react";
 import Draggable from "react-draggable";
+import Styled from "styled-components";
+
+const Frame = Styled.div`
+  border: solid;
+  border-color: orange;
+  display: inline-block;
+`;
+
+const TitleBar = Styled.div`
+  border: solid;
+  border-color: orange;
+  background: orange;
+  `;
 
 class Window extends Component {
   state = {};
   render() {
     return (
       <Draggable handle="strong">
-        <div
-          style={{
-            border: "solid",
-            borderColor: "orange",
-            display: "inline-block"
-          }}
-        >
+        <Frame>
           <strong>
-            <div
-              style={{
-                border: "solid",
-                borderColor: "orange",
-                background: "orange"
-              }}
-            >
-              Title bar
-            </div>
+            <TitleBar>Title bar</TitleBar>
           </strong>
           {this.props.children}
-        </div>
+        </Frame>
       </Draggable>
     );
   }
