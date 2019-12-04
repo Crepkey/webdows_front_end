@@ -8,6 +8,7 @@ h3 {
 
 .weather-widget {
   background-color: #233343;
+  border-radius: 0px 0px 7px 7px;
   display: inline-flex;
   flex-direction: row;
   flex-wrap: wrap;
