@@ -1,11 +1,15 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import "./App.css";
 
 import WeatherWidget from "./components/weatherWidget/weatherWidget";
+import Window from "./components/windowWrapper/window.jsx";
 
 function App() {
   return (
-      <WeatherWidget/>
+    <React.Fragment>
+      <Window />
+      <WeatherWidget />
+    </React.Fragment>
   );
 }
 
