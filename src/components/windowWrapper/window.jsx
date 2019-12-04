@@ -1,10 +1,14 @@
 import React, { Component } from "react";
-import DummyDiv from "./dummyDiv";
+import Draggable from "react-draggable";
 
 class Window extends Component {
   state = {};
   render() {
-    return <DummyDiv />;
+    return (
+      <Draggable>
+        <div>{this.props.children}</div>
+      </Draggable>
+    );
   }
 }
 
