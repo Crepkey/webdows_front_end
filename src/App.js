@@ -8,10 +8,9 @@ import DummyDiv from "./components/windowWrapper/dummyDiv";
 function App() {
   return (
     <React.Fragment>
-      <Window>
-        <DummyDiv />
+      <Window appName="Dummy Application">
+        <WeatherWidget />
       </Window>
-      {/*       <WeatherWidget /> */}
     </React.Fragment>
   );
 }
