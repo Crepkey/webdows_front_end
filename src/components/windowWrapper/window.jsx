@@ -31,11 +31,14 @@ const TitleBar = Styled.div`
 
 const TitleBarText = Styled.span`
   color: white;
+  font-family: Raleway;
   font-size: 20px;
-  margin: 0px 0px 0px 10px;
   text-shadow: 2px 4px 3px #000000;
 `;
 
+const HandlerButtonsContainer = Styled.div`
+  margin: 0px 5px 0px 0px;
+`;
 class Window extends Component {
   state = {};
   render() {
@@ -44,10 +47,15 @@ class Window extends Component {
         <Frame>
           <strong>
             <TitleBar>
-              <HandlerButton color="rgba(199, 0, 57);" type="closing" />
-              <HandlerButton color="rgba(68, 199, 103);" type="maximizing" />
-              <HandlerButton color="rgba(247, 190, 0);" type="minimizing" />
-              <TitleBarText>{this.props.appName}</TitleBarText>
+              <HandlerButtonsContainer>
+                <HandlerButton color="rgba(199, 0, 57);" type="closing" />
+                <HandlerButton color="rgba(68, 199, 103);" type="maximizing" />
+                <HandlerButton color="rgba(247, 190, 0);" type="minimizing" />
+              </HandlerButtonsContainer>
+              <TitleBarText>
+                {this.props.appIcon}
+                {this.props.appName}
+              </TitleBarText>
             </TitleBar>
           </strong>
           {this.props.children}

@@ -4,11 +4,23 @@ import "./App.css";
 import WeatherWidget from "./components/weatherWidget/weatherWidget";
 import Window from "./components/windowWrapper/window.jsx";
 import DummyDiv from "./components/windowWrapper/dummyDiv";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUmbrella } from "@fortawesome/free-solid-svg-icons";
+import Styled from "styled-components";
+
+const AppIcon = Styled(FontAwesomeIcon)`
+  color: white;
+  font-size: 18px;
+  margin: 0px 10px 0px 5px;
+  filter:drop-shadow(2px 4px 3px #000000)`;
 
 function App() {
   return (
     <React.Fragment>
-      <Window appName="Dummy Application">
+      <Window
+        appName="Wheather Widget"
+        appIcon={<AppIcon color="white" icon={faUmbrella} />}
+      >
         <WeatherWidget />
       </Window>
     </React.Fragment>

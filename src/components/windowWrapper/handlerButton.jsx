@@ -6,6 +6,7 @@ import { faWindowMaximize } from "@fortawesome/free-solid-svg-icons";
 import { faWindowMinimize } from "@fortawesome/free-solid-svg-icons";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
+/* TODO: Check the settings below */
 const Button = Styled.button`
   float: right;
   background-color: rgba(0, 0, 0, 0.0);
