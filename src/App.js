@@ -16,3 +16,6 @@ function App() {
 }
 
 export default App;
+
+/* TODO: Blur border for windows https://stackoverflow.com/questions/33820493/css-how-to-blur-background-image-within-the-div */
+/* FIXME: Wheather widget's will be deacreased when It is waiting for the data */
