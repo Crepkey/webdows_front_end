@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Draggable from "react-draggable";
 import { createURL } from "../../util/util";
 import CurrentWeather from "./currentWeather/currentWeather";
 import WeatherForecasts from "./weatherForecasts/weatherForecasts";
@@ -122,12 +121,10 @@ class WeatherWidget extends Component {
 
   render() {
     return (
-      <Draggable>
-        <div className="weather-widget">
-          <CurrentWeather currentWeather={this.state.currentWeather} />
-          <WeatherForecasts weatherForecasts={this.state.weatherForecasts} />
-        </div>
-      </Draggable>
+      <div className="weather-widget">
+        <CurrentWeather currentWeather={this.state.currentWeather} />
+        <WeatherForecasts weatherForecasts={this.state.weatherForecasts} />
+      </div>
     );
   }
 }
