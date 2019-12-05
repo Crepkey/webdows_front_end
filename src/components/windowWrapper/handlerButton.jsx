@@ -8,7 +8,7 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 const Button = Styled.button`
   float: right;
-  background-color: ${props => props.color}
+  background-color: rgba(0, 0, 0, 0.0);
   border-radius:5px;
   border:1px solid white;
   width: 30px
@@ -19,6 +19,9 @@ const Button = Styled.button`
   padding:3px;
   margin: 0px 0px 8px 8px
 
+  &:hover {
+    background-color: ${props => props.color};
+  }
 `;
 
 const Icon = Styled(FontAwesomeIcon)`

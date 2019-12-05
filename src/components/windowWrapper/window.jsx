@@ -44,15 +44,9 @@ class Window extends Component {
         <Frame>
           <strong>
             <TitleBar>
-              <HandlerButton color="rgba(199, 0, 57, 0.8);" type="closing" />
-              <HandlerButton
-                color="rgba(68, 199, 103, 0.8);"
-                type="maximizing"
-              />
-              <HandlerButton
-                color="rgba(247, 190, 0, 0.8);"
-                type="minimizing"
-              />
+              <HandlerButton color="rgba(199, 0, 57);" type="closing" />
+              <HandlerButton color="rgba(68, 199, 103);" type="maximizing" />
+              <HandlerButton color="rgba(247, 190, 0);" type="minimizing" />
               <TitleBarText>{this.props.appName}</TitleBarText>
             </TitleBar>
           </strong>
