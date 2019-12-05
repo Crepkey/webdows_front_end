@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Draggable from "react-draggable";
 import Styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faWindowMaximize } from "@fortawesome/free-solid-svg-icons";
 
 /* TODO:  Here need to set the opacity of the border to be compatible with all the browsers*/
 
@@ -21,18 +23,18 @@ const Frame = Styled.div`
 `;
 
 const TitleBar = Styled.div`
-height: 40px;
-line-height: 40px;
-text-align:left;
-border-radius:7px 7px 0px 0px;
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#131313', GradientType=1 );
+  height: 40px;
+  line-height: 40px;
+  text-align:left;
+  border-radius:7px 7px 0px 0px;
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#131313', GradientType=1 );
 `;
 
 const TitleBarText = Styled.span`
-color: white;
-font-size: 20px;
-margin: 0px 0px 0px 10px;
-text-shadow: 2px 4px 3px #000000;
+  color: white;
+  font-size: 20px;
+  margin: 0px 0px 0px 10px;
+  text-shadow: 2px 4px 3px #000000;
 `;
 
 class Window2 extends Component {
@@ -43,6 +45,7 @@ class Window2 extends Component {
         <Frame>
           <strong>
             <TitleBar>
+              <FontAwesomeIcon color="white" icon={faWindowMaximize} />
               <TitleBarText>{this.props.appName}</TitleBarText>
             </TitleBar>
           </strong>
