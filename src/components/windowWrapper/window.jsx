@@ -2,10 +2,7 @@ import React, { Component } from "react";
 import Draggable from "react-draggable";
 import Styled from "styled-components";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faWindowMaximize } from "@fortawesome/free-solid-svg-icons";
-import { faWindowMinimize } from "@fortawesome/free-solid-svg-icons";
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import HandlerButton from "./handlerButton";
 
 /* TODO:  Here need to set the opacity of the border to be compatible with all the browsers*/
 
@@ -39,27 +36,7 @@ const TitleBarText = Styled.span`
   text-shadow: 2px 4px 3px #000000;
 `;
 
-const Icon = Styled(FontAwesomeIcon)`
-  filter:drop-shadow(3px 2px 1px black);
-`;
-
-const Button = Styled.button`
-  float: right;
-  background-color:#44c767;
-  border-radius:5px;
-  border:1px solid #18ab29;
-  display:inline-block;
-  cursor:pointer;
-  color:#ffffff;
-  font-family:Arial;
-  font-size:20px;
-  padding:3px;
-  margin: 0px 0px 8px 8px
-  text-decoration:none;
-  text-shadow:0px 1px 0px #2f6627;
-`;
-
-class Window2 extends Component {
+class Window extends Component {
   state = {};
   render() {
     return (
@@ -67,11 +44,15 @@ class Window2 extends Component {
         <Frame>
           <strong>
             <TitleBar>
-              <Button>
-                <Icon color="white" icon={faWindowMaximize} />
-              </Button>
-              <Icon color="white" icon={faWindowMinimize} />
-              <Icon color="white" icon={faTimes} />
+              <HandlerButton color="rgba(199, 0, 57, 0.8);" type="closing" />
+              <HandlerButton
+                color="rgba(68, 199, 103, 0.8);"
+                type="maximizing"
+              />
+              <HandlerButton
+                color="rgba(247, 190, 0, 0.8);"
+                type="minimizing"
+              />
               <TitleBarText>{this.props.appName}</TitleBarText>
             </TitleBar>
           </strong>
@@ -82,4 +63,4 @@ class Window2 extends Component {
   }
 }
 
-export default Window2;
+export default Window;
