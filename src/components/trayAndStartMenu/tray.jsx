@@ -1,5 +1,6 @@
 import React from "react";
 import Styled from "styled-components";
+import moment from "moment";
 
 const Tray = Styled.div`
   width: 100%;
@@ -38,8 +39,8 @@ const TrayBar = () => {
     <Tray>
       <RightIcons>
         <Datetime>
-          <DatetimeElem>23:58</DatetimeElem>
-          <DatetimeElem>03/05/2018</DatetimeElem>
+          <DatetimeElem>{moment().format("HH:mm")}</DatetimeElem>
+          <DatetimeElem>{moment().format("YYYY-MM-DD")}</DatetimeElem>
         </Datetime>
       </RightIcons>
     </Tray>
