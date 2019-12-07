@@ -37,7 +37,7 @@ const DatetimeElem = Styled.span`
   color: white;
 `;
 
-const Notifications = Styled.span`
+const NotificationArea = Styled.span`
   height: 43px;
   width: 42px;
   position: relative;
@@ -61,6 +61,17 @@ const NotificationIcon = Styled(FontAwesomeIcon)`
   }
 `;
 
+const ShowDesktopButton = Styled.span`
+  width: 8px;
+  position: relative;
+  display: table-cell;
+  border-left: 1px solid grey;
+
+  &: hover{
+    background-color: rgba(199, 0, 57, 0.8)
+  }
+`;
+
 const TrayBar = () => {
   return (
     <Tray>
@@ -69,9 +80,10 @@ const TrayBar = () => {
           <DatetimeElem>{moment().format("HH:mm")}</DatetimeElem>
           <DatetimeElem>{moment().format("YYYY-MM-DD")}</DatetimeElem>
         </Datetime>
-        <Notifications>
+        <NotificationArea>
           <NotificationIcon icon={faBell} />
-        </Notifications>
+        </NotificationArea>
+        <ShowDesktopButton />
       </RightIcons>
     </Tray>
   );
