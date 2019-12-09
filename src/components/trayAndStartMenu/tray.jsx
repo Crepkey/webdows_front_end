@@ -4,6 +4,7 @@ import moment from "moment";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBell } from "@fortawesome/free-solid-svg-icons";
+import { ReactComponent as WinLogo } from "../../svg/windows.svg";
 
 const Tray = Styled.div`
   width: 100%;
@@ -12,6 +13,29 @@ const Tray = Styled.div`
   position: fixed;
   background: rgba(0, 0, 0, 0.6);
 `;
+
+const LeftIcons = Styled.div`
+  height: 43px;
+  display: inline-block;
+`;
+
+const StartButton = Styled.div`
+  height: 43px;
+  width: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important
+  };
+`;
+
+const WindowsLogo = Styled.div`
+  height: 25px;
+  width: 25px;
+  `;
 
 const RightIcons = Styled.div`
   height: 43px;
@@ -39,7 +63,7 @@ const DatetimeElem = Styled.span`
 
 const NotificationArea = Styled.span`
   height: 43px;
-  width: 42px;
+  width: 43px;
   position: relative;
   display: table-cell;
 
@@ -75,6 +99,13 @@ const ShowDesktopButton = Styled.span`
 const TrayBar = () => {
   return (
     <Tray>
+      <LeftIcons>
+        <StartButton>
+          <WindowsLogo>
+            <WinLogo />
+          </WindowsLogo>
+        </StartButton>
+      </LeftIcons>
       <RightIcons>
         <Datetime>
           <DatetimeElem>{moment().format("HH:mm")}</DatetimeElem>
