@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import Styled from "styled-components";
 import moment from "moment";
 
@@ -16,12 +16,15 @@ const Tray = Styled.div`
 
 const LeftIcons = Styled.div`
   height: 43px;
-  display: inline-block;
+  display: flex;
+  flex-direction: row;
+  float: left;
 `;
 
 const StartButton = Styled.div`
   height: 43px;
   width: 64px;
+  margin: 0px 10px 0px 0px
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -36,6 +39,29 @@ const WindowsLogo = Styled.div`
   height: 25px;
   width: 25px;
   `;
+
+const SearchBar = Styled.input`
+  color: white;
+  height: 33px;
+  width: 162px;
+  border-radius: 5px;
+  border: 1px solid white;
+  padding-left: 5px;
+  margin: 3px 0px 0px 0px;
+  background-color: rgba(255, 255, 255, 0.0);
+
+  &::-webkit-input-placeholder {
+    color: white;
+  }
+
+  &:hover{
+    color: black;
+    &::-webkit-input-placeholder {
+      color: gray;
+    };
+    background-color: rgba(255, 255, 255, 1.0)
+  }
+`;
 
 const RightIcons = Styled.div`
   height: 43px;
@@ -69,7 +95,8 @@ const NotificationArea = Styled.span`
 
   &:hover {
     background-color: rgba(255, 255, 255, 0.1) !important
-  }
+  }import { React } from 'react';
+
 `;
 
 const NotificationIcon = Styled(FontAwesomeIcon)`
@@ -96,28 +123,46 @@ const ShowDesktopButton = Styled.span`
   }
 `;
 
-const TrayBar = () => {
-  return (
-    <Tray>
-      <LeftIcons>
-        <StartButton>
-          <WindowsLogo>
-            <WinLogo />
-          </WindowsLogo>
-        </StartButton>
-      </LeftIcons>
-      <RightIcons>
-        <Datetime>
-          <DatetimeElem>{moment().format("HH:mm")}</DatetimeElem>
-          <DatetimeElem>{moment().format("YYYY-MM-DD")}</DatetimeElem>
-        </Datetime>
-        <NotificationArea>
-          <NotificationIcon icon={faBell} />
-        </NotificationArea>
-        <ShowDesktopButton />
-      </RightIcons>
-    </Tray>
-  );
-};
+export default class TrayBar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchedExpression: ""
+    };
+  }
 
-export default TrayBar;
+  handleChange(event) {
+    this.setState({ searchedExpression: event.target.value });
+  }
+
+  render() {
+    return (
+      <Tray>
+        <LeftIcons>
+          <StartButton>
+            <WindowsLogo>
+              <WinLogo />
+            </WindowsLogo>
+          </StartButton>
+          <form>
+            <SearchBar
+              placeholder="Type here to search on Google"
+              onChange={event => this.handleChange(event)}
+              value={this.state.searchedExpression}
+            />
+          </form>
+        </LeftIcons>
+        <RightIcons>
+          <Datetime>
+            <DatetimeElem>{moment().format("HH:mm")}</DatetimeElem>
+            <DatetimeElem>{moment().format("YYYY-MM-DD")}</DatetimeElem>
+          </Datetime>
+          <NotificationArea>
+            <NotificationIcon icon={faBell} />
+          </NotificationArea>
+          <ShowDesktopButton />
+        </RightIcons>
+      </Tray>
+    );
+  }
+}
