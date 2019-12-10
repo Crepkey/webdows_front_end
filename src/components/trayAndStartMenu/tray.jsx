@@ -134,7 +134,6 @@ export default class TrayBar extends Component {
   }
 
   handleChange = event => {
-    console.log(this.state.searchedExpression);
     this.setState({ searchedExpression: event.target.value });
   };
 
@@ -148,13 +147,14 @@ export default class TrayBar extends Component {
             </WindowsLogo>
           </StartButton>
           <form
-            onSubmit={() =>
+            onSubmit={event => {
+              event.preventDefault();
               window.open(
                 "https://www.google.com/search?q=" +
                   this.state.searchedExpression,
                 "_blank"
-              )
-            }
+              );
+            }}
           >
             <SearchBar
               type="text"
