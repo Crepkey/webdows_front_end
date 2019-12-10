@@ -6,6 +6,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBell } from "@fortawesome/free-solid-svg-icons";
 import { ReactComponent as WinLogo } from "../../svg/windows.svg";
 
+/* REFACTOR: I must split this class to standalone components */
+
 const Tray = Styled.div`
   width: 100%;
   height: 43px;
