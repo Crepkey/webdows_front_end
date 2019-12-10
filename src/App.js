@@ -7,6 +7,7 @@ import DummyDiv from "./components/windowWrapper/dummyDiv";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUmbrella } from "@fortawesome/free-solid-svg-icons";
 import Styled from "styled-components";
+import TrayBar from "./components/trayAndStartMenu/tray";
 
 const AppIcon = Styled(FontAwesomeIcon)`
   color: white;
@@ -23,6 +24,7 @@ function App() {
       >
         <WeatherWidget />
       </Window>
+      <TrayBar />
     </React.Fragment>
   );
 }
