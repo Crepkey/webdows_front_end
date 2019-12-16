@@ -26,10 +26,7 @@ const AppIcon = Styled(FontAwesomeIcon)`
 function App() {
   return (
     <React.Fragment>
-      <LaunchIcon
-        icon={<img src={WeatherLaunchIcon} alt="weather_launch_lcon" />}
-        iconText="Weather"
-      />
+      <LaunchIcon iconAddress={WeatherLaunchIcon} iconText="Weather" />
       <Window
         appName="Wheather Widget"
         appIcon={<AppIcon color="white" icon={faUmbrella} />}
