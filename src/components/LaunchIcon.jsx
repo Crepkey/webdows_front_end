@@ -26,7 +26,7 @@ const LaunchIcon = props => {
   return (
     <IconContainer>
       <LauncherIcon
-        src={props.iconAddress}
+        src={props.iconPath}
         alt="launcher_icon"
         height="75px"
         width="75px"
