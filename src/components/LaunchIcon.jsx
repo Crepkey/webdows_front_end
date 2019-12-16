@@ -2,6 +2,8 @@ import React from "react";
 import Styled from "styled-components";
 
 const IconContainer = Styled.div`
+  position: relative;
+  z-index: -5000;
   text-align: center;
   display: inline-block;
   margin: 5px;
