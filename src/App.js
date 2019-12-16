@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./App.css";
 import Styled from "styled-components";
+
+/* Contexts */
+import { ApplicationContext } from "./components/applicationContext";
 
 /* Components */
 import WeatherWidget from "./components/weatherWidget/weatherWidget";
 import Window from "./components/windowWrapper/window.jsx";
 import DummyDiv from "./components/windowWrapper/dummyDiv";
 import TrayBar from "./components/trayAndStartMenu/tray";
-import LaunchIcon from "./components/LaunchIcon";
+import LaunchIcon from "./components/launchIcon";
 
 /* Desktop Icons */
 
@@ -24,6 +27,10 @@ const AppIcon = Styled(FontAwesomeIcon)`
   filter:drop-shadow(2px 4px 3px #000000)`;
 
 function App() {
+  const [application, setApplications] = useContext(ApplicationContext);
+
+  console.log(application[0]);
+
   return (
     <React.Fragment>
       <LaunchIcon iconPath={WeatherLaunchIcon} iconText="Weather" />
