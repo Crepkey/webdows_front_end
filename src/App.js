@@ -1,13 +1,21 @@
 import React from "react";
 import "./App.css";
+import Styled from "styled-components";
 
+/* Components */
 import WeatherWidget from "./components/weatherWidget/weatherWidget";
 import Window from "./components/windowWrapper/window.jsx";
 import DummyDiv from "./components/windowWrapper/dummyDiv";
+import TrayBar from "./components/trayAndStartMenu/tray";
+import LaunchIcon from "./components/LaunchIcon";
+
+/* Desktop Icons */
+
+import WeatherLaunchIcon from "./img/desktopIcons/weather-app.png";
+
+/* FontAwesome stuffs */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUmbrella } from "@fortawesome/free-solid-svg-icons";
-import Styled from "styled-components";
-import TrayBar from "./components/trayAndStartMenu/tray";
 
 const AppIcon = Styled(FontAwesomeIcon)`
   color: white;
@@ -18,6 +26,10 @@ const AppIcon = Styled(FontAwesomeIcon)`
 function App() {
   return (
     <React.Fragment>
+      <LaunchIcon
+        icon={<img src={WeatherLaunchIcon} alt="weather_launch_lcon" />}
+        iconText="Weather"
+      />
       <Window
         appName="Wheather Widget"
         appIcon={<AppIcon color="white" icon={faUmbrella} />}
