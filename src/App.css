@@ -2,17 +2,6 @@ h3 {
   color: white;
 }
 
-.a-day-of-forecasts {
-  border: solid;
-  border-radius: 25px;
-  border-color: #18232e;
-  margin: 5px;
-  padding: 5px;
-  text-align: center;
-  width: 128px;
-  background-color: #18232e;
-}
-
 .icon-phrase {
   height: 44px;
 }

@@ -1,7 +1,21 @@
 import React from "react";
+import Styled from "styled-components";
+
+/* Components */
 import Temperature from "../temperature";
 import WeatherIcon from "../weatherIcon";
 import WeekDay from "./weekDay";
+
+const DailyDetailsContainer = Styled.div`
+  border: solid;
+  border-radius: 25px;
+  border-color: #18232e;
+  margin: 5px;
+  padding: 5px;
+  text-align: center;
+  width: 128px;
+  background-color: #18232e;
+`;
 
 const ADayOfForecasts = props => {
   const date = props.detailsOfTheDay.Date;
@@ -19,7 +33,7 @@ const ADayOfForecasts = props => {
   } = props.detailsOfTheDay.Temperature.Minimum;
 
   return (
-    <div className="a-day-of-forecasts">
+    <DailyDetailsContainer>
       <WeekDay date={date} />
 
       <WeatherIcon weatherIconType={Icon} />
@@ -44,7 +58,7 @@ const ADayOfForecasts = props => {
         value={minValue}
         unit={minUnit}
       />
-    </div>
+    </DailyDetailsContainer>
   );
 };
 
