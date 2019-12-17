@@ -17,6 +17,10 @@ const DailyDetailsContainer = Styled.div`
   background-color: #18232e;
 `;
 
+const IconPhraseContainer = Styled.div`
+  height: 44px;
+`;
+
 const ADayOfForecasts = props => {
   const date = props.detailsOfTheDay.Date;
 
@@ -39,9 +43,9 @@ const ADayOfForecasts = props => {
       <WeatherIcon weatherIconType={Icon} />
 
       {/* Icon Phrase which descripes the weather in one word */}
-      <div className="icon-phrase">
+      <IconPhraseContainer>
         <h3>{IconPhrase}</h3>
-      </div>
+      </IconPhraseContainer>
 
       {/* Maximum temperature */}
       <Temperature
