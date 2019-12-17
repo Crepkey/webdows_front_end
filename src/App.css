@@ -2,17 +2,6 @@ h3 {
   color: white;
 }
 
-.current-weather-main {
-  margin: 5px;
-  padding: 5px;
-  text-align: center;
-  width: 128px;
-}
-
-.current-weather-details {
-  min-width: 128px;
-}
-
 .current-weather-detail {
   height: 47px;
   line-height: 47px;

@@ -1,6 +1,13 @@
 import React from "react";
+import Styled from "styled-components";
+
+/* Components */
 import Temperature from "../temperature";
 import CurrentDetail from "./currentDetail";
+
+const DetailsContainer = Styled.div`
+  min-width: 128px;
+`;
 
 const CurrentWeatherDetails = props => {
   const {
@@ -26,7 +33,7 @@ const CurrentWeatherDetails = props => {
   };
 
   return (
-    <div className="current-weather-details">
+    <DetailsContainer>
       <Temperature value={Value} unit={Unit} size="large" />
 
       {/* Humidity */}
@@ -53,7 +60,7 @@ const CurrentWeatherDetails = props => {
         style={iconStyle}
         suffix="km"
       />
-    </div>
+    </DetailsContainer>
   );
 };
 

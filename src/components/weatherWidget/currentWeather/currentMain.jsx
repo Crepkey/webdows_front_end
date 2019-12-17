@@ -2,6 +2,13 @@ import React from "react";
 import WeatherIcon from "../weatherIcon";
 import Styled from "styled-components";
 
+const MainContainer = Styled.div`
+  margin: 5px;
+  padding: 5px;
+  text-align: center;
+  width: 128px;
+`;
+
 const LargeText = Styled.h3`
   color: white;
   font-size: 130%;
@@ -9,10 +16,10 @@ const LargeText = Styled.h3`
 
 const CurrentWeatherMain = props => {
   return (
-    <div className="current-weather-main">
+    <MainContainer>
       <WeatherIcon weatherIconType={props.weatherIconType} />
       <LargeText>{props.weatherText}</LargeText>
-    </div>
+    </MainContainer>
   );
 };
 
