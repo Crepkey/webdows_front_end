@@ -20,12 +20,12 @@ const AppIcon = Styled(FontAwesomeIcon)`
 `;
 
 const WeatherWidgetContainer = Styled.div`
-  background-color: #233343;
-  border-radius: 0px 0px 7px 7px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  border-radius: 0px 0px 7px 7px;
   padding: 15px 5px 5px 5px;
+  background-color: #233343;
   box-shadow: inset 0px 0px 5px #000000;
 `;
 

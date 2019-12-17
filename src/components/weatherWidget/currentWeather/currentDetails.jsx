@@ -6,7 +6,7 @@ import Temperature from "../temperature";
 import CurrentDetail from "./currentDetail";
 
 const DetailsContainer = Styled.div`
-  min-width: 128px;
+  min-width: 160px;
 `;
 
 const CurrentWeatherDetails = props => {
