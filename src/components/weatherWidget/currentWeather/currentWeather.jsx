@@ -34,7 +34,7 @@ const CurrentWeather = props => {
     borderRadius: "25px",
     borderColor: "#18232e",
     margin: "5px 15px 5px 5px",
-    padding: "65px 66px 25px 100px",
+    padding: "65px 70px 25px 105px",
     width: "162px",
     height: "244px",
     backgroundColor: "#18232e"
