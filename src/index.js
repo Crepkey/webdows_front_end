@@ -1,7 +1,14 @@
+/* React */
 import React from "react";
 import ReactDOM from "react-dom";
+
+/* Components */
 import App from "./App";
+
+/* Contexts */
 import { ApplicationProvider } from "./components/applicationContext";
+
+/* Style */
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
