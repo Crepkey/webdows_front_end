@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
-import "./App.css";
-import Styled from "styled-components";
+import { createGlobalStyle } from "styled-components";
 
 /* Contexts */
 import { ApplicationContext } from "./components/applicationContext";
@@ -16,21 +15,26 @@ import LaunchIcon from "./components/launchIcon";
 
 import WeatherLaunchIcon from "./img/desktopIcons/weather-app.png";
 
-/* FontAwesome stuffs */
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUmbrella } from "@fortawesome/free-solid-svg-icons";
+/* Styles */
 
-const AppIcon = Styled(FontAwesomeIcon)`
-  color: white;
-  font-size: 18px;
-  margin: 0px 10px 0px 5px;
-  filter:drop-shadow(2px 4px 3px #000000)`;
+import BackgroundImage from "./img/xp_background.jpg";
+
+const GlobalStyle = createGlobalStyle`
+  h3{
+    color: white;
+  }
+  body{
+    background: url(${BackgroundImage}) no-repeat;
+  }
+`;
 
 function App() {
   const [application] = useContext(ApplicationContext);
 
+  console.log(BackgroundImage);
   return (
     <React.Fragment>
+      <GlobalStyle />
       {application.map(app => (
         <React.Fragment>{app}</React.Fragment>
       ))}
