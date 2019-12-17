@@ -2,29 +2,6 @@ h3 {
   color: white;
 }
 
-.large-text {
-  font-size: 130%;
-}
-
-.weather-widget {
-  background-color: #233343;
-  border-radius: 0px 0px 7px 7px;
-  display: inline-flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  padding: 15px 5px 5px 5px;
-  box-shadow: inset 0px 0px 5px #000000;
-}
-
-.current-weather {
-  border: solid;
-  border-radius: 25px;
-  border-color: #18232e;
-  background-color: #18232e;
-  text-align: center;
-  margin: 5px 15px 5px 5px;
-}
-
 .current-weather-container {
   display: flex;
   flex-direction: row;
