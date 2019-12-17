@@ -40,6 +40,4 @@ function App() {
 
 export default App;
 
-/* FIXME: Context API is totally useless here. If I understand it I must remove from the project */
 /* TODO: Blur border for windows https://stackoverflow.com/questions/33820493/css-how-to-blur-background-image-within-the-div */
-/* FIXME: Wheather widget's will be deacreased when It is waiting for the data */
