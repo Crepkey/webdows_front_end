@@ -29,12 +29,13 @@ function App() {
   return (
     <React.Fragment>
       <GlobalStyle />
-            
-      {/* FIXME: There is a bug with components when the first page loading is starting */}
+
       <LaunchIcon iconPath={WeatherLaunchIcon} iconText="Weather" />
-      {application.map(app => (
-        <React.Fragment>{app}</React.Fragment>
+
+      {application.map((app, index) => (
+        <React.Fragment key={index}>{app}</React.Fragment>
       ))}
+
       <TrayBar />
     </React.Fragment>
   );
@@ -42,4 +43,5 @@ function App() {
 
 export default App;
 
+/* FIXME: There is a bug with LaunchIcon components when the first page loading is starting */
 /* TODO: Blur border for windows https://stackoverflow.com/questions/33820493/css-how-to-blur-background-image-within-the-div */
