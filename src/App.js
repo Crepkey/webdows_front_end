@@ -30,8 +30,6 @@ const GlobalStyle = createGlobalStyle`
 
 function App() {
   const [application] = useContext(ApplicationContext);
-
-  console.log(BackgroundImage);
   return (
     <React.Fragment>
       <GlobalStyle />
