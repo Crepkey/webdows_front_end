@@ -1,22 +1,18 @@
+/* React */
 import React, { useContext } from "react";
-import { createGlobalStyle } from "styled-components";
 
 /* Contexts */
 import { ApplicationContext } from "./components/applicationContext";
 
 /* Components */
-import WeatherWidget from "./components/weatherWidget/weatherWidget";
-import Window from "./components/windowWrapper/window.jsx";
-import DummyDiv from "./components/windowWrapper/dummyDiv";
-import TrayBar from "./components/trayAndStartMenu/tray";
 import LaunchIcon from "./components/launchIcon";
+import TrayBar from "./components/trayAndStartMenu/tray";
 
 /* Desktop Icons */
-
 import WeatherLaunchIcon from "./img/desktopIcons/weather-app.png";
 
 /* Styles */
-
+import { createGlobalStyle } from "styled-components";
 import BackgroundImage from "./img/xp_background.jpg";
 
 const GlobalStyle = createGlobalStyle`
@@ -33,9 +29,13 @@ function App() {
   return (
     <React.Fragment>
       <GlobalStyle />
+            
+      {/* FIXME: There is a bug with components when the first page loading is starting */}
+      <LaunchIcon iconPath={WeatherLaunchIcon} iconText="Weather" />
       {application.map(app => (
         <React.Fragment>{app}</React.Fragment>
       ))}
+      <TrayBar />
     </React.Fragment>
   );
 }
