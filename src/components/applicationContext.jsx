@@ -1,12 +1,17 @@
-import React, { useState, createContext } from "react";
+import React, { createContext } from "react";
+
+/* Applications */
+import WeatherWidget from "./weatherWidget/weatherWidget";
+import DummyDiv from "./windowWrapper/dummyDiv";
 
 export const ApplicationContext = createContext();
 
 export const ApplicationProvider = props => {
-  const [applications, setApplications] = useState(["widget", "calc", "to-do"]);
+  const applications = [<WeatherWidget />, <DummyDiv />];
+  const activeApplications = [];
 
   return (
-    <ApplicationContext.Provider value={[applications, setApplications]}>
+    <ApplicationContext.Provider value={[applications, activeApplications]}>
       {props.children}
     </ApplicationContext.Provider>
   );

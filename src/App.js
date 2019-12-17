@@ -27,20 +27,13 @@ const AppIcon = Styled(FontAwesomeIcon)`
   filter:drop-shadow(2px 4px 3px #000000)`;
 
 function App() {
-  const [application, setApplications] = useContext(ApplicationContext);
-
-  console.log(application[0]);
+  const [application] = useContext(ApplicationContext);
 
   return (
     <React.Fragment>
-      <LaunchIcon iconPath={WeatherLaunchIcon} iconText="Weather" />
-      <Window
-        appName="Wheather Widget"
-        appIcon={<AppIcon color="white" icon={faUmbrella} />}
-      >
-        <WeatherWidget />
-      </Window>
-      <TrayBar />
+      {application.map(app => (
+        <React.Fragment>{app}</React.Fragment>
+      ))}
     </React.Fragment>
   );
 }
