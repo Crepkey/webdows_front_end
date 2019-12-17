@@ -1,7 +1,33 @@
 import React, { Component } from "react";
 import { createURL } from "../../util/util";
+import Styled from "styled-components";
+
+/* Components */
+
 import CurrentWeather from "./currentWeather/currentWeather";
 import WeatherForecasts from "./weatherForecasts/weatherForecasts";
+import Window from "../windowWrapper/window";
+
+/* FontAwesome stuffs */
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUmbrella } from "@fortawesome/free-solid-svg-icons";
+
+const AppIcon = Styled(FontAwesomeIcon)`
+  color: white;
+  font-size: 18px;
+  margin: 0px 10px 0px 5px;
+  filter:drop-shadow(2px 4px 3px #000000);
+`;
+
+const WeatherWidgetContainer = Styled.div`
+  background-color: #233343;
+  border-radius: 0px 0px 7px 7px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 15px 5px 5px 5px;
+  box-shadow: inset 0px 0px 5px #000000;
+`;
 
 class WeatherWidget extends Component {
   state = {
@@ -121,10 +147,12 @@ class WeatherWidget extends Component {
 
   render() {
     return (
-      <div className="weather-widget">
-        <CurrentWeather currentWeather={this.state.currentWeather} />
-        <WeatherForecasts weatherForecasts={this.state.weatherForecasts} />
-      </div>
+      <Window appName="Wheather Widget" appIcon={<AppIcon icon={faUmbrella} />}>
+        <WeatherWidgetContainer>
+          <CurrentWeather currentWeather={this.state.currentWeather} />
+          <WeatherForecasts weatherForecasts={this.state.weatherForecasts} />
+        </WeatherWidgetContainer>
+      </Window>
     );
   }
 }
