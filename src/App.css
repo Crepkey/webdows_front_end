@@ -2,17 +2,6 @@ h3 {
   color: white;
 }
 
-.current-weather-detail {
-  height: 47px;
-  line-height: 47px;
-}
-
-.current-weather-detail-text {
-  color: white;
-  font-weight: bold;
-  font-size: 120%;
-}
-
 .high-temperature {
   color: #ed5a54;
   font-weight: bold;

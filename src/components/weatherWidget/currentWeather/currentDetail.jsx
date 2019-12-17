@@ -1,14 +1,28 @@
 import React from "react";
+import Styled from "styled-components";
+
+/* Components */
 import WeatherIcon from "../weatherIcon";
+
+const DetailContainer = Styled.div`
+  height: 47px;
+  line-height: 47px;
+`;
+
+const DetailText = Styled.span`
+  color: white;
+  font-weight: bold;
+  font-size: 120%;
+`;
 
 const CurrentDetail = props => {
   const { weatherIconType, style, data, suffix } = props;
 
   return (
-    <div className="current-weather-detail">
+    <DetailContainer>
       <WeatherIcon weatherIconType={weatherIconType} style={style} />
-      <span className="current-weather-detail-text">{data + " " + suffix}</span>
-    </div>
+      <DetailText>{data + " " + suffix}</DetailText>
+    </DetailContainer>
   );
 };
 
