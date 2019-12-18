@@ -24,18 +24,24 @@ const AppName = Styled.span`
   font-size: 20px;
   text-shadow: 2px 2px 3px #000000;
 `;
+/* REFACTOR: Here I need to find a solution which doesn't use an outer div for onClick handling */
 
 const LaunchIcon = props => {
   return (
-    <IconContainer>
-      <LauncherIcon
-        src={props.iconPath}
-        alt="launcher_icon"
-        height="75px"
-        width="75px"
-      />
-      <AppName>{props.iconText}</AppName>
-    </IconContainer>
+    <div
+      style={{ display: "inline-block" }}
+      onClick={() => props.onClick(props.appName)}
+    >
+      <IconContainer>
+        <LauncherIcon
+          src={props.iconPath}
+          alt="launcher_icon"
+          height="75px"
+          width="75px"
+        />
+        <AppName>{props.iconText}</AppName>
+      </IconContainer>
+    </div>
   );
 };
 

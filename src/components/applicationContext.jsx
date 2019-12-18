@@ -12,6 +12,7 @@ export const ApplicationProvider = props => {
   const [activeApplications, setActiveApplications] = useState([]);
 
   const startAnApp = appName => {
+    console.log("Ide eljut");
     const currentActiveApplications = [...activeApplications];
     for (let app of applications) {
       if (app.type.name === appName) {
