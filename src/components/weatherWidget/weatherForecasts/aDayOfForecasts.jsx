@@ -1,10 +1,13 @@
+/* React */
 import React from "react";
-import Styled from "styled-components";
 
 /* Components */
 import Temperature from "../temperature";
 import WeatherIcon from "../weatherIcon";
 import WeekDay from "./weekDay";
+
+/* Styles */
+import Styled from "styled-components";
 
 const DailyDetailsContainer = Styled.div`
   border: solid;

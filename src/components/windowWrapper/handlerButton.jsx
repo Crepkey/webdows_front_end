@@ -1,10 +1,14 @@
+/* React */
 import React from "react";
-import Styled from "styled-components";
 
+/* FontAwesome */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWindowMaximize } from "@fortawesome/free-solid-svg-icons";
 import { faWindowMinimize } from "@fortawesome/free-solid-svg-icons";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
+
+/* Styles */
+import Styled from "styled-components";
 
 const Button = Styled.button`
   float: right;

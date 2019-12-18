@@ -1,9 +1,8 @@
+/* React */
 import React, { Component } from "react";
 import { createURL } from "../../util/util";
-import Styled from "styled-components";
 
 /* Components */
-
 import CurrentWeather from "./currentWeather/currentWeather";
 import WeatherForecasts from "./weatherForecasts/weatherForecasts";
 import Window from "../windowWrapper/window";
@@ -11,6 +10,9 @@ import Window from "../windowWrapper/window";
 /* FontAwesome stuffs */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUmbrella } from "@fortawesome/free-solid-svg-icons";
+
+/* Styles */
+import Styled from "styled-components";
 
 const AppIcon = Styled(FontAwesomeIcon)`
   color: white;

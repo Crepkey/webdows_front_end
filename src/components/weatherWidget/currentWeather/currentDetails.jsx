@@ -1,9 +1,12 @@
+/* React */
 import React from "react";
-import Styled from "styled-components";
 
 /* Components */
 import Temperature from "../temperature";
 import CurrentDetail from "./currentDetail";
+
+/* Styles */
+import Styled from "styled-components";
 
 const DetailsContainer = Styled.div`
   min-width: 160px;

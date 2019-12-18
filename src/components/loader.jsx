@@ -1,4 +1,7 @@
+/* React */
 import React from "react";
+
+/* SVGs */
 import { ReactComponent as Loader1 } from "../svg/loader_1.svg";
 import { ReactComponent as Loader2 } from "../svg/loader_2.svg";
 

@@ -1,8 +1,11 @@
+/* React */
 import React from "react";
-import Styled from "styled-components";
 
 /* Components */
 import WeatherIcon from "../weatherIcon";
+
+/* Styles */
+import Styled from "styled-components";
 
 const DetailContainer = Styled.div`
   height: 47px;

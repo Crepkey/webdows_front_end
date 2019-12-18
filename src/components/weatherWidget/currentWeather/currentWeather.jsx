@@ -1,10 +1,13 @@
+/* React */
 import React from "react";
-import Styled from "styled-components";
 
 /* Components */
 import CurrentWeatherDetails from "./currentDetails";
 import CurrentWeatherMain from "./currentMain";
 import Loader from "../../loader";
+
+/* Styles */
+import Styled from "styled-components";
 
 const OuterContainer = Styled.div`
   border: solid;

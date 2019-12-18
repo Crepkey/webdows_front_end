@@ -1,4 +1,7 @@
+/* React */
 import React from "react";
+
+/* Components */
 import ADayOfForecasts from "./aDayOfForecasts";
 import Loader from "../../loader";
 
@@ -21,8 +24,8 @@ const WeatherForecasts = props => {
 
   return (
     <React.Fragment>
-      {/* If the dailyForecasts is undefined ergo false 
-      this expression will return the array which contains only undefineds */}
+      {/* If the dailyForecasts is undefined 
+      this expression will return an array which contains only undefineds. This way we can avoid the app's crash*/}
       {(dailyForecasts || arrayOfUndefined).map((day, index) => (
         <Loader
           key={index}

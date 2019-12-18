@@ -1,5 +1,10 @@
+/* React */
 import React from "react";
+
+/* Components */
 import WeatherIcon from "../weatherIcon";
+
+/* Styles */
 import Styled from "styled-components";
 
 const MainContainer = Styled.div`

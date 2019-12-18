@@ -1,12 +1,16 @@
+/* React */
 import React, { Component } from "react";
-import Styled from "styled-components";
 import moment from "moment";
 
+/* FontAwesome */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBell } from "@fortawesome/free-solid-svg-icons";
+
+/* Images */
 import { ReactComponent as WinLogo } from "../../svg/windows.svg";
 
-/* REFACTOR: I must split this class to standalone components */
+/* Styles */
+import Styled from "styled-components";
 
 const Tray = Styled.div`
   width: 100%;
@@ -179,3 +183,5 @@ export default class TrayBar extends Component {
     );
   }
 }
+
+/* REFACTOR: I must split this class to standalone components */

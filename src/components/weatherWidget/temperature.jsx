@@ -1,4 +1,7 @@
+/* React */
 import React from "react";
+
+/* Styles */
 import Styled from "styled-components";
 
 const HighTemp = Styled.div`

@@ -1,10 +1,12 @@
+/* React */
 import React, { Component } from "react";
 import Draggable from "react-draggable";
-import Styled from "styled-components";
 
+/* Component */
 import HandlerButton from "./handlerButton";
 
-/* TODO:  Here need to set the opacity of the border to be compatible with all the browsers*/
+/* Sytles */
+import Styled from "styled-components";
 
 const Frame = Styled.div`
   padding: 8px;
@@ -66,3 +68,5 @@ class Window extends Component {
 }
 
 export default Window;
+
+/* TODO:  Here need to set the opacity of the border to be compatible with all the browsers*/
