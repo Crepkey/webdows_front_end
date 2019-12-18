@@ -1,9 +1,12 @@
 /* React */
-import React, { Component } from "react";
+import React, { useContext, Component } from "react";
 import Draggable from "react-draggable";
 
 /* Component */
 import HandlerButton from "./handlerButton";
+
+/* Contexts */
+import { ApplicationContext } from "../applicationContext";
 
 /* Sytles */
 import Styled from "styled-components";
@@ -41,31 +44,30 @@ const TitleBarText = Styled.span`
 const HandlerButtonsContainer = Styled.div`
   margin: 0px 5px 0px 0px;
 `;
-class Window extends Component {
-  state = {};
-  render() {
-    return (
-      <Draggable handle="strong">
-        <Frame>
-          <strong>
-            <TitleBar>
-              <HandlerButtonsContainer>
-                <HandlerButton color="rgba(199, 0, 57);" type="closing" />
-                <HandlerButton color="rgba(68, 199, 103);" type="maximizing" />
-                <HandlerButton color="rgba(247, 190, 0);" type="minimizing" />
-              </HandlerButtonsContainer>
-              <TitleBarText>
-                {this.props.appIcon}
-                {this.props.appName}
-              </TitleBarText>
-            </TitleBar>
-          </strong>
-          {this.props.children}
-        </Frame>
-      </Draggable>
-    );
-  }
-}
+
+const Window = props => {
+  const { CloseAnApp } = useContext(ApplicationContext);
+  return (
+    <Draggable handle="strong">
+      <Frame>
+        <strong>
+          <TitleBar>
+            <HandlerButtonsContainer>
+              <HandlerButton color="rgba(199, 0, 57);" type="closing" />
+              <HandlerButton color="rgba(68, 199, 103);" type="maximizing" />
+              <HandlerButton color="rgba(247, 190, 0);" type="minimizing" />
+            </HandlerButtonsContainer>
+            <TitleBarText>
+              {props.appIcon}
+              {props.appName}
+            </TitleBarText>
+          </TitleBar>
+        </strong>
+        {props.children}
+      </Frame>
+    </Draggable>
+  );
+};
 
 export default Window;
 
