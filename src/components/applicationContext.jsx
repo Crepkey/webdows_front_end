@@ -41,7 +41,8 @@ export const ApplicationProvider = props => {
       value={{
         applications: applications,
         activeApplications: activeApplications,
-        startAnApp: startAnApp
+        startAnApp: startAnApp,
+        closeAnApp: closeAnApp
       }}
     >
       {props.children}
