@@ -7,6 +7,7 @@ import { ApplicationContext } from "./components/applicationContext";
 /* Components */
 import LaunchIcon from "./components/launchIcon";
 import TrayBar from "./components/trayAndStartMenu/tray";
+import WeatherWidget from "./components/weatherWidget/weatherWidget";
 
 /* Desktop Icons */
 import WeatherLaunchIcon from "./img/desktopIcons/weather-app.png";
@@ -32,7 +33,7 @@ function App() {
       <GlobalStyle />
       <LaunchIcon
         onClick={startAnApp}
-        appName="WeatherWidget"
+        app={<WeatherWidget />}
         iconPath={WeatherLaunchIcon}
         iconText="Weather"
       />

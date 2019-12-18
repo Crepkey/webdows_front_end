@@ -30,7 +30,7 @@ const LaunchIcon = props => {
   return (
     <div
       style={{ display: "inline-block" }}
-      onClick={() => props.onClick(props.appName)}
+      onClick={() => props.onClick(props.app)}
     >
       <IconContainer>
         <LauncherIcon

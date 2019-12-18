@@ -8,19 +8,12 @@ import DummyDiv from "./windowWrapper/dummyDiv";
 export const ApplicationContext = createContext();
 
 export const ApplicationProvider = props => {
-  /* TODO: It could be better if I didn't use this list but the launcher comp sends the app's comp to run*/
-  const applications = [<WeatherWidget />, <DummyDiv />];
   const [activeApplications, setActiveApplications] = useState([]);
 
-  const startAnApp = appName => {
+  const startAnApp = app => {
     /* TODO: I need a check here to avoid the simultaneous running of apps */
     const currentActiveApplications = [...activeApplications];
-    for (let app of applications) {
-      if (app.type.name === appName) {
-        currentActiveApplications.push(app);
-        break;
-      }
-    }
+    currentActiveApplications.push(app);
     setActiveApplications(currentActiveApplications);
   };
 
@@ -34,7 +27,6 @@ export const ApplicationProvider = props => {
   return (
     <ApplicationContext.Provider
       value={{
-        applications: applications,
         activeApplications: activeApplications,
         startAnApp: startAnApp,
         closeAnApp: closeAnApp
