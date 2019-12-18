@@ -25,13 +25,17 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 function App() {
-  const { activeApplications } = useContext(ApplicationContext);
+  const { activeApplications, startAnApp } = useContext(ApplicationContext);
 
   return (
     <React.Fragment>
       <GlobalStyle />
-
-      <LaunchIcon iconPath={WeatherLaunchIcon} iconText="Weather" />
+      <button onClick={() => startAnApp("WeatherWidget")}>TEST</button>
+      {/*      <LaunchIcon
+        onClick={startAnApp}
+        iconPath={WeatherLaunchIcon}
+        iconText="Weather"
+      /> */}
 
       {activeApplications.map((app, index) => (
         <React.Fragment key={index}>{app}</React.Fragment>
