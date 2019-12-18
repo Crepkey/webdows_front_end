@@ -12,7 +12,12 @@ export const ApplicationProvider = props => {
   const activeApplications = [];
 
   return (
-    <ApplicationContext.Provider value={[applications, activeApplications]}>
+    <ApplicationContext.Provider
+      value={{
+        applications: applications,
+        activeApplications: activeApplications
+      }}
+    >
       {props.children}
     </ApplicationContext.Provider>
   );
