@@ -27,7 +27,7 @@ const AppName = Styled.span`
 
 const LaunchIcon = props => {
   return (
-    <IconContainer onClick={() => props.onClick(props.app)}>
+    <IconContainer onClick={props.onClick}>
       <LauncherIcon
         src={props.iconPath}
         alt="launcher_icon"

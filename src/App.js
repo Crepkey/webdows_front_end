@@ -32,12 +32,11 @@ function App() {
     <React.Fragment>
       <GlobalStyle />
       <LaunchIcon
-        onClick={startAnApp}
-        app={<WeatherWidget />}
+        onClick={() => startAnApp(<WeatherWidget />)}
         iconPath={WeatherLaunchIcon}
         iconText="Weather"
       />
-
+      {/* App rendering */}
       {activeApplications.map((app, index) => (
         <React.Fragment key={index}>{app}</React.Fragment>
       ))}
