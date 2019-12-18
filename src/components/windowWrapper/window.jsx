@@ -56,7 +56,7 @@ const Window = props => {
               {/* TODO: Solve to work it without div */}
               <div
                 sytle={{ display: "inline-block" }}
-                onClick={() => closeAnApp("WeatherWidget")}
+                onClick={() => closeAnApp(props.children)}
               >
                 <HandlerButton color="rgba(199, 0, 57);" type="closing" />
               </div>
