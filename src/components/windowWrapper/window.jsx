@@ -46,14 +46,20 @@ const HandlerButtonsContainer = Styled.div`
 `;
 
 const Window = props => {
-  const { CloseAnApp } = useContext(ApplicationContext);
+  const { closeAnApp } = useContext(ApplicationContext);
   return (
     <Draggable handle="strong">
       <Frame>
         <strong>
           <TitleBar>
             <HandlerButtonsContainer>
-              <HandlerButton color="rgba(199, 0, 57);" type="closing" />
+              {/* TODO: Solve to work it without div */}
+              <div
+                sytle={{ display: "inline-block" }}
+                onClick={() => closeAnApp("WeatherWidget")}
+              >
+                <HandlerButton color="rgba(199, 0, 57);" type="closing" />
+              </div>
               <HandlerButton color="rgba(68, 199, 103);" type="maximizing" />
               <HandlerButton color="rgba(247, 190, 0);" type="minimizing" />
             </HandlerButtonsContainer>
