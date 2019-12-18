@@ -53,13 +53,11 @@ const Window = props => {
         <strong>
           <TitleBar>
             <HandlerButtonsContainer>
-              {/* TODO: Solve to work it without div */}
-              <div
-                sytle={{ display: "inline-block" }}
+              <HandlerButton
                 onClick={() => closeAnApp(props.children)}
-              >
-                <HandlerButton color="rgba(199, 0, 57);" type="closing" />
-              </div>
+                color="rgba(199, 0, 57);"
+                type="closing"
+              />
               <HandlerButton color="rgba(68, 199, 103);" type="maximizing" />
               <HandlerButton color="rgba(247, 190, 0);" type="minimizing" />
             </HandlerButtonsContainer>

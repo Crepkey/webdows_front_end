@@ -34,19 +34,19 @@ const HandlerButton = props => {
   switch (props.type) {
     case "minimizing":
       return (
-        <Button color={props.color}>
+        <Button onClick={props.onClick} color={props.color}>
           <Icon color="white" icon={faWindowMinimize} />
         </Button>
       );
     case "maximizing":
       return (
-        <Button color={props.color}>
+        <Button onClick={props.onClick} color={props.color}>
           <Icon color="white" icon={faWindowMaximize} />
         </Button>
       );
     case "closing":
       return (
-        <Button color={props.color}>
+        <Button onClick={props.onClick} color={props.color}>
           <Icon color="white" icon={faTimes} />
         </Button>
       );
