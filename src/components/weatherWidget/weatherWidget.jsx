@@ -14,11 +14,12 @@ import { faUmbrella } from "@fortawesome/free-solid-svg-icons";
 /* Styles */
 import Styled from "styled-components";
 
+/* FIXME: This setting become invalid CSS property in the dom */
 const AppIcon = Styled(FontAwesomeIcon)`
   color: white;
   font-size: 18px;
   margin: 0px 10px 0px 5px;
-  filter:drop-shadow(2px 4px 3px #000000);
+  filter: drop-shadow(2px 4px 3px #000000);
 `;
 
 const WeatherWidgetContainer = Styled.div`
