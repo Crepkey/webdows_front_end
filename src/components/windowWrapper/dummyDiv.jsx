@@ -1,10 +1,16 @@
 import React from "react";
 import Window from "./window";
+import Styled from "styled-components";
+
+const Container = Styled.div`
+  position: relative;
+  z-index: 1;
+`;
 
 const DummyDiv = () => {
   return (
     <Window appName="This is a fake application">
-      <div
+      <Container
         style={{
           border: "solid",
           borderColor: "white",
@@ -15,7 +21,7 @@ const DummyDiv = () => {
         }}
       >
         <span style={{ color: "white", fontSize: "5em" }}>Valami</span>
-      </div>
+      </Container>
     </Window>
   );
 };
