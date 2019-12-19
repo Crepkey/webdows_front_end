@@ -49,6 +49,7 @@ const HandlerButtonsContainer = Styled.div`
 
 const Window = props => {
   const { closeAnApp } = useContext(ApplicationContext);
+
   return (
     <Draggable handle="strong">
       <Frame zindex={props.zindex}>
