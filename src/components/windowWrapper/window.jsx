@@ -52,7 +52,7 @@ const Window = props => {
 
   return (
     <Draggable handle="strong">
-      <Frame zindex={props.zindex}>
+      <Frame zindex={props.zindex} onClick={props.setAppOnTheTop}>
         <strong>
           <TitleBar>
             <HandlerButtonsContainer>

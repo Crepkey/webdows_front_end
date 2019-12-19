@@ -5,7 +5,7 @@ export const ApplicationContext = createContext();
 
 export const ApplicationProvider = props => {
   const [activeApplications, setActiveApplications] = useState([]);
-  const orderOfApps = {}; /* This obj is stores the order of applications in the app's layer hierarchy */
+  const [orderOfApps] = useState({});
 
   const startAnApp = app => {
     if (activeApplications.find(actApp => actApp.type.name === app.type.name)) {
@@ -41,8 +41,10 @@ export const ApplicationProvider = props => {
     <ApplicationContext.Provider
       value={{
         activeApplications: activeApplications,
+        orderOfApps: orderOfApps,
         startAnApp: startAnApp,
-        closeAnApp: closeAnApp
+        closeAnApp: closeAnApp,
+        setAppOnTheTop: setAppOnTheTop
       }}
     >
       {props.children}

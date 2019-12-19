@@ -2,6 +2,9 @@
 import React, { Component } from "react";
 import { createURL } from "../../util/util";
 
+/* Contexts */
+import { ApplicationContext } from "../applicationContext";
+
 /* Components */
 import CurrentWeather from "./currentWeather/currentWeather";
 import WeatherForecasts from "./weatherForecasts/weatherForecasts";
@@ -149,10 +152,13 @@ class WeatherWidget extends Component {
   };
 
   render() {
+    let zIndexNum = this.context.orderOfApps.WeatherWidget;
     return (
       <Window
         appName="Wheather Widget"
-        appIcon={<AppIcon icon={faUmbrella} zindex={3} />}
+        appIcon={<AppIcon icon={faUmbrella} />}
+        zindex={zIndexNum}
+        setAppOnTheTop={this.context.setAppOnTheTop}
       >
         <WeatherWidgetContainer>
           <CurrentWeather currentWeather={this.state.currentWeather} />
@@ -162,5 +168,7 @@ class WeatherWidget extends Component {
     );
   }
 }
+
+WeatherWidget.contextType = ApplicationContext;
 
 export default WeatherWidget;
