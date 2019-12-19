@@ -1,5 +1,5 @@
 /* React */
-import React, { useContext, Component } from "react";
+import React, { useContext } from "react";
 import Draggable from "react-draggable";
 
 /* Component */
