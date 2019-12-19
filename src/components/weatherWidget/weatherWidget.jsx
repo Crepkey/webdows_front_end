@@ -152,7 +152,7 @@ class WeatherWidget extends Component {
     return (
       <Window
         appName="Wheather Widget"
-        appIcon={<AppIcon icon={faUmbrella} zIndex={3} />}
+        appIcon={<AppIcon icon={faUmbrella} zindex={3} />}
       >
         <WeatherWidgetContainer>
           <CurrentWeather currentWeather={this.state.currentWeather} />

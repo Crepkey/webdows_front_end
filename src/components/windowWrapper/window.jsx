@@ -15,7 +15,7 @@ const Frame = Styled.div`
   padding: 8px;
   display: inline-block;
   position: relative;
-  z-index: ${props => props.zIndex};
+  z-index: ${props => props.zindex};
   
   /* Border */
   border-radius: 15px;
@@ -51,7 +51,7 @@ const Window = props => {
   const { closeAnApp } = useContext(ApplicationContext);
   return (
     <Draggable handle="strong">
-      <Frame zIndex={props.zIndex}>
+      <Frame zindex={props.zindex}>
         <strong>
           <TitleBar>
             <HandlerButtonsContainer>
