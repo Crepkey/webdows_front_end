@@ -14,6 +14,8 @@ import Styled from "styled-components";
 const Frame = Styled.div`
   padding: 8px;
   display: inline-block;
+  position: relative;
+  z-index: ${props => props.zIndex};
   
   /* Border */
   border-radius: 15px;
@@ -49,7 +51,7 @@ const Window = props => {
   const { closeAnApp } = useContext(ApplicationContext);
   return (
     <Draggable handle="strong">
-      <Frame>
+      <Frame zIndex={props.zIndex}>
         <strong>
           <TitleBar>
             <HandlerButtonsContainer>
