@@ -7,11 +7,7 @@ export const ApplicationProvider = props => {
   const [activeApplications, setActiveApplications] = useState([]);
 
   const startAnApp = app => {
-    if (
-      activeApplications.find(
-        actApp => JSON.stringify(actApp) === JSON.stringify(app)
-      )
-    ) {
+    if (activeApplications.find(actApp => actApp.type.name === app.type.name)) {
       return alert("This application is already running");
     } /* TODO: It could be a nicer solution if I use a general modal for error messages */
     const currentActiveApplications = [...activeApplications];
