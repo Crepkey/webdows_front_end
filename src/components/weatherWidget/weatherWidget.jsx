@@ -153,7 +153,6 @@ class WeatherWidget extends Component {
 
   render() {
     let zIndexNum = this.context.orderOfApps.WeatherWidget;
-    console.log(zIndexNum);
     return (
       <Window
         appName="Wheather Widget"
