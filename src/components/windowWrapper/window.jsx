@@ -48,7 +48,7 @@ const HandlerButtonsContainer = Styled.div`
 `;
 
 const Window = props => {
-  const { closeAnApp } = useContext(ApplicationContext);
+  const { closeApp } = useContext(ApplicationContext);
 
   return (
     <Draggable handle="strong">
@@ -60,7 +60,7 @@ const Window = props => {
           <TitleBar>
             <HandlerButtonsContainer>
               <HandlerButton
-                onClick={() => closeAnApp(props.children)}
+                onClick={() => closeApp(props.children)}
                 color="rgba(199, 0, 57);"
                 type="closing"
               />

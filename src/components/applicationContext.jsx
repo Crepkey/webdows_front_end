@@ -17,7 +17,7 @@ export const ApplicationProvider = props => {
     setActiveApplications(currentActiveApplications);
   };
 
-  const closeAnApp = app => {
+  const closeApp = app => {
     const appName = app._owner.type.name;
     const currentActiveApplications = [...activeApplications];
     const index = currentActiveApplications.findIndex(
@@ -56,7 +56,7 @@ export const ApplicationProvider = props => {
         activeApplications: activeApplications,
         orderOfApps: orderOfApps,
         startApp: startApp,
-        closeAnApp: closeAnApp,
+        closeApp: closeApp,
         setAppOnTheTop: setAppOnTheTop
       }}
     >
