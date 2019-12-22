@@ -18,8 +18,11 @@ export const ApplicationProvider = props => {
   };
 
   const closeAnApp = app => {
+    const appName = app._owner.type.name;
     const currentActiveApplications = [...activeApplications];
-    const index = currentActiveApplications.indexOf(app);
+    const index = currentActiveApplications.findIndex(
+      actApp => actApp.type.name === appName
+    );
     currentActiveApplications.splice(index, 1);
     setActiveApplications(currentActiveApplications);
   };

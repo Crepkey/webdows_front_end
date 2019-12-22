@@ -9,6 +9,7 @@ import LaunchIcon from "./components/launchIcon";
 import TrayBar from "./components/trayAndStartMenu/tray";
 import WeatherWidget from "./components/weatherWidget/weatherWidget";
 import DummyDiv from "./components/windowWrapper/dummyDiv";
+import DummyDiv2 from "./components/windowWrapper/dummyDiv2";
 
 /* Desktop Icons */
 import WeatherLaunchIcon from "./img/desktopIcons/weather-app.png";
@@ -41,6 +42,12 @@ function App() {
         onClick={() => startAnApp(<DummyDiv />)}
         iconPath={WeatherLaunchIcon}
         iconText="DummyDiv"
+      />
+
+      <LaunchIcon
+        onClick={() => startAnApp(<DummyDiv2 />)}
+        iconPath={WeatherLaunchIcon}
+        iconText="DummyDiv2"
       />
       {/* App rendering */}
       {activeApplications.map((app, index) => (
