@@ -11,7 +11,7 @@ export const ApplicationProvider = props => {
     if (activeApplications.find(actApp => actApp.type.name === app.type.name)) {
       return alert("This application is already running");
     }
-    setAppOnTheTop(app.type.name);
+    setAppOnTheTop(app);
     const currentActiveApplications = [...activeApplications];
     currentActiveApplications.push(app);
     setActiveApplications(currentActiveApplications);
@@ -24,11 +24,21 @@ export const ApplicationProvider = props => {
     setActiveApplications(currentActiveApplications);
   };
 
-  const setAppOnTheTop = appName => {
+  /* TODO: Question from Balázs. Which one is better, 
+  if I pass the app object as an argument or I pass only the app's name? 
+  If I use only the app name, the checking is not necessary */
+
+  const setAppOnTheTop = app => {
+    let appName;
+    if (app._owner !== null) {
+      appName = app._owner.type.name;
+    } else appName = app.type.name;
+
     if (Object.keys(orderOfApps).length === 0) {
       setOrderOfApps({ [appName]: 1 });
       return;
     }
+
     let prevOrderOfApps = { ...orderOfApps };
     for (let key in prevOrderOfApps) {
       prevOrderOfApps[key] = 0;
