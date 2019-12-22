@@ -29,12 +29,12 @@ export const ApplicationProvider = props => {
       setOrderOfApps({ [appName]: 1 });
       return;
     }
-    for (let key in orderOfApps) {
-      orderOfApps[key] = 0;
+    let prevOrderOfApps = { ...orderOfApps };
+    for (let key in prevOrderOfApps) {
+      prevOrderOfApps[key] = 0;
     }
-    orderOfApps[appName] = 1;
-    console.log(orderOfApps);
-    setOrderOfApps(orderOfApps);
+    prevOrderOfApps[appName] = 1;
+    setOrderOfApps(prevOrderOfApps);
   };
 
   return (
