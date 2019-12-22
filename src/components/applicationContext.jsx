@@ -5,15 +5,13 @@ export const ApplicationContext = createContext();
 
 export const ApplicationProvider = props => {
   const [activeApplications, setActiveApplications] = useState([]);
-  const [orderOfApps] = useState({});
+  const [orderOfApps, setOrderOfApps] = useState({});
 
   const startAnApp = app => {
     if (activeApplications.find(actApp => actApp.type.name === app.type.name)) {
       return alert("This application is already running");
     }
-
     setAppOnTheTop(app.type.name);
-
     const currentActiveApplications = [...activeApplications];
     currentActiveApplications.push(app);
     setActiveApplications(currentActiveApplications);
@@ -28,13 +26,15 @@ export const ApplicationProvider = props => {
 
   const setAppOnTheTop = appName => {
     if (Object.keys(orderOfApps).length === 0) {
-      orderOfApps[appName] = 1;
+      setOrderOfApps({ [appName]: 1 });
       return;
     }
     for (let key in orderOfApps) {
       orderOfApps[key] = 0;
     }
     orderOfApps[appName] = 1;
+    console.log(orderOfApps);
+    setOrderOfApps(orderOfApps);
   };
 
   return (

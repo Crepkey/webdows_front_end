@@ -40,7 +40,7 @@ function App() {
       <LaunchIcon
         onClick={() => startAnApp(<DummyDiv />)}
         iconPath={WeatherLaunchIcon}
-        iconText="Weather"
+        iconText="DummyDiv"
       />
       {/* App rendering */}
       {activeApplications.map((app, index) => (

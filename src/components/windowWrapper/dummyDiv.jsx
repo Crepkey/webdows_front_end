@@ -1,9 +1,18 @@
 import React, { useContext } from "react";
 import Window from "./window";
+import { ApplicationContext } from "../applicationContext";
 
 const DummyDiv = () => {
+  const { orderOfApps, setAppOnTheTop } = useContext(ApplicationContext);
+
+  let zIndexNum = orderOfApps.DummyDiv;
+
   return (
-    <Window appName="This is a fake application" zindex={2}>
+    <Window
+      appName="This is a fake application"
+      zindex={zIndexNum}
+      setAppOnTheTop={setAppOnTheTop}
+    >
       <div
         style={{
           border: "solid",
