@@ -7,7 +7,7 @@ export const ApplicationProvider = props => {
   const [activeApplications, setActiveApplications] = useState([]);
   const [orderOfApps, setOrderOfApps] = useState({});
 
-  const startAnApp = app => {
+  const startApp = app => {
     if (activeApplications.find(actApp => actApp.type.name === app.type.name)) {
       return alert("This application is already running");
     }
@@ -55,7 +55,7 @@ export const ApplicationProvider = props => {
       value={{
         activeApplications: activeApplications,
         orderOfApps: orderOfApps,
-        startAnApp: startAnApp,
+        startApp: startApp,
         closeAnApp: closeAnApp,
         setAppOnTheTop: setAppOnTheTop
       }}

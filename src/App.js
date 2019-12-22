@@ -28,24 +28,24 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 function App() {
-  const { activeApplications, startAnApp } = useContext(ApplicationContext);
+  const { activeApplications, startApp } = useContext(ApplicationContext);
 
   return (
     <React.Fragment>
       <GlobalStyle />
       <LaunchIcon
-        onClick={() => startAnApp(<WeatherWidget />)}
+        onClick={() => startApp(<WeatherWidget />)}
         iconPath={WeatherLaunchIcon}
         iconText="Weather"
       />
       <LaunchIcon
-        onClick={() => startAnApp(<DummyDiv />)}
+        onClick={() => startApp(<DummyDiv />)}
         iconPath={WeatherLaunchIcon}
         iconText="DummyDiv"
       />
 
       <LaunchIcon
-        onClick={() => startAnApp(<DummyDiv2 />)}
+        onClick={() => startApp(<DummyDiv2 />)}
         iconPath={WeatherLaunchIcon}
         iconText="DummyDiv2"
       />
