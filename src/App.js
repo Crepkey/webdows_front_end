@@ -5,14 +5,8 @@ import React, { useContext } from "react";
 import { ApplicationContext } from "./components/applicationContext";
 
 /* Components */
-import LaunchIcon from "./components/launchIcon";
+import DesktopIcons from "./components/desktopIcons";
 import TrayBar from "./components/trayAndStartMenu/tray";
-import WeatherWidget from "./components/weatherWidget/weatherWidget";
-import DummyDiv from "./components/windowWrapper/dummyDiv";
-import DummyDiv2 from "./components/windowWrapper/dummyDiv2";
-
-/* Desktop Icons */
-import WeatherLaunchIcon from "./img/desktopIcons/weather-app.png";
 
 /* Styles */
 import { createGlobalStyle } from "styled-components";
@@ -28,27 +22,12 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 function App() {
-  const { activeApplications, startApp } = useContext(ApplicationContext);
+  const { activeApplications } = useContext(ApplicationContext);
 
   return (
     <React.Fragment>
       <GlobalStyle />
-      <LaunchIcon
-        onClick={() => startApp(<WeatherWidget />)}
-        iconPath={WeatherLaunchIcon}
-        iconText="Weather"
-      />
-      <LaunchIcon
-        onClick={() => startApp(<DummyDiv />)}
-        iconPath={WeatherLaunchIcon}
-        iconText="DummyDiv"
-      />
-
-      <LaunchIcon
-        onClick={() => startApp(<DummyDiv2 />)}
-        iconPath={WeatherLaunchIcon}
-        iconText="DummyDiv2"
-      />
+      <DesktopIcons />
       {/* App rendering */}
       {activeApplications.map((app, index) => (
         <React.Fragment key={index}>{app}</React.Fragment>
@@ -61,5 +40,4 @@ function App() {
 
 export default App;
 
-/* FIXME: There is a bug with LaunchIcon components when the first page loading is starting */
 /* TODO: Blur border for windows https://stackoverflow.com/questions/33820493/css-how-to-blur-background-image-within-the-div */
