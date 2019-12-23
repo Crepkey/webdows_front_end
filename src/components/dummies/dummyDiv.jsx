@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import Window from "./window";
+import Window from "../windowWrapper/window";
 import { ApplicationContext } from "../applicationContext";
 
 const DummyDiv = () => {

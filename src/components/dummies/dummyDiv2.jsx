@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
-import Window from "./window";
+import Window from "../windowWrapper/window";
 import { ApplicationContext } from "../applicationContext";
 
 const DummyDiv2 = () => {
   const { orderOfApps, setAppOnTheTop } = useContext(ApplicationContext);
 
-  let zIndexNum = orderOfApps.DummyDiv;
+  let zIndexNum = orderOfApps.DummyDiv2;
 
   return (
     <Window
