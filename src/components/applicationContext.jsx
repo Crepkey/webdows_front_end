@@ -32,8 +32,11 @@ export const ApplicationProvider = props => {
   if I pass the app object as an argument or I pass only the app's name? 
   If I use only the app name, the checking is not necessary */
 
+  /* TODO: It could be a niver solution if I resets the counter and remove the item from the orderOfApps list */
+
   const setAppOnTheTop = app => {
     let appName;
+
     if (app._owner !== null) {
       appName = app._owner.type.name;
     } else appName = app.type.name;
