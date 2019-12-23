@@ -6,6 +6,7 @@ export const ApplicationContext = createContext();
 export const ApplicationProvider = props => {
   const [activeApplications, setActiveApplications] = useState([]);
   const [orderOfApps, setOrderOfApps] = useState({});
+  const [clickCounter, setClickCounter] = useState(1);
 
   const startApp = app => {
     if (activeApplications.find(actApp => actApp.type.name === app.type.name)) {
@@ -37,17 +38,10 @@ export const ApplicationProvider = props => {
       appName = app._owner.type.name;
     } else appName = app.type.name;
 
-    if (Object.keys(orderOfApps).length === 0) {
-      setOrderOfApps({ [appName]: 1 });
-      return;
-    }
-
-    let prevOrderOfApps = { ...orderOfApps };
-    for (let key in prevOrderOfApps) {
-      prevOrderOfApps[key] = 0;
-    }
-    prevOrderOfApps[appName] = 1;
-    setOrderOfApps(prevOrderOfApps);
+    const currentOrderOfApps = { ...orderOfApps };
+    currentOrderOfApps[appName] = clickCounter;
+    setClickCounter(clickCounter + 1);
+    setOrderOfApps(currentOrderOfApps);
   };
 
   return (
