@@ -63,3 +63,4 @@ export const ApplicationProvider = props => {
 };
 
 /* TODO: It could be a nicer solution if I use a general modal for error messages */
+/* TODO: SetAppOnTheTop function should be run during drag and drop too */
