@@ -32,7 +32,7 @@ function App() {
       {activeApplications.map((app, index) => (
         <React.Fragment key={index}>{app}</React.Fragment>
       ))}
-
+      {/* FIXME: TrayBar must be on the top before other apps */}
       <TrayBar />
     </React.Fragment>
   );

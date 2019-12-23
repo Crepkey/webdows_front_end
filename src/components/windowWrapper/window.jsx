@@ -15,6 +15,8 @@ const Frame = Styled.div`
   padding: 8px;
   display: inline-block;
   position: absolute;
+  top: ${props => props.top}
+  left: ${props => props.left}
   z-index: ${props => props.zindex};
   
   /* Border */
@@ -48,13 +50,26 @@ const HandlerButtonsContainer = Styled.div`
 `;
 
 const Window = props => {
-  const { closeApp } = useContext(ApplicationContext);
+  const { closeApp, saveAppPosition, positionOfApps } = useContext(
+    ApplicationContext
+  );
+
+  let top = positionOfApps[props.children._owner.type.name].y + "px";
+  let left = positionOfApps[props.children._owner.type.name].x + "px";
+  console.log(top);
+  console.log(left);
 
   return (
-    <Draggable handle="strong">
+    <Draggable
+      handle="strong"
+      /* FIXME: OnStop event handler could better because it needs less perfomance for calculating */
+      onDrag={(event, ui) => saveAppPosition(event, ui, props.children)}
+    >
       <Frame
         zindex={props.zindex}
         onClick={() => props.setAppOnTheTop(props.children)}
+        top={top}
+        left={left}
       >
         <strong>
           <TitleBar>
@@ -82,3 +97,5 @@ const Window = props => {
 export default Window;
 
 /* TODO:  Here need to set the opacity of the border to be compatible with all the browsers*/
+/* TODO: I need to check the setAppOnTheTop func. why this comp gets from the outside as a props. Maybe, I did a mistake? */
+/* REFACTOR: Maybe, all of the data which comes into this comp as a props would come from context */
