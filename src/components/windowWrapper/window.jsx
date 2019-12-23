@@ -14,7 +14,7 @@ import Styled from "styled-components";
 const Frame = Styled.div`
   padding: 8px;
   display: inline-block;
-  position: relative;
+  position: absolute;
   z-index: ${props => props.zindex};
   
   /* Border */
