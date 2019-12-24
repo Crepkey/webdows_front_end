@@ -1,8 +1,5 @@
 /* React */
-import React, { useContext } from "react";
-
-/* Context */
-import { ApplicationContext } from "../applicationContext";
+import React from "react";
 
 /* Components */
 import Window from "../windowWrapper/window";
@@ -11,12 +8,8 @@ import Window from "../windowWrapper/window";
 import imagePath from "../../img/dummyApps/dummy_todo.png";
 
 const Todo = () => {
-  const { orderOfApps, setAppOnTheTop } = useContext(ApplicationContext);
-
-  let zIndexNum = orderOfApps.Todo;
-
   return (
-    <Window appName="Todo" zindex={zIndexNum} setAppOnTheTop={setAppOnTheTop}>
+    <Window appName="Todo">
       <img src={imagePath} alt="todo" />
     </Window>
   );
