@@ -18,6 +18,7 @@ const Tray = Styled.div`
   bottom: 0;
   position: fixed;
   background: rgba(0, 0, 0, 0.6);
+  z-index: 5000000;
 `;
 
 const LeftIcons = Styled.div`
