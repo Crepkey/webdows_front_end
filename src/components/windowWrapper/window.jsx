@@ -63,6 +63,7 @@ const Window = props => {
       handle="strong"
       position={positionOfApps[appName]}
       onStop={(event, position) => saveAppPosition(position, props.children)}
+      onStart={() => setAppOnTheTop(props.children)}
     >
       <Frame
         zindex={orderOfApps[appName]}
