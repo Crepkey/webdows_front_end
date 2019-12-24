@@ -62,7 +62,7 @@ export const ApplicationProvider = props => {
     setOrderOfApps(currentOrderOfApps);
   };
 
-  const saveAppPosition = (event, ui, app) => {
+  const saveAppPosition = (position, app) => {
     let appName; /* TODO: Extract to a method */
 
     if (app._owner !== null) {
@@ -70,9 +70,9 @@ export const ApplicationProvider = props => {
     } else appName = app.type.name;
 
     const currentPositionOfApps = { ...positionOfApps };
-    const x = currentPositionOfApps[appName].x;
-    const y = currentPositionOfApps[appName].y;
-    currentPositionOfApps[appName] = { x: x + ui.deltaX, y: y + ui.deltaY };
+    currentPositionOfApps[appName].x = position.x;
+    currentPositionOfApps[appName].y = position.y;
+
     setPositionOfApps(currentPositionOfApps);
   };
 

@@ -1,5 +1,5 @@
 /* React */
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Draggable from "react-draggable";
 
 /* Component */
@@ -15,8 +15,6 @@ const Frame = Styled.div`
   padding: 8px;
   display: inline-block;
   position: absolute;
-  top: ${props => props.top}
-  left: ${props => props.left}
   z-index: ${props => props.zindex};
   
   /* Border */
@@ -54,22 +52,21 @@ const Window = props => {
     ApplicationContext
   );
 
-  let top = positionOfApps[props.children._owner.type.name].y + "px";
-  let left = positionOfApps[props.children._owner.type.name].x + "px";
-  console.log(top);
-  console.log(left);
+  const appName = props.children._owner.type.name;
+
+  const onControlledDragStop = (e, position) => {
+    saveAppPosition(position, props.children);
+  };
 
   return (
     <Draggable
       handle="strong"
-      /* FIXME: OnStop event handler could better because it needs less perfomance for calculating */
-      onDrag={(event, ui) => saveAppPosition(event, ui, props.children)}
+      position={positionOfApps[appName]}
+      onStop={onControlledDragStop}
     >
       <Frame
         zindex={props.zindex}
         onClick={() => props.setAppOnTheTop(props.children)}
-        top={top}
-        left={left}
       >
         <strong>
           <TitleBar>
