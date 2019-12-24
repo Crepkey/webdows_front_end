@@ -1,5 +1,5 @@
 /* React */
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import Draggable from "react-draggable";
 
 /* Component */
@@ -54,15 +54,11 @@ const Window = props => {
 
   const appName = props.children._owner.type.name;
 
-  const onControlledDragStop = (e, position) => {
-    saveAppPosition(position, props.children);
-  };
-
   return (
     <Draggable
       handle="strong"
       position={positionOfApps[appName]}
-      onStop={onControlledDragStop}
+      onStop={(event, position) => saveAppPosition(position, props.children)}
     >
       <Frame
         zindex={props.zindex}
