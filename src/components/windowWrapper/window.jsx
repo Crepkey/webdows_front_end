@@ -48,9 +48,13 @@ const HandlerButtonsContainer = Styled.div`
 `;
 
 const Window = props => {
-  const { closeApp, saveAppPosition, positionOfApps } = useContext(
-    ApplicationContext
-  );
+  const {
+    closeApp,
+    setAppOnTheTop,
+    saveAppPosition,
+    positionOfApps,
+    orderOfApps
+  } = useContext(ApplicationContext);
 
   const appName = props.children._owner.type.name;
 
@@ -61,8 +65,8 @@ const Window = props => {
       onStop={(event, position) => saveAppPosition(position, props.children)}
     >
       <Frame
-        zindex={props.zindex}
-        onClick={() => props.setAppOnTheTop(props.children)}
+        zindex={orderOfApps[appName]}
+        onClick={() => setAppOnTheTop(props.children)}
       >
         <strong>
           <TitleBar>
