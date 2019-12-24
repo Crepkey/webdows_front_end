@@ -95,5 +95,3 @@ const Window = props => {
 export default Window;
 
 /* TODO:  Here need to set the opacity of the border to be compatible with all the browsers*/
-/* TODO: I need to check the setAppOnTheTop func. why this comp gets from the outside as a props. Maybe, I did a mistake? */
-/* REFACTOR: Maybe, all of the data which comes into this comp as a props would come from context */
