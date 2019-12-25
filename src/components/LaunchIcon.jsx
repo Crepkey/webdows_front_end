@@ -29,7 +29,7 @@ const AppName = Styled.span`
 const LaunchIcon = props => {
   return (
     <Draggable grid={[120, 120]}>
-      <IconContainer onClick={props.onClick}>
+      <IconContainer onDoubleClick={props.onClick}>
         <LauncherIcon
           src={props.iconPath}
           alt="launcher_icon"
