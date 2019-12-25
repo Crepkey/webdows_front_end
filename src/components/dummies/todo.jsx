@@ -10,7 +10,7 @@ import imagePath from "../../img/dummyApps/dummy_todo.png";
 const Todo = () => {
   return (
     <Window appName="Todo">
-      <img src={imagePath} alt="todo" />
+      <img src={imagePath} alt="todo" draggable={false} />
     </Window>
   );
 };
