@@ -14,6 +14,9 @@ import Todo from "./dummies/todo";
 
 /* Desktop Icons */
 import WeatherLaunchIcon from "../img/desktopIcons/weather-app.png";
+import CalculatorLaunchIcon from "../img/desktopIcons/calc-app.png";
+import TodoLaunchIcon from "../img/desktopIcons/todo-app.png";
+import DummyLaunchIcon from "../img/desktopIcons/dummy-app.png";
 
 /* Styles */
 import Styled from "styled-components";
@@ -36,24 +39,24 @@ const DesktopIcons = () => {
 
       <LaunchIcon
         onClick={() => startApp(<DummyDiv />)}
-        iconPath={WeatherLaunchIcon}
+        iconPath={DummyLaunchIcon}
         iconText="DummyDiv"
       />
 
       <LaunchIcon
         onClick={() => startApp(<DummyDiv2 />)}
-        iconPath={WeatherLaunchIcon}
+        iconPath={DummyLaunchIcon}
         iconText="DummyDiv2"
       />
 
       <LaunchIcon
         onClick={() => startApp(<Calculator />)}
-        iconPath={WeatherLaunchIcon}
+        iconPath={CalculatorLaunchIcon}
         iconText="Calculator"
       />
       <LaunchIcon
         onClick={() => startApp(<Todo />)}
-        iconPath={WeatherLaunchIcon}
+        iconPath={TodoLaunchIcon}
         iconText="Todo"
       />
     </IconsContainer>
