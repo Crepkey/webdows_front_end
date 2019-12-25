@@ -1,5 +1,6 @@
 /* React */
 import React from "react";
+import Draggable from "react-draggable";
 
 /* Styles */
 import Styled from "styled-components";
@@ -27,15 +28,18 @@ const AppName = Styled.span`
 
 const LaunchIcon = props => {
   return (
-    <IconContainer onClick={props.onClick}>
-      <LauncherIcon
-        src={props.iconPath}
-        alt="launcher_icon"
-        height="75px"
-        width="75px"
-      />
-      <AppName>{props.iconText}</AppName>
-    </IconContainer>
+    <Draggable grid={[120, 120]}>
+      <IconContainer onClick={props.onClick}>
+        <LauncherIcon
+          src={props.iconPath}
+          alt="launcher_icon"
+          height="75px"
+          width="75px"
+          draggable={false}
+        />
+        <AppName>{props.iconText}</AppName>
+      </IconContainer>
+    </Draggable>
   );
 };
 
