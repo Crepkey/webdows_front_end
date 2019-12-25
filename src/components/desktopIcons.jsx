@@ -45,7 +45,7 @@ const DesktopIcons = () => {
         size={iconSize}
         onClick={() => startApp(<DummyDiv />, DummyLaunchIcon)}
         iconPath={DummyLaunchIcon}
-        iconText="DummyDiv"
+        iconText="Dummy"
         shadow={true}
         padding="15px"
       />
@@ -54,7 +54,7 @@ const DesktopIcons = () => {
         size={iconSize}
         onClick={() => startApp(<DummyDiv2 />, DummyLaunchIcon)}
         iconPath={DummyLaunchIcon}
-        iconText="DummyDiv2"
+        iconText="Fake"
         shadow={true}
         padding="15px"
       />

@@ -9,7 +9,6 @@ import { ApplicationContext } from "../applicationContext";
 /* Comps */
 
 import LaunchIcon from "../launchIcon.jsx";
-import TodoLaunchIcon from "../../img/desktopIcons/todo-app.png";
 
 /* FontAwesome */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

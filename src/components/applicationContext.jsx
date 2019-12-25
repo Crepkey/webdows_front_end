@@ -42,7 +42,6 @@ export const ApplicationProvider = props => {
     if (!trayBarIcons.includes(icon)) {
       setTrayBarIcons([...trayBarIcons, icon]);
     }
-    console.log(trayBarIcons);
   };
 
   const closeApp = app => {
@@ -53,6 +52,14 @@ export const ApplicationProvider = props => {
     );
     currentActiveApplications.splice(index, 1);
     setActiveApplications(currentActiveApplications);
+    deactivateIconOnTrayBar(trayBarIcons[index]);
+  };
+
+  const deactivateIconOnTrayBar = icon => {
+    const currentTrayBarIcons = trayBarIcons.filter(
+      actIcon => actIcon !== icon
+    );
+    setTrayBarIcons(currentTrayBarIcons);
   };
 
   /* TODO: Question from Balázs. Which one is better, 
@@ -107,3 +114,4 @@ export const ApplicationProvider = props => {
 };
 
 /* TODO: It could be a nicer solution if I use a general modal for error messages */
+/* TODO: Remove splice from the code where it's possible because it is slower than filter */
