@@ -44,3 +44,4 @@ const LaunchIcon = props => {
 };
 
 export default LaunchIcon;
+
