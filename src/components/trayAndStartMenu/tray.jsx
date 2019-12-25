@@ -2,6 +2,11 @@
 import React, { Component } from "react";
 import moment from "moment";
 
+/* Comps */
+
+import LaunchIcon from "../launchIcon.jsx";
+import TodoLaunchIcon from "../../img/desktopIcons/todo-app.png";
+
 /* FontAwesome */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBell } from "@fortawesome/free-solid-svg-icons";
@@ -15,10 +20,10 @@ import Styled from "styled-components";
 const Tray = Styled.div`
   width: 100%;
   height: 43px;
-  bottom: 0;
   position: fixed;
-  background: rgba(0, 0, 0, 0.6);
+  bottom: 0;
   z-index: 5000000;
+  background: rgba(0, 0, 0, 0.6);
 `;
 
 const LeftIcons = Styled.div`
@@ -70,6 +75,31 @@ const SearchBar = Styled.input`
   }
 `;
 
+const ActiveApps = Styled.div`
+  height: 43px;
+  margin: 0px 20px 0px 20px;
+  float: left;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+`;
+
+const AppContainer = Styled.div`
+  height: 38px;
+  margin: 0px 5px 0px 5px;
+  float: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 4px solid #ff6700;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important
+  };
+`;
+
 const RightIcons = Styled.div`
   height: 43px;
   float: right;
@@ -102,8 +132,7 @@ const NotificationArea = Styled.span`
 
   &:hover {
     background-color: rgba(255, 255, 255, 0.1) !important
-  }import { React } from 'react';
-
+  }
 `;
 
 const NotificationIcon = Styled(FontAwesomeIcon)`
@@ -170,6 +199,22 @@ export default class TrayBar extends Component {
             />
           </form>
         </LeftIcons>
+        <ActiveApps>
+          <AppContainer>
+            <LaunchIcon
+              iconPath={TodoLaunchIcon}
+              size={{ height: "30px", width: "30px" }}
+              padding="5px"
+            />
+          </AppContainer>
+          <AppContainer>
+            <LaunchIcon
+              iconPath={TodoLaunchIcon}
+              size={{ height: "30px", width: "30px" }}
+              padding="5px"
+            />
+          </AppContainer>
+        </ActiveApps>
         <RightIcons>
           <Datetime>
             <DatetimeElem>{moment().format("HH:mm")}</DatetimeElem>

@@ -15,8 +15,12 @@ const IconContainer = Styled.div`
 
 const LauncherIcon = Styled.img`
 display: block;
-  padding: 15px;
-  -webkit-filter: drop-shadow(6px 6px 3px rgba(0,0,0,0.5)); filter: drop-shadow(6px 6px 3px rgba(0,0,0,0.5));
+  padding: ${props => props.padding};
+  -webkit-filter: ${props => {
+    return props.shadow
+      ? "drop-shadow(6px 6px 3px rgba(0,0,0,0.5)); filter: drop-shadow(6px 6px 3px rgba(0,0,0,0.5))"
+      : "";
+  }};
 `;
 
 const AppName = Styled.span`
@@ -33,9 +37,11 @@ const LaunchIcon = props => {
         <LauncherIcon
           src={props.iconPath}
           alt="launcher_icon"
-          height="75px"
-          width="75px"
+          height={props.size.height}
+          width={props.size.width}
           draggable={false}
+          shadow={props.shadow}
+          padding={props.padding}
         />
         <AppName>{props.iconText}</AppName>
       </IconContainer>
@@ -44,4 +50,3 @@ const LaunchIcon = props => {
 };
 
 export default LaunchIcon;
-

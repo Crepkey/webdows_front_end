@@ -28,36 +28,52 @@ const IconsContainer = Styled.div`
 
 const DesktopIcons = () => {
   const { startApp } = useContext(ApplicationContext);
+  const iconSize = { height: "75px", width: "75px" };
 
   return (
     <IconsContainer>
       <LaunchIcon
+        size={iconSize}
         onClick={() => startApp(<WeatherWidget />)}
         iconPath={WeatherLaunchIcon}
         iconText="Weather"
+        shadow={true}
+        padding="15px"
       />
 
       <LaunchIcon
+        size={iconSize}
         onClick={() => startApp(<DummyDiv />)}
         iconPath={DummyLaunchIcon}
         iconText="DummyDiv"
+        shadow={true}
+        padding="15px"
       />
 
       <LaunchIcon
+        size={iconSize}
         onClick={() => startApp(<DummyDiv2 />)}
         iconPath={DummyLaunchIcon}
         iconText="DummyDiv2"
+        shadow={true}
+        padding="15px"
       />
 
       <LaunchIcon
+        size={iconSize}
         onClick={() => startApp(<Calculator />)}
         iconPath={CalculatorLaunchIcon}
         iconText="Calculator"
+        shadow={true}
+        padding="15px"
       />
       <LaunchIcon
+        size={iconSize}
         onClick={() => startApp(<Todo />)}
         iconPath={TodoLaunchIcon}
         iconText="Todo"
+        shadow={true}
+        padding="15px"
       />
     </IconsContainer>
   );
