@@ -4,12 +4,16 @@ import React, { createContext, useState } from "react";
 export const ApplicationContext = createContext();
 
 export const ApplicationProvider = props => {
+  /* REFACTOR: Maybe the data consolidation could be better.
+  If I use an object in activeApplications list which contains every data about the app*/
+
   const [activeApplications, setActiveApplications] = useState([]);
   const [orderOfApps, setOrderOfApps] = useState({});
   const [clickCounter, setClickCounter] = useState(1);
   const [positionOfApps, setPositionOfApps] = useState({});
+  const [trayBarIcons, setTrayBarIcons] = useState([]);
 
-  const startApp = app => {
+  const startApp = (app, icon) => {
     const appName = app.type.name;
     if (activeApplications.find(actApp => actApp.type.name === app.type.name)) {
       return alert("This application is already running");
@@ -27,10 +31,18 @@ export const ApplicationProvider = props => {
     if (!hasAppPosition) {
       setPositionOfApps({ ...positionOfApps, [appName]: { x: 0, y: 0 } });
     }
-
+    /* REFACTOR: I can use the same syntax below as above */
     const currentActiveApplications = [...activeApplications];
     currentActiveApplications.push(app);
     setActiveApplications(currentActiveApplications);
+    activateIconOnTrayBar(icon);
+  };
+
+  const activateIconOnTrayBar = icon => {
+    if (!trayBarIcons.includes(icon)) {
+      setTrayBarIcons([...trayBarIcons, icon]);
+    }
+    console.log(trayBarIcons);
   };
 
   const closeApp = app => {
@@ -82,6 +94,7 @@ export const ApplicationProvider = props => {
         activeApplications: activeApplications,
         orderOfApps: orderOfApps,
         positionOfApps: positionOfApps,
+        trayBarIcons: trayBarIcons,
         startApp: startApp,
         closeApp: closeApp,
         setAppOnTheTop: setAppOnTheTop,

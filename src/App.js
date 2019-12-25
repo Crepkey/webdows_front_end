@@ -32,7 +32,6 @@ function App() {
       {activeApplications.map((app, index) => (
         <React.Fragment key={index}>{app}</React.Fragment>
       ))}
-      {/* FIXME: TrayBar must be on the top before other apps */}
       <TrayBar />
     </React.Fragment>
   );
@@ -41,3 +40,4 @@ function App() {
 export default App;
 
 /* TODO: Blur border for windows https://stackoverflow.com/questions/33820493/css-how-to-blur-background-image-within-the-div */
+/* TODO: I need to set faIcons to the apps */

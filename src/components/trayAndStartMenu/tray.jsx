@@ -2,6 +2,10 @@
 import React, { Component } from "react";
 import moment from "moment";
 
+/* Context */
+
+import { ApplicationContext } from "../applicationContext";
+
 /* Comps */
 
 import LaunchIcon from "../launchIcon.jsx";
@@ -132,7 +136,8 @@ const NotificationArea = Styled.span`
 
   &:hover {
     background-color: rgba(255, 255, 255, 0.1) !important
-  }
+  }import { ApplicationContext } from '../applicationContext';
+
 `;
 
 const NotificationIcon = Styled(FontAwesomeIcon)`
@@ -200,20 +205,15 @@ export default class TrayBar extends Component {
           </form>
         </LeftIcons>
         <ActiveApps>
-          <AppContainer>
-            <LaunchIcon
-              iconPath={TodoLaunchIcon}
-              size={{ height: "30px", width: "30px" }}
-              padding="5px"
-            />
-          </AppContainer>
-          <AppContainer>
-            <LaunchIcon
-              iconPath={TodoLaunchIcon}
-              size={{ height: "30px", width: "30px" }}
-              padding="5px"
-            />
-          </AppContainer>
+          {this.context.trayBarIcons.map(icon => (
+            <AppContainer>
+              <LaunchIcon
+                iconPath={icon}
+                size={{ height: "30px", width: "30px" }}
+                padding="5px"
+              />
+            </AppContainer>
+          ))}
         </ActiveApps>
         <RightIcons>
           <Datetime>
@@ -229,5 +229,7 @@ export default class TrayBar extends Component {
     );
   }
 }
+
+TrayBar.contextType = ApplicationContext;
 
 /* REFACTOR: I must split this class to standalone components */
