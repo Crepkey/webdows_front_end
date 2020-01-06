@@ -19,8 +19,8 @@ const Frame = Styled.div`
   
   /* Border */
   border-radius: 15px;
-  -webkit-background-clip: padding-box; /* for Safari */
-  background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */
+  -webkit-background-clip: padding-box;          /* for Safari */
+  background-clip: padding-box;                 /* for IE9+, Firefox 4+, Opera, Chrome */
   background: rgba(0, 0, 0, .6);
 
   /* Shadow */
@@ -93,5 +93,3 @@ const Window = props => {
 };
 
 export default Window;
-
-/* TODO:  Here need to set the opacity of the border to be compatible with all the browsers*/

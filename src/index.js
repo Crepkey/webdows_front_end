@@ -34,5 +34,3 @@ ReactDOM.render(
   </ApplicationProvider>,
   document.getElementById("root")
 );
-
-/* TODO: The CSS settings of root div is not correct. I need to check it out */
