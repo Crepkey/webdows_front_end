@@ -7,20 +7,8 @@ import CurrentWeather from "./currentWeather/currentWeather";
 import WeatherForecasts from "./weatherForecasts/weatherForecasts";
 import Window from "../windowWrapper/window";
 
-/* FontAwesome stuffs */
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUmbrella } from "@fortawesome/free-solid-svg-icons";
-
 /* Styles */
 import Styled from "styled-components";
-
-/* FIXME: This setting become invalid CSS property in the dom */
-const AppIcon = Styled(FontAwesomeIcon)`
-  color: white;
-  font-size: 18px;
-  margin: 0px 10px 0px 5px;
-  filter: drop-shadow(2px 4px 3px #000000);
-`;
 
 const WeatherWidgetContainer = Styled.div`
   display: flex;
@@ -150,7 +138,7 @@ class WeatherWidget extends Component {
 
   render() {
     return (
-      <Window appName="Wheather Widget" appIcon={<AppIcon icon={faUmbrella} />}>
+      <Window appName="Wheather Widget">
         <WeatherWidgetContainer>
           <CurrentWeather currentWeather={this.state.currentWeather} />
           <WeatherForecasts weatherForecasts={this.state.weatherForecasts} />

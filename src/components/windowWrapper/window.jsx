@@ -80,10 +80,7 @@ const Window = props => {
               <HandlerButton color="rgba(68, 199, 103);" type="maximizing" />
               <HandlerButton color="rgba(247, 190, 0);" type="minimizing" />
             </HandlerButtonsContainer>
-            <TitleBarText>
-              {props.appIcon}
-              {props.appName}
-            </TitleBarText>
+            <TitleBarText>{props.appName}</TitleBarText>
           </TitleBar>
         </strong>
         {props.children}
