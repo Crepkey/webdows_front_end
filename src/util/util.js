@@ -16,3 +16,16 @@ export function createURL(baseURL, queryParams) {
   );
   return basicURL;
 }
+
+/**
+ * @param {Component} app  This component is a composition which aggregates all of the sub components of an application.
+ *
+ * @return {string}        This function returns a string which is the name of the app (comp)
+ */
+export function getAppName(app) {
+  let appName;
+  if (app._owner !== null) {
+    appName = app._owner.type.name;
+  } else appName = app.type.name;
+  return appName;
+}

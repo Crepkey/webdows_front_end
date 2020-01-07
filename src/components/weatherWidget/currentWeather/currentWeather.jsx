@@ -64,6 +64,3 @@ const CurrentWeather = props => {
 };
 
 export default CurrentWeather;
-
-/* TODO: I use Large-Text styled-component three times in other places. 
-It could be good if I created a global style based on this value */

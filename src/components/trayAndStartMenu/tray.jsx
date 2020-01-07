@@ -230,5 +230,3 @@ export default class TrayBar extends Component {
 }
 
 TrayBar.contextType = ApplicationContext;
-
-/* REFACTOR: I must split this class to standalone components */

@@ -1,12 +1,13 @@
 /* React */
 import React, { createContext, useState } from "react";
 
+/* Util */
+
+import { getAppName } from "../util/util";
+
 export const ApplicationContext = createContext();
 
 export const ApplicationProvider = props => {
-  /* REFACTOR: Maybe the data consolidation could be better.
-  If I use an object in activeApplications list which contains every data about the app*/
-
   const [activeApplications, setActiveApplications] = useState([]);
   const [orderOfApps, setOrderOfApps] = useState({});
   const [clickCounter, setClickCounter] = useState(1);
@@ -31,7 +32,6 @@ export const ApplicationProvider = props => {
     if (!hasAppPosition) {
       setPositionOfApps({ ...positionOfApps, [appName]: { x: 0, y: 0 } });
     }
-    /* REFACTOR: I can use the same syntax below as above */
     const currentActiveApplications = [...activeApplications];
     currentActiveApplications.push(app);
     setActiveApplications(currentActiveApplications);
@@ -62,19 +62,10 @@ export const ApplicationProvider = props => {
     setTrayBarIcons(currentTrayBarIcons);
   };
 
-  /* TODO: Question from Balázs. Which one is better, 
-  if I pass the app object as an argument or I pass only the app's name? 
-  If I use only the app name, the checking is not necessary */
-
   /* TODO: It could be a nicer solution if I reset the counter and remove the item from the orderOfApps list */
 
   const setAppOnTheTop = app => {
-    let appName;
-
-    if (app._owner !== null) {
-      appName = app._owner.type.name;
-    } else appName = app.type.name;
-
+    let appName = getAppName(app);
     const currentOrderOfApps = { ...orderOfApps };
     currentOrderOfApps[appName] = clickCounter;
     setClickCounter(clickCounter + 1);
@@ -82,16 +73,10 @@ export const ApplicationProvider = props => {
   };
 
   const saveAppPosition = (position, app) => {
-    let appName; /* TODO: Extract to a method */
-
-    if (app._owner !== null) {
-      appName = app._owner.type.name;
-    } else appName = app.type.name;
-
+    let appName = getAppName(app);
     const currentPositionOfApps = { ...positionOfApps };
     currentPositionOfApps[appName].x = position.x;
     currentPositionOfApps[appName].y = position.y;
-
     setPositionOfApps(currentPositionOfApps);
   };
 
@@ -114,4 +99,3 @@ export const ApplicationProvider = props => {
 };
 
 /* TODO: It could be a nicer solution if I use a general modal for error messages */
-/* TODO: Remove splice from the code where it's possible because it is slower than filter */
