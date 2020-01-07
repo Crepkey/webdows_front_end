@@ -16,11 +16,10 @@ const IconContainer = Styled.div`
 const LauncherIcon = Styled.img`
 display: block;
   padding: ${props => props.padding};
-  -webkit-filter: ${props => {
-    return props.shadow
+  -webkit-filter: ${props =>
+    props.shadow
       ? "drop-shadow(6px 6px 3px rgba(0,0,0,0.5)); filter: drop-shadow(6px 6px 3px rgba(0,0,0,0.5))"
-      : "";
-  }};
+      : ""};
 `;
 
 const AppName = Styled.span`
