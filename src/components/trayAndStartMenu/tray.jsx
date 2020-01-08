@@ -165,24 +165,26 @@ const ShowDesktopButton = Styled.span`
 `;
 
 export default class TrayBar extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      searchedExpression: ""
-    };
-  }
+  state = {
+    searchedExpression: "",
+    startMenuIsActive: false
+  };
 
   handleChange = event => {
     this.setState({ searchedExpression: event.target.value });
   };
 
+  openStartMenu = () => {
+    this.setState({ startMenuIsActive: !this.state.startMenuIsActive });
+  };
+
   render() {
     return (
       <React.Fragment>
-        <StartMenu />
+        {this.state.startMenuIsActive && <StartMenu />}
         <Tray>
           <LeftIcons>
-            <StartButton>
+            <StartButton onClick={this.openStartMenu}>
               <WindowsLogo>
                 <WinLogo />
               </WindowsLogo>
