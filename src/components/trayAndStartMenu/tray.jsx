@@ -9,6 +9,7 @@ import { ApplicationContext } from "../applicationContext";
 /* Comps */
 
 import LaunchIcon from "../launchIcon.jsx";
+import StartMenu from "./startMenu";
 
 /* FontAwesome */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -177,54 +178,57 @@ export default class TrayBar extends Component {
 
   render() {
     return (
-      <Tray>
-        <LeftIcons>
-          <StartButton>
-            <WindowsLogo>
-              <WinLogo />
-            </WindowsLogo>
-          </StartButton>
-          <form
-            onSubmit={event => {
-              event.preventDefault();
-              window.open(
-                "https://www.google.com/search?q=" +
-                  this.state.searchedExpression,
-                "_blank"
-              );
-            }}
-          >
-            <SearchBar
-              type="text"
-              placeholder="Type here to search on Google"
-              onChange={this.handleChange}
-              value={this.state.searchedExpression}
-              name="searchBar"
-            />
-          </form>
-        </LeftIcons>
-        <ActiveApps>
-          {this.context.trayBarIcons.map((icon, index) => (
-            <AppContainer key={index}>
-              <LaunchIcon
-                iconPath={icon}
-                size={{ height: "30px", width: "30px" }}
-                padding="5px"
+      <React.Fragment>
+        <StartMenu />
+        <Tray>
+          <LeftIcons>
+            <StartButton>
+              <WindowsLogo>
+                <WinLogo />
+              </WindowsLogo>
+            </StartButton>
+            <form
+              onSubmit={event => {
+                event.preventDefault();
+                window.open(
+                  "https://www.google.com/search?q=" +
+                    this.state.searchedExpression,
+                  "_blank"
+                );
+              }}
+            >
+              <SearchBar
+                type="text"
+                placeholder="Type here to search on Google"
+                onChange={this.handleChange}
+                value={this.state.searchedExpression}
+                name="searchBar"
               />
-            </AppContainer>
-          ))}
-        </ActiveApps>
-        <RightIcons>
-          <Datetime>
-            <DatetimeElem>{moment().format("HH:mm")}</DatetimeElem>
-            <DatetimeElem>{moment().format("YYYY-MM-DD")}</DatetimeElem>
-          </Datetime>
-          <NotificationArea>
-            <NotificationIcon icon={faBell} />
-          </NotificationArea>
-          <ShowDesktopButton />
-        </RightIcons>
-      </Tray>
+            </form>
+          </LeftIcons>
+          <ActiveApps>
+            {this.context.trayBarIcons.map((icon, index) => (
+              <AppContainer key={index}>
+                <LaunchIcon
+                  iconPath={icon}
+                  size={{ height: "30px", width: "30px" }}
+                  padding="5px"
+                />
+              </AppContainer>
+            ))}
+          </ActiveApps>
+          <RightIcons>
+            <Datetime>
+              <DatetimeElem>{moment().format("HH:mm")}</DatetimeElem>
+              <DatetimeElem>{moment().format("YYYY-MM-DD")}</DatetimeElem>
+            </Datetime>
+            <NotificationArea>
+              <NotificationIcon icon={faBell} />
+            </NotificationArea>
+            <ShowDesktopButton />
+          </RightIcons>
+        </Tray>
+      </React.Fragment>
     );
   }
 }
