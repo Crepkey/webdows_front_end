@@ -4,10 +4,10 @@ import React from "react";
 /* Styles */
 import Styled, { keyframes } from "styled-components";
 
-const OpenAnimationForControlBar = keyframes`
+const ControlBarAnim = keyframes`
     0% {
       height: 0px;
-      opacity: 0.5;
+      opacity: 0.1;
     }
     100% {
       height: 600px;
@@ -15,14 +15,20 @@ const OpenAnimationForControlBar = keyframes`
     } 
 `;
 
-const OpenAnimationForMainContainer = keyframes`
+const MainContainerAnim = keyframes`
+    0% {
+      height: 0px;
+      opacity: 0.1;
+      width: 64px;
+    }
     50% {
-      width: 0px;
-      opacity: 0.5;
+      height: 600px;
+      width: 64px;
+      opacity: 0.4;
     }
     100% {
       width: 400px;
-      opacity: 0.6;
+      opacity: 0.4;
     } 
 `;
 
@@ -35,7 +41,7 @@ const MainContainer = Styled.div`
   cursor: default;
   color: white;
   background: #000000;
-  animation-name: ${OpenAnimationForMainContainer}
+  animation-name: ${MainContainerAnim}
   animation-duration: 2s;
   animation-fill-mode: forwards;
 `;
@@ -48,7 +54,7 @@ const ControlBar = Styled.div`
   width: 64px;
   color: white;
   background: #000000;
-  animation-name: ${OpenAnimationForControlBar}
+  animation-name: ${ControlBarAnim}
   animation-duration: 1s;
   animation-fill-mode: forwards;
 `;

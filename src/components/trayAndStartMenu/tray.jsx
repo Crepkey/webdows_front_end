@@ -45,6 +45,8 @@ const StartButton = Styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: ${props =>
+    props.active ? "rgba(0, 0, 0, 0.6)" : "rgba(0, 0, 0, 0)"};
 
   &:hover {
     background-color: rgba(255, 255, 255, 0.1) !important
@@ -174,7 +176,7 @@ export default class TrayBar extends Component {
     this.setState({ searchedExpression: event.target.value });
   };
 
-  openStartMenu = () => {
+  toggleStartMenu = () => {
     this.setState({ startMenuIsActive: !this.state.startMenuIsActive });
   };
 
@@ -184,7 +186,10 @@ export default class TrayBar extends Component {
         {this.state.startMenuIsActive && <StartMenu />}
         <Tray>
           <LeftIcons>
-            <StartButton onClick={this.openStartMenu}>
+            <StartButton
+              onClick={this.toggleStartMenu}
+              active={this.state.startMenuIsActive}
+            >
               <WindowsLogo>
                 <WinLogo />
               </WindowsLogo>
@@ -236,3 +241,5 @@ export default class TrayBar extends Component {
 }
 
 TrayBar.contextType = ApplicationContext;
+
+/* REFACTOR: I must split this comp to subcomps because it's too long and therefore it is too difficult to read */
