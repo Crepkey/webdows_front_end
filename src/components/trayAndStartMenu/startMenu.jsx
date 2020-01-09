@@ -41,6 +41,7 @@ const MainContainerAnim = keyframes`
       background: rgba(0, 0, 0, 0.4);
     }
     100% {
+      height: 600px;
       width: 400px;
       background: rgba(0, 0, 0, 0.4);
     } 
@@ -50,7 +51,6 @@ const MainContainer = Styled.div`
   position: absolute;
   left: 0px;
   bottom: 43px;
-  height: 600px;
   z-index: 999998;
   cursor: default;
   color: white;
@@ -107,10 +107,10 @@ const StartMenu = () => {
         </ControlButton>
       </ControlBar>
       <MainContainer>
-        <MenuItem iconPath={WeatherLaunchIcon} itemName={"Weather"} />
+        <MenuItem iconPath={WeatherLaunchIcon} itemName={"Weather Forecasts"} />
         <MenuItem iconPath={CalculatorLaunchIcon} itemName={"Calculator"} />
-        <MenuItem iconPath={TodoLaunchIcon} itemName={"Todo"} />
-        <MenuItem iconPath={DummyLaunchIcon} itemName={"Dummy"} />
+        <MenuItem iconPath={TodoLaunchIcon} itemName={"To-Do List App"} />
+        <MenuItem iconPath={DummyLaunchIcon} itemName={"Dummy Application"} />
       </MainContainer>
     </React.Fragment>
   );

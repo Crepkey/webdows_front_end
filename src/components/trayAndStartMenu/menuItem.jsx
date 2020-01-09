@@ -3,8 +3,27 @@ import React from "react";
 
 /* Comps */
 
-/* Styles */
+/* Styles & Animations*/
 import Styled from "styled-components";
+import { keyframes } from "styled-components";
+
+const ItemsAnim = keyframes`
+    0%{
+      opacity: 0;
+      -webkit-filter: blur(20px);
+      filter: blur(20px);
+    }
+    50%{
+      opacity: 0;
+      -webkit-filter: blur(20px);
+      filter: blur(20px);
+    }
+    100%{
+      opacity: 1;
+      -webkit-filter: blur(0px);
+      filter: blur(0px);
+    }
+`;
 
 const LauncherIcon = Styled.img`
     display: block;
@@ -21,6 +40,9 @@ const Item = Styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
+    animation-name: ${ItemsAnim};
+    animation-duration: 2s;
+    animation-fill-mode: forward;
 
     &:hover {
       background-color: rgba(255, 103, 0, 1) !important
