@@ -6,6 +6,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPowerOff } from "@fortawesome/free-solid-svg-icons";
 import { faCog } from "@fortawesome/free-solid-svg-icons";
 
+/* Comps */
+import MenuItem from "./menuItem";
+
 /* Styles */
 import Styled, { keyframes } from "styled-components";
 
@@ -97,7 +100,9 @@ const StartMenu = () => {
           <Icon icon={faPowerOff} />
         </ControlButton>
       </ControlBar>
-      <MainContainer />
+      <MainContainer>
+        <MenuItem />
+      </MainContainer>
     </React.Fragment>
   );
 };
