@@ -1,34 +1,39 @@
 /* React */
 import React from "react";
 
+/* FontAwesome*/
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPowerOff } from "@fortawesome/free-solid-svg-icons";
+import { faCog } from "@fortawesome/free-solid-svg-icons";
+
 /* Styles */
 import Styled, { keyframes } from "styled-components";
 
 const ControlBarAnim = keyframes`
     0% {
       height: 0px;
-      opacity: 0.1;
+      background: rgba(0, 0, 0, 0.1);
     }
     100% {
       height: 600px;
-      opacity: 0.6;
+      background: rgba(0, 0, 0, 0.6);
     } 
 `;
 
 const MainContainerAnim = keyframes`
     0% {
       height: 0px;
-      opacity: 0.1;
+      background: rgba(0, 0, 0, 0.1);
       width: 64px;
     }
     50% {
       height: 600px;
       width: 64px;
-      opacity: 0.4;
+      background: rgba(0, 0, 0, 0.4);
     }
     100% {
       width: 400px;
-      opacity: 0.4;
+      background: rgba(0, 0, 0, 0.4);
     } 
 `;
 
@@ -37,12 +42,11 @@ const MainContainer = Styled.div`
   left: 0px;
   bottom: 43px;
   height: 600px;
-  z-index: 999999;
+  z-index: 999998;
   cursor: default;
   color: white;
-  background: #000000;
   animation-name: ${MainContainerAnim}
-  animation-duration: 2s;
+  animation-duration: 1s;
   animation-fill-mode: forwards;
 `;
 
@@ -53,16 +57,49 @@ const ControlBar = Styled.div`
   z-index: 999999;
   width: 64px;
   color: white;
-  background: #000000;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   animation-name: ${ControlBarAnim}
-  animation-duration: 1s;
+  animation-duration: 0.5s;
   animation-fill-mode: forwards;
 `;
 
+const Icon = Styled(FontAwesomeIcon)`
+    color: white;
+    position: relative;
+    z-index: 1000000;
+    font-size: 20px;
+`;
+
+const ControlButton = Styled.div`
+  height: 43px;
+  width: 64px;
+  margin: 0px 10px 0px 0px
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0,0,0,0);
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+`;
+
+const WebdowsText = Styled.div`
+    
+`;
 const StartMenu = () => {
   return (
     <React.Fragment>
-      <ControlBar />
+      <ControlBar>
+        <ControlButton>
+          <Icon icon={faCog} />
+        </ControlButton>
+        <ControlButton>
+          <Icon icon={faPowerOff} />
+        </ControlButton>
+      </ControlBar>
       <MainContainer />
     </React.Fragment>
   );
