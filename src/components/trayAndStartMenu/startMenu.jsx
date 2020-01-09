@@ -9,6 +9,12 @@ import { faCog } from "@fortawesome/free-solid-svg-icons";
 /* Comps */
 import MenuItem from "./menuItem";
 
+/* Start Menu Icons */
+import WeatherLaunchIcon from "../../img/desktopIcons/weather-app.png";
+import CalculatorLaunchIcon from "../../img/desktopIcons/calc-app.png";
+import TodoLaunchIcon from "../../img/desktopIcons/todo-app.png";
+import DummyLaunchIcon from "../../img/desktopIcons/dummy-app.png";
+
 /* Styles */
 import Styled, { keyframes } from "styled-components";
 
@@ -101,7 +107,10 @@ const StartMenu = () => {
         </ControlButton>
       </ControlBar>
       <MainContainer>
-        <MenuItem />
+        <MenuItem iconPath={WeatherLaunchIcon} itemName={"Weather"} />
+        <MenuItem iconPath={CalculatorLaunchIcon} itemName={"Calculator"} />
+        <MenuItem iconPath={TodoLaunchIcon} itemName={"Todo"} />
+        <MenuItem iconPath={DummyLaunchIcon} itemName={"Dummy"} />
       </MainContainer>
     </React.Fragment>
   );
