@@ -51,7 +51,7 @@ const Item = Styled.div`
 
 const MenuItem = props => {
   return (
-    <Item>
+    <Item onClick={props.onClick}>
       <LauncherIcon
         src={props.iconPath}
         alt="launcher_icon"

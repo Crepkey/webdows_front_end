@@ -1,5 +1,8 @@
 /* React */
-import React from "react";
+import React, { useContext } from "react";
+
+/* Context */
+import { ApplicationContext } from "../applicationContext";
 
 /* FontAwesome*/
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -8,6 +11,10 @@ import { faCog } from "@fortawesome/free-solid-svg-icons";
 
 /* Comps */
 import MenuItem from "./menuItem";
+import WeatherWidget from "../weatherWidget/weatherWidget";
+import Calculator from "../dummies/calc";
+import Todo from "../dummies/todo";
+import DummyDiv from "../dummies/dummyDiv";
 
 /* Start Menu Icons */
 import WeatherLaunchIcon from "../../img/desktopIcons/weather-app.png";
@@ -15,7 +22,7 @@ import CalculatorLaunchIcon from "../../img/desktopIcons/calc-app.png";
 import TodoLaunchIcon from "../../img/desktopIcons/todo-app.png";
 import DummyLaunchIcon from "../../img/desktopIcons/dummy-app.png";
 
-/* Styles */
+/* Styles & Animations*/
 import Styled, { keyframes } from "styled-components";
 
 const ControlBarAnim = keyframes`
@@ -101,6 +108,8 @@ const ControlButton = Styled.div`
 `;
 
 const StartMenu = () => {
+  const { startApp } = useContext(ApplicationContext);
+
   return (
     <React.Fragment>
       <ControlBar>
@@ -112,10 +121,26 @@ const StartMenu = () => {
         </ControlButton>
       </ControlBar>
       <MainContainer>
-        <MenuItem iconPath={WeatherLaunchIcon} itemName={"Weather Forecasts"} />
-        <MenuItem iconPath={CalculatorLaunchIcon} itemName={"Calculator"} />
-        <MenuItem iconPath={TodoLaunchIcon} itemName={"To-Do List App"} />
-        <MenuItem iconPath={DummyLaunchIcon} itemName={"Dummy Application"} />
+        <MenuItem
+          onClick={() => startApp(<WeatherWidget />, WeatherLaunchIcon)}
+          iconPath={WeatherLaunchIcon}
+          itemName={"Weather Forecasts"}
+        />
+        <MenuItem
+          onClick={() => startApp(<Calculator />, CalculatorLaunchIcon)}
+          iconPath={CalculatorLaunchIcon}
+          itemName={"Calculator"}
+        />
+        <MenuItem
+          onClick={() => startApp(<Todo />, TodoLaunchIcon)}
+          iconPath={TodoLaunchIcon}
+          itemName={"To-Do List App"}
+        />
+        <MenuItem
+          onClick={() => startApp(<DummyDiv />, DummyLaunchIcon)}
+          iconPath={DummyLaunchIcon}
+          itemName={"Dummy Application"}
+        />
       </MainContainer>
     </React.Fragment>
   );
