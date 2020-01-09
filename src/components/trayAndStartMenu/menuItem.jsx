@@ -23,7 +23,7 @@ const Item = Styled.div`
     align-items: center;
 
     &:hover {
-      background-color: rgba(255, 255, 255, 0.1) !important
+      background-color: rgba(255, 103, 0, 1) !important
     }
 `;
 
