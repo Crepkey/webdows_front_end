@@ -41,7 +41,7 @@ const Item = Styled.div`
     flex-direction: row;
     align-items: center;
     animation-name: ${ItemsAnim};
-    animation-duration: 2s;
+    animation-duration: 1.5s;
     animation-fill-mode: forward;
 
     &:hover {
