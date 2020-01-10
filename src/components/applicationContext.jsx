@@ -39,7 +39,7 @@ export const ApplicationProvider = props => {
   };
 
   const activateIconOnTrayBar = (app, icon) => {
-    let isIconOnTheTrayBar = function() {
+    const isIconOnTheTrayBar = function() {
       for (let app of trayBarIcons) {
         let appIcon = Object.keys(app)[0];
         if (appIcon === icon) {
