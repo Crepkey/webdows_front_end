@@ -35,12 +35,23 @@ export const ApplicationProvider = props => {
     const currentActiveApplications = [...activeApplications];
     currentActiveApplications.push(app);
     setActiveApplications(currentActiveApplications);
-    activateIconOnTrayBar(icon);
+    activateIconOnTrayBar(app, icon);
   };
 
-  const activateIconOnTrayBar = icon => {
-    if (!trayBarIcons.includes(icon)) {
-      setTrayBarIcons([...trayBarIcons, icon]);
+  const activateIconOnTrayBar = (app, icon) => {
+    let isIconOnTheTrayBar = function() {
+      for (let app of trayBarIcons) {
+        for (let appIcon in app) {
+          if (appIcon === icon) {
+            return true;
+          }
+        }
+      }
+      return false;
+    };
+
+    if (!isIconOnTheTrayBar()) {
+      setTrayBarIcons([...trayBarIcons, { [icon]: app }]);
     }
   };
 

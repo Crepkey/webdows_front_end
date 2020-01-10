@@ -34,7 +34,7 @@ const DesktopIcons = () => {
     <IconsContainer>
       <LaunchIcon
         size={iconSize}
-        onClick={() => startApp(<WeatherWidget />, WeatherLaunchIcon)}
+        onDoubleClick={() => startApp(<WeatherWidget />, WeatherLaunchIcon)}
         iconPath={WeatherLaunchIcon}
         iconText="Weather"
         shadow={true}
@@ -43,7 +43,7 @@ const DesktopIcons = () => {
 
       <LaunchIcon
         size={iconSize}
-        onClick={() => startApp(<DummyDiv />, DummyLaunchIcon)}
+        onDoubleClick={() => startApp(<DummyDiv />, DummyLaunchIcon)}
         iconPath={DummyLaunchIcon}
         iconText="Dummy"
         shadow={true}
@@ -52,7 +52,7 @@ const DesktopIcons = () => {
 
       <LaunchIcon
         size={iconSize}
-        onClick={() => startApp(<DummyDiv2 />, DummyLaunchIcon)}
+        onDoubleClick={() => startApp(<DummyDiv2 />, DummyLaunchIcon)}
         iconPath={DummyLaunchIcon}
         iconText="Fake"
         shadow={true}
@@ -61,7 +61,7 @@ const DesktopIcons = () => {
 
       <LaunchIcon
         size={iconSize}
-        onClick={() => startApp(<Calculator />, CalculatorLaunchIcon)}
+        onDoubleClick={() => startApp(<Calculator />, CalculatorLaunchIcon)}
         iconPath={CalculatorLaunchIcon}
         iconText="Calculator"
         shadow={true}
@@ -69,7 +69,7 @@ const DesktopIcons = () => {
       />
       <LaunchIcon
         size={iconSize}
-        onClick={() => startApp(<Todo />, TodoLaunchIcon)}
+        onDoubleClick={() => startApp(<Todo />, TodoLaunchIcon)}
         iconPath={TodoLaunchIcon}
         iconText="Todo"
         shadow={true}

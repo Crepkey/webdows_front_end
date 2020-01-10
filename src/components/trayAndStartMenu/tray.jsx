@@ -8,8 +8,9 @@ import { ApplicationContext } from "../applicationContext";
 
 /* Comps */
 
-import LaunchIcon from "../launchIcon.jsx";
+/* import TrayBarIcon from "./trayBarIcon"; */
 import StartMenu from "./startMenu";
+import LaunchIcon from "../launchIcon";
 
 /* FontAwesome */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -139,6 +140,7 @@ const NotificationArea = Styled.span`
   &:hover {
     background-color: rgba(255, 255, 255, 0.1) !important
   }import { ApplicationContext } from '../applicationContext';
+import LaunchIcon from '../launchIcon';
 
 `;
 
@@ -217,9 +219,12 @@ export default class TrayBar extends Component {
             {this.context.trayBarIcons.map((icon, index) => (
               <AppContainer key={index}>
                 <LaunchIcon
-                  iconPath={icon}
+                  iconPath={Object.keys(icon)[0]}
                   size={{ height: "30px", width: "30px" }}
                   padding="5px"
+                  onClick={() =>
+                    this.context.setAppOnTheTop(icon[Object.keys(icon)[0]])
+                  }
                 />
               </AppContainer>
             ))}
