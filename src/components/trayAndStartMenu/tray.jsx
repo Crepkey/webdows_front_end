@@ -216,14 +216,16 @@ export default class TrayBar extends Component {
             </form>
           </LeftIcons>
           <ActiveApps>
-            {this.context.trayBarIcons.map((icon, index) => (
+            {this.context.trayBarIcons.map((iconObjWithApp, index) => (
               <AppContainer key={index}>
                 <LaunchIcon
-                  iconPath={Object.keys(icon)[0]}
+                  iconPath={Object.keys(iconObjWithApp)[0]}
                   size={{ height: "30px", width: "30px" }}
                   padding="5px"
                   onClick={() =>
-                    this.context.setAppOnTheTop(icon[Object.keys(icon)[0]])
+                    this.context.handleAppFromTrayBar(
+                      iconObjWithApp[Object.keys(iconObjWithApp)[0]]
+                    )
                   }
                 />
               </AppContainer>

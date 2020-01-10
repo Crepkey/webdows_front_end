@@ -9,6 +9,7 @@ export const ApplicationContext = createContext();
 
 export const ApplicationProvider = props => {
   const [activeApplications, setActiveApplications] = useState([]);
+  const [minimizedApplications, setMinimizedApplications] = useState([]);
   const [orderOfApps, setOrderOfApps] = useState({});
   const [clickCounter, setClickCounter] = useState(1);
   const [positionOfApps, setPositionOfApps] = useState({});
@@ -20,15 +21,12 @@ export const ApplicationProvider = props => {
       return alert("This application is already running");
     }
     setAppOnTheTop(app);
-
     let hasAppPosition;
-
     for (let app in positionOfApps) {
       if (app === appName) {
         hasAppPosition = true;
       }
     }
-
     if (!hasAppPosition) {
       setPositionOfApps({ ...positionOfApps, [appName]: { x: 0, y: 0 } });
     }
@@ -74,6 +72,17 @@ export const ApplicationProvider = props => {
 
   /* TODO: It could be a nicer solution if I reset the counter and remove the item from the orderOfApps list */
 
+  const minimizeApp = app => {
+    const appName = app._owner.type.name;
+    const currentActiveApplications = [...activeApplications];
+    const index = currentActiveApplications.findIndex(
+      actApp => actApp.type.name === appName
+    );
+    currentActiveApplications.splice(index, 1);
+    setActiveApplications(currentActiveApplications);
+    setMinimizedApplications([...minimizedApplications, app]);
+  };
+
   const setAppOnTheTop = app => {
     let appName = getAppName(app);
     const currentOrderOfApps = { ...orderOfApps };
@@ -90,6 +99,28 @@ export const ApplicationProvider = props => {
     setPositionOfApps(currentPositionOfApps);
   };
 
+  const handleAppFromTrayBar = app => {
+    let appName = getAppName(app);
+    let index = minimizedApplications.findIndex(
+      minApp => minApp._owner.type.name === appName
+    );
+    if (index === -1) {
+      setAppOnTheTop(app);
+    } else restoreAppSize(app);
+  };
+
+  const restoreAppSize = app => {
+    let appName = getAppName(app);
+    const currentMinimizedApplications = [...minimizedApplications];
+    let index = currentMinimizedApplications.findIndex(
+      minApp => minApp._owner.type.name === appName
+    );
+    currentMinimizedApplications.splice(index, 1);
+    setMinimizedApplications(currentMinimizedApplications);
+    setActiveApplications([...activeApplications, app]);
+    setAppOnTheTop(app);
+  };
+
   return (
     <ApplicationContext.Provider
       value={{
@@ -98,9 +129,11 @@ export const ApplicationProvider = props => {
         positionOfApps: positionOfApps,
         trayBarIcons: trayBarIcons,
         startApp: startApp,
+        minimizeApp: minimizeApp,
         closeApp: closeApp,
         setAppOnTheTop: setAppOnTheTop,
-        saveAppPosition: saveAppPosition
+        saveAppPosition: saveAppPosition,
+        handleAppFromTrayBar: handleAppFromTrayBar
       }}
     >
       {props.children}
@@ -109,3 +142,4 @@ export const ApplicationProvider = props => {
 };
 
 /* TODO: It could be a nicer solution if I use a general modal for error messages */
+/* TODO: I must create a function in util which remove an element from an array */

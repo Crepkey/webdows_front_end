@@ -49,6 +49,7 @@ const HandlerButtonsContainer = Styled.div`
 
 const Window = props => {
   const {
+    minimizeApp,
     closeApp,
     setAppOnTheTop,
     saveAppPosition,
@@ -78,7 +79,11 @@ const Window = props => {
                 type="closing"
               />
               <HandlerButton color="rgba(68, 199, 103);" type="maximizing" />
-              <HandlerButton color="rgba(247, 190, 0);" type="minimizing" />
+              <HandlerButton
+                color="rgba(247, 190, 0);"
+                type="minimizing"
+                onClick={() => minimizeApp(props.children)}
+              />
             </HandlerButtonsContainer>
             <TitleBarText>{props.appName}</TitleBarText>
           </TitleBar>
