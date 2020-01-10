@@ -13,7 +13,7 @@ export const ApplicationProvider = props => {
   const [orderOfApps, setOrderOfApps] = useState({});
   const [clickCounter, setClickCounter] = useState(1);
   const [positionOfApps, setPositionOfApps] = useState({});
-  const [trayBarIcons, setTrayBarIcons] = useState([]);
+  const [elementsOfTrayBar, setElementsOfTrayBar] = useState([]);
 
   const startApp = (app, icon) => {
     const appName = app.type.name;
@@ -38,7 +38,7 @@ export const ApplicationProvider = props => {
 
   const activateIconOnTrayBar = (app, icon) => {
     const isIconOnTheTrayBar = function() {
-      for (let app of trayBarIcons) {
+      for (let app of elementsOfTrayBar) {
         let appIcon = Object.keys(app)[0];
         if (appIcon === icon) {
           return true;
@@ -48,7 +48,7 @@ export const ApplicationProvider = props => {
     };
 
     if (!isIconOnTheTrayBar()) {
-      setTrayBarIcons([...trayBarIcons, { [icon]: app }]);
+      setElementsOfTrayBar([...elementsOfTrayBar, { icon: icon, app: app }]);
     }
   };
 
@@ -60,14 +60,14 @@ export const ApplicationProvider = props => {
     );
     currentActiveApplications.splice(index, 1);
     setActiveApplications(currentActiveApplications);
-    deactivateIconOnTrayBar(trayBarIcons[index]);
+    deactivateIconOnTrayBar(elementsOfTrayBar[index]);
   };
 
   const deactivateIconOnTrayBar = icon => {
-    const currentTrayBarIcons = trayBarIcons.filter(
+    const currentelementsOfTrayBar = elementsOfTrayBar.filter(
       actIcon => actIcon !== icon
     );
-    setTrayBarIcons(currentTrayBarIcons);
+    setElementsOfTrayBar(currentelementsOfTrayBar);
   };
 
   /* TODO: It could be a nicer solution if I reset the counter and remove the item from the orderOfApps list */
@@ -127,7 +127,7 @@ export const ApplicationProvider = props => {
         activeApplications: activeApplications,
         orderOfApps: orderOfApps,
         positionOfApps: positionOfApps,
-        trayBarIcons: trayBarIcons,
+        elementsOfTrayBar: elementsOfTrayBar,
         startApp: startApp,
         minimizeApp: minimizeApp,
         closeApp: closeApp,
@@ -142,4 +142,3 @@ export const ApplicationProvider = props => {
 };
 
 /* TODO: It could be a nicer solution if I use a general modal for error messages */
-/* TODO: I must create a function in util which remove an element from an array */
