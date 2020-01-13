@@ -9,7 +9,7 @@ export const ApplicationContext = createContext();
 
 export const ApplicationProvider = props => {
   const [activeApps, setActiveApps] = useState([]);
-  const [minimizedApplications, setMinimizedApplications] = useState([]);
+  const [minimizedApps, setMinimizedApps] = useState([]);
   const [orderOfApps, setOrderOfApps] = useState({});
   const [clickCounter, setClickCounter] = useState(1);
   const [positionOfApps, setPositionOfApps] = useState({});
@@ -72,7 +72,7 @@ export const ApplicationProvider = props => {
   const minimizeApp = app => {
     const currentActiveApps = removeApp(app, activeApps);
     setActiveApps(currentActiveApps.arr);
-    setMinimizedApplications([...minimizedApplications, app]);
+    setMinimizedApps([...minimizedApps, app]);
   };
 
   const setAppOnTheTop = app => {
@@ -93,7 +93,7 @@ export const ApplicationProvider = props => {
 
   const handleAppFromTrayBar = app => {
     let appName = getAppName(app);
-    let index = minimizedApplications.findIndex(
+    let index = minimizedApps.findIndex(
       minApp => minApp._owner.type.name === appName
     );
     if (index === -1) {
@@ -102,8 +102,8 @@ export const ApplicationProvider = props => {
   };
 
   const restoreAppSize = app => {
-    const currentMinimizedApps = removeApp(app, minimizedApplications);
-    setMinimizedApplications(currentMinimizedApps.arr);
+    const currentMinimizedApps = removeApp(app, minimizedApps);
+    setMinimizedApps(currentMinimizedApps.arr);
     setActiveApps([...activeApps, app]);
     setAppOnTheTop(app);
   };
