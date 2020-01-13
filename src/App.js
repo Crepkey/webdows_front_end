@@ -22,14 +22,14 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 function App() {
-  const { activeApplications } = useContext(ApplicationContext);
+  const { activeApps } = useContext(ApplicationContext);
 
   return (
     <React.Fragment>
       <GlobalStyle />
       <DesktopIcons />
       {/* App rendering */}
-      {activeApplications.map((app, index) => (
+      {activeApps.map((app, index) => (
         <React.Fragment key={index}>{app}</React.Fragment>
       ))}
       <TrayBar />

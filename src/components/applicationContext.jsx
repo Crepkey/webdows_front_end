@@ -8,7 +8,7 @@ import { getAppName, removeApp } from "../util/util";
 export const ApplicationContext = createContext();
 
 export const ApplicationProvider = props => {
-  const [activeApplications, setActiveApplications] = useState([]);
+  const [activeApps, setActiveApps] = useState([]);
   const [minimizedApplications, setMinimizedApplications] = useState([]);
   const [orderOfApps, setOrderOfApps] = useState({});
   const [clickCounter, setClickCounter] = useState(1);
@@ -17,7 +17,7 @@ export const ApplicationProvider = props => {
 
   const startApp = (app, icon) => {
     const appName = app.type.name;
-    if (activeApplications.find(actApp => actApp.type.name === app.type.name)) {
+    if (activeApps.find(actApp => actApp.type.name === app.type.name)) {
       return alert("This application is already running");
     }
     setAppOnTheTop(app);
@@ -30,9 +30,9 @@ export const ApplicationProvider = props => {
     if (!hasAppPosition) {
       setPositionOfApps({ ...positionOfApps, [appName]: { x: 0, y: 0 } });
     }
-    const currentActiveApplications = [...activeApplications];
-    currentActiveApplications.push(app);
-    setActiveApplications(currentActiveApplications);
+    const currentactiveApps = [...activeApps];
+    currentactiveApps.push(app);
+    setActiveApps(currentactiveApps);
     activateIconOnTrayBar(app, icon);
   };
 
@@ -53,8 +53,8 @@ export const ApplicationProvider = props => {
   };
 
   const closeApp = app => {
-    const currentActiveApps = removeApp(app, activeApplications);
-    setActiveApplications(currentActiveApps.arr);
+    const currentActiveApps = removeApp(app, activeApps);
+    setActiveApps(currentActiveApps.arr);
     deactivateIconOnTrayBar(
       elementsOfTrayBar[currentActiveApps.indexOfRemovedElement]
     );
@@ -70,8 +70,8 @@ export const ApplicationProvider = props => {
   /* TODO: It could be a nicer solution if I reset the counter and remove the item from the orderOfApps list */
 
   const minimizeApp = app => {
-    const currentActiveApps = removeApp(app, activeApplications);
-    setActiveApplications(currentActiveApps.arr);
+    const currentActiveApps = removeApp(app, activeApps);
+    setActiveApps(currentActiveApps.arr);
     setMinimizedApplications([...minimizedApplications, app]);
   };
 
@@ -104,14 +104,14 @@ export const ApplicationProvider = props => {
   const restoreAppSize = app => {
     const currentMinimizedApps = removeApp(app, minimizedApplications);
     setMinimizedApplications(currentMinimizedApps.arr);
-    setActiveApplications([...activeApplications, app]);
+    setActiveApps([...activeApps, app]);
     setAppOnTheTop(app);
   };
 
   return (
     <ApplicationContext.Provider
       value={{
-        activeApplications: activeApplications,
+        activeApps: activeApps,
         orderOfApps: orderOfApps,
         positionOfApps: positionOfApps,
         elementsOfTrayBar: elementsOfTrayBar,
