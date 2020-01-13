@@ -17,7 +17,7 @@ export const ApplicationProvider = props => {
 
   const startApp = (app, icon) => {
     const appName = app.type.name;
-    if (activeApps.find(actApp => actApp.type.name === app.type.name)) {
+    if (isAppRunning(appName)) {
       return alert("This application is already running");
     }
     setAppOnTheTop(app);
@@ -34,6 +34,17 @@ export const ApplicationProvider = props => {
     currentactiveApps.push(app);
     setActiveApps(currentactiveApps);
     activateIconOnTrayBar(app, icon);
+  };
+
+  const isAppRunning = appName => {
+    let result = false;
+    if (activeApps.find(actApp => actApp.type.name === appName)) {
+      result = true;
+    }
+    if (minimizedApps.find(minApp => minApp._owner.type.name === appName)) {
+      result = true;
+    }
+    return result;
   };
 
   const activateIconOnTrayBar = (app, icon) => {
@@ -129,4 +140,3 @@ export const ApplicationProvider = props => {
 };
 
 /* TODO: It could be a nicer solution if I use a general modal for error messages */
-/* FIXME: If I minimized an app and start it from start menu then the app become duplicated */
