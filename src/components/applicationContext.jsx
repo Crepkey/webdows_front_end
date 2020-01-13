@@ -3,7 +3,7 @@ import React, { createContext, useState } from "react";
 
 /* Util */
 
-import { getAppName } from "../util/util";
+import { getAppName, removeApp } from "../util/util";
 
 export const ApplicationContext = createContext();
 
@@ -53,14 +53,11 @@ export const ApplicationProvider = props => {
   };
 
   const closeApp = app => {
-    const appName = app._owner.type.name;
-    const currentActiveApplications = [...activeApplications];
-    const index = currentActiveApplications.findIndex(
-      actApp => actApp.type.name === appName
+    const currentActiveApps = removeApp(app, activeApplications);
+    setActiveApplications(currentActiveApps.arr);
+    deactivateIconOnTrayBar(
+      elementsOfTrayBar[currentActiveApps.indexOfRemovedElement]
     );
-    currentActiveApplications.splice(index, 1);
-    setActiveApplications(currentActiveApplications);
-    deactivateIconOnTrayBar(elementsOfTrayBar[index]);
   };
 
   const deactivateIconOnTrayBar = icon => {
@@ -73,13 +70,8 @@ export const ApplicationProvider = props => {
   /* TODO: It could be a nicer solution if I reset the counter and remove the item from the orderOfApps list */
 
   const minimizeApp = app => {
-    const appName = app._owner.type.name;
-    const currentActiveApplications = [...activeApplications];
-    const index = currentActiveApplications.findIndex(
-      actApp => actApp.type.name === appName
-    );
-    currentActiveApplications.splice(index, 1);
-    setActiveApplications(currentActiveApplications);
+    const currentActiveApps = removeApp(app, activeApplications);
+    setActiveApplications(currentActiveApps.arr);
     setMinimizedApplications([...minimizedApplications, app]);
   };
 
@@ -110,13 +102,8 @@ export const ApplicationProvider = props => {
   };
 
   const restoreAppSize = app => {
-    let appName = getAppName(app);
-    const currentMinimizedApplications = [...minimizedApplications];
-    let index = currentMinimizedApplications.findIndex(
-      minApp => minApp._owner.type.name === appName
-    );
-    currentMinimizedApplications.splice(index, 1);
-    setMinimizedApplications(currentMinimizedApplications);
+    const currentMinimizedApps = removeApp(app, minimizedApplications);
+    setMinimizedApplications(currentMinimizedApps.arr);
     setActiveApplications([...activeApplications, app]);
     setAppOnTheTop(app);
   };
@@ -142,3 +129,4 @@ export const ApplicationProvider = props => {
 };
 
 /* TODO: It could be a nicer solution if I use a general modal for error messages */
+/* FIXME: If I minimized an app and start it from start menu then the app become duplicated */

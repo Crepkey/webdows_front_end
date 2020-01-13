@@ -29,3 +29,19 @@ export function getAppName(app) {
   } else appName = app.type.name;
   return appName;
 }
+
+/**
+ * @param {Component} app This component is an element which will remove from the array.
+ * @param {Array} arr     This is the array which contains apps.
+ *
+ * @return {Array}        This function returns an array without the app (comp).
+ *
+ * @description           This function takes an array and an element and remove that element from the array.
+ */
+export function removeApp(app, arr) {
+  const appName = getAppName(app);
+  const copyOfArray = [...arr];
+  const index = arr.findIndex(app => app.type.name === appName);
+  copyOfArray.splice(index, 1);
+  return { arr: copyOfArray, indexOfRemovedElement: index };
+}

@@ -144,6 +144,7 @@ import LaunchIcon from '../launchIcon';
 
 `;
 
+/* TODO: Replace the position settings to flexbox solution */
 const NotificationIcon = Styled(FontAwesomeIcon)`
   position: absolute;
   top: 50%;
