@@ -41,7 +41,7 @@ export function getAppName(app) {
 export function removeApp(app, arr) {
   const appName = getAppName(app);
   const copyOfArray = [...arr];
-  const index = arr.findIndex(app => app.type.name === appName);
+  const index = arr.findIndex(app => getAppName(app) === appName);
   copyOfArray.splice(index, 1);
   return { arr: copyOfArray, indexOfRemovedElement: index };
 }
