@@ -30,9 +30,9 @@ export const ApplicationProvider = props => {
     if (!hasAppPosition) {
       setPositionOfApps({ ...positionOfApps, [appName]: { x: 0, y: 0 } });
     }
-    const currentactiveApps = [...activeApps];
-    currentactiveApps.push(app);
-    setActiveApps(currentactiveApps);
+    const currentActiveApps = [...activeApps];
+    currentActiveApps.push(app);
+    setActiveApps(currentActiveApps);
     activateIconOnTrayBar(app, icon);
   };
 
@@ -140,6 +140,5 @@ export const ApplicationProvider = props => {
 };
 
 /* TODO: It could be a nicer solution if I use a general modal for error messages */
-/* FIXME: You can drag and drop the traybar icons and this is not good */
 /* FIXME: If an minimized and you want close another one the closing does'nt work correctly 
 because the deactivateTrayBarIcon function get wrong index number */

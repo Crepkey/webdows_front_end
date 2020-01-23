@@ -220,6 +220,7 @@ export default class TrayBar extends Component {
             {this.context.elementsOfTrayBar.map((app, index) => (
               <AppContainer key={index}>
                 <LaunchIcon
+                  disabled={true}
                   iconPath={app.icon}
                   size={{ height: "30px", width: "30px" }}
                   padding="5px"

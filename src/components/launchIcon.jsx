@@ -31,7 +31,7 @@ const AppName = Styled.span`
 
 const LaunchIcon = props => {
   return (
-    <Draggable grid={[120, 120]}>
+    <Draggable grid={[120, 120]} disabled={props.disabled}>
       <IconContainer
         onClick={props.onClick}
         onDoubleClick={props.onDoubleClick}
