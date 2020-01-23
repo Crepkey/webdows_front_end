@@ -140,3 +140,6 @@ export const ApplicationProvider = props => {
 };
 
 /* TODO: It could be a nicer solution if I use a general modal for error messages */
+/* FIXME: You can drag and drop the traybar icons and this is not good */
+/* FIXME: If an minimized and you want close another one the closing does'nt work correctly 
+because the deactivateTrayBarIcon function get wrong index number */
