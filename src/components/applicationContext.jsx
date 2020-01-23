@@ -65,15 +65,13 @@ export const ApplicationProvider = props => {
 
   const closeApp = app => {
     const currentActiveApps = removeApp(app, activeApps);
-    setActiveApps(currentActiveApps.arr);
-    deactivateIconOnTrayBar(
-      elementsOfTrayBar[currentActiveApps.indexOfRemovedElement]
-    );
+    setActiveApps(currentActiveApps);
+    deactivateIconOnTrayBar(app);
   };
 
-  const deactivateIconOnTrayBar = icon => {
+  const deactivateIconOnTrayBar = app => {
     const currentelementsOfTrayBar = elementsOfTrayBar.filter(
-      actIcon => actIcon !== icon
+      actIcon => getAppName(actIcon.app) !== getAppName(app) /* TODO: */
     );
     setElementsOfTrayBar(currentelementsOfTrayBar);
   };
@@ -82,7 +80,7 @@ export const ApplicationProvider = props => {
 
   const minimizeApp = app => {
     const currentActiveApps = removeApp(app, activeApps);
-    setActiveApps(currentActiveApps.arr);
+    setActiveApps(currentActiveApps);
     setMinimizedApps([...minimizedApps, app]);
   };
 
@@ -114,7 +112,7 @@ export const ApplicationProvider = props => {
 
   const restoreAppSize = app => {
     const currentMinimizedApps = removeApp(app, minimizedApps);
-    setMinimizedApps(currentMinimizedApps.arr);
+    setMinimizedApps(currentMinimizedApps);
     setActiveApps([...activeApps, app]);
     setAppOnTheTop(app);
   };
@@ -140,5 +138,3 @@ export const ApplicationProvider = props => {
 };
 
 /* TODO: It could be a nicer solution if I use a general modal for error messages */
-/* FIXME: If an minimized and you want close another one the closing does'nt work correctly 
-because the deactivateTrayBarIcon function get wrong index number */
