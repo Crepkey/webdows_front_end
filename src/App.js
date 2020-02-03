@@ -1,14 +1,8 @@
 /* React */
-import React, { useContext } from "react";
-import { Route } from "react-router-dom";
-
-/* Contexts */
-import { ApplicationContext } from "./components/applicationContext";
+import React from "react";
 
 /* Components */
-import DesktopIcons from "./components/desktopIcons";
-import TrayBar from "./components/trayAndStartMenu/tray";
-import Login from "./components/loginPage/login";
+import Router from "./components/router";
 
 /* Styles */
 import { createGlobalStyle } from "styled-components";
@@ -24,18 +18,10 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 function App() {
-  const { activeApps } = useContext(ApplicationContext);
-
   return (
     <React.Fragment>
-      <Route path="/login" component={Login} />
       <GlobalStyle />
-      <DesktopIcons />
-      {/* App rendering */}
-      {activeApps.map((app, index) => (
-        <React.Fragment key={index}>{app}</React.Fragment>
-      ))}
-      <TrayBar />
+      <Router />
     </React.Fragment>
   );
 }
