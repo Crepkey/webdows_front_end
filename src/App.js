@@ -1,5 +1,6 @@
 /* React */
 import React, { useContext } from "react";
+import { Route } from "react-router-dom";
 
 /* Contexts */
 import { ApplicationContext } from "./components/applicationContext";
@@ -7,6 +8,7 @@ import { ApplicationContext } from "./components/applicationContext";
 /* Components */
 import DesktopIcons from "./components/desktopIcons";
 import TrayBar from "./components/trayAndStartMenu/tray";
+import Login from "./components/loginPage/login";
 
 /* Styles */
 import { createGlobalStyle } from "styled-components";
@@ -26,6 +28,7 @@ function App() {
 
   return (
     <React.Fragment>
+      <Route path="/login" component={Login} />
       <GlobalStyle />
       <DesktopIcons />
       {/* App rendering */}
