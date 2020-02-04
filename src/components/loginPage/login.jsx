@@ -35,6 +35,9 @@ const Login = () => {
           Password
         </label>
         <input name="password" type="password" />
+        <button type="submit" form="Login" value="Login">
+          Login
+        </button>
       </LoginForm>
     </Background>
   );
