@@ -1,6 +1,9 @@
 /* React */
 import React, { useState } from "react";
 
+/* Comps */
+import Input from "../input";
+
 /* Styles */
 import Styled from "styled-components";
 
@@ -28,15 +31,16 @@ const LoginForm = Styled.form`
 
 const Login = () => {
   const [account, setAccounts] = useState({ username: "", password: "" });
+  const [errors, setErrors] = useState({});
 
   const handleSubmit = e => {
     e.preventDefault();
     console.log(account);
   };
 
-  const handleChange = e => {
+  const handleChange = ({ currentTarget: input }) => {
     const currentAccount = { ...account };
-    currentAccount[e.currentTarget.name] = e.currentTarget.value;
+    currentAccount[input.name] = input.value;
     setAccounts(currentAccount);
   };
 
@@ -44,20 +48,15 @@ const Login = () => {
     <Background>
       <PageTitle>LOGIN</PageTitle>
       <LoginForm onSubmit={handleSubmit}>
-        <label style={{ color: "white" }} htmlFor="Username">
-          Username
-        </label>
-        <input
+        <Input
           name="username"
-          type="text"
+          label="Username"
           value={account.username}
           onChange={handleChange}
-        />
-        <label style={{ color: "white" }} htmlFor="Password">
-          Password
-        </label>
-        <input
+        ></Input>
+        <Input
           name="password"
+          label="Password"
           type="password"
           value={account.password}
           onChange={handleChange}
