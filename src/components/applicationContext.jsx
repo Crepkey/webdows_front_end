@@ -11,7 +11,7 @@ export const ApplicationProvider = props => {
   const [activeApps, setActiveApps] = useState([]);
   const [minimizedApps, setMinimizedApps] = useState([]);
   const [orderOfApps, setOrderOfApps] = useState({});
-  const [clickCounter, setClickCounter] = useState(1);
+  const [clickCounter, setClickCounter] = useState(1000);
   const [positionOfApps, setPositionOfApps] = useState({});
   const [elementsOfTrayBar, setElementsOfTrayBar] = useState([]);
 
