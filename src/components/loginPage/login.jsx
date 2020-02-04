@@ -1,5 +1,5 @@
 /* React */
-import React from "react";
+import React, { useState } from "react";
 
 /* Styles */
 import Styled from "styled-components";
@@ -23,10 +23,17 @@ const LoginForm = Styled.form`
 `;
 
 const Login = () => {
+  const [account, setAccounts] = useState({ username: "", password: "" });
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    console.log("submitted");
+  };
+
   return (
     <Background>
       <PageTitle>LOGIN</PageTitle>
-      <LoginForm>
+      <LoginForm onSubmit={handleSubmit}>
         <label style={{ color: "white" }} htmlFor="Username">
           Username
         </label>
@@ -35,9 +42,7 @@ const Login = () => {
           Password
         </label>
         <input name="password" type="password" />
-        <button type="submit" form="Login" value="Login">
-          Login
-        </button>
+        <button type="submit">Login</button>
       </LoginForm>
     </Background>
   );
