@@ -1,5 +1,5 @@
 /* React */
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 
 /* Contexts */
 import { ApplicationContext } from "./applicationContext";
@@ -27,8 +27,14 @@ const IconsContainer = Styled.div`
 `;
 
 const DesktopIcons = () => {
+  const [isIconOnTheTop, setIsIconOnTheTop] = useState(false);
   const { startApp } = useContext(ApplicationContext);
   const iconSize = { height: "75px", width: "75px" };
+
+  const toggleIconPos = () => {
+    if (isIconOnTheTop) setIsIconOnTheTop(false);
+    else setIsIconOnTheTop(true);
+  };
 
   return (
     <IconsContainer>
@@ -39,6 +45,9 @@ const DesktopIcons = () => {
         iconText="Weather"
         shadow={true}
         padding="15px"
+        onStart={toggleIconPos}
+        onStop={toggleIconPos}
+        zIndex={isIconOnTheTop ? 100 : 0}
       />
 
       <LaunchIcon

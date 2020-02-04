@@ -7,14 +7,14 @@ import Styled from "styled-components";
 
 const IconContainer = Styled.div`
   position: relative;
-  z-index: 0;
+  z-index: ${props => props.zIndex};
   text-align: center;
   display: inline-block;
   margin: 5px;
 `;
 
 const LauncherIcon = Styled.img`
-display: block;
+  display: block;
   padding: ${props => props.padding};
   -webkit-filter: ${props =>
     props.shadow
@@ -31,10 +31,16 @@ const AppName = Styled.span`
 
 const LaunchIcon = props => {
   return (
-    <Draggable grid={[120, 120]} disabled={props.disabled}>
+    <Draggable
+      onStart={props.onStart}
+      onStop={props.onStop}
+      grid={[120, 120]}
+      disabled={props.disabled}
+    >
       <IconContainer
         onClick={props.onClick}
         onDoubleClick={props.onDoubleClick}
+        zIndex={props.zIndex}
       >
         <LauncherIcon
           src={props.iconPath}
