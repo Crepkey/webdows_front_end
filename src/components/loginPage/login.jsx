@@ -17,10 +17,25 @@ const PageTitle = Styled.h1`
   color: white;
 `;
 
+const LoginForm = Styled.form`
+  border: solid 1px white;
+  height: 100vh;
+`;
+
 const Login = () => {
   return (
     <Background>
       <PageTitle>LOGIN</PageTitle>
+      <LoginForm>
+        <label style={{ color: "white" }} htmlFor="Username">
+          Username
+        </label>
+        <input name="username" type="text" />
+        <label style={{ color: "white" }} htmlFor="Password">
+          Password
+        </label>
+        <input name="password" type="password" />
+      </LoginForm>
     </Background>
   );
 };
