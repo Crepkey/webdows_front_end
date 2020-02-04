@@ -41,7 +41,7 @@ const LaunchIcon = props => {
     <Draggable
       onStart={toggleIconPos}
       onStop={toggleIconPos}
-      grid={[120, 120]}
+      grid={[115, 130]}
       disabled={props.disabled}
     >
       <IconContainer
