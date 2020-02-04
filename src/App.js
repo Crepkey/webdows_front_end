@@ -13,7 +13,10 @@ const GlobalStyle = createGlobalStyle`
     color: white;
   }
   body{
-    background: url(${BackgroundImage}) no-repeat;
+    background: url(${BackgroundImage});
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
   }
 `;
 
