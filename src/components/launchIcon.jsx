@@ -1,5 +1,5 @@
 /* React */
-import React from "react";
+import React, { useState } from "react";
 import Draggable from "react-draggable";
 
 /* Styles */
@@ -30,17 +30,24 @@ const AppName = Styled.span`
 `;
 
 const LaunchIcon = props => {
+  const [isIconOnTheTop, setIsIconOnTheTop] = useState(false);
+
+  const toggleIconPos = () => {
+    if (isIconOnTheTop) setIsIconOnTheTop(false);
+    else setIsIconOnTheTop(true);
+  };
+
   return (
     <Draggable
-      onStart={props.onStart}
-      onStop={props.onStop}
+      onStart={toggleIconPos}
+      onStop={toggleIconPos}
       grid={[120, 120]}
       disabled={props.disabled}
     >
       <IconContainer
         onClick={props.onClick}
         onDoubleClick={props.onDoubleClick}
-        zIndex={props.zIndex}
+        zIndex={isIconOnTheTop ? 1 : 0}
       >
         <LauncherIcon
           src={props.iconPath}
