@@ -15,6 +15,10 @@ const Background = Styled.div`
 
 const PageTitle = Styled.h1`
   color: white;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
 `;
 
 const LoginForm = Styled.form`
@@ -27,7 +31,13 @@ const Login = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log("submitted");
+    console.log(account);
+  };
+
+  const handleChange = e => {
+    const currentAccount = { ...account };
+    currentAccount[e.currentTarget.name] = e.currentTarget.value;
+    setAccounts(currentAccount);
   };
 
   return (
@@ -37,11 +47,21 @@ const Login = () => {
         <label style={{ color: "white" }} htmlFor="Username">
           Username
         </label>
-        <input name="username" type="text" />
+        <input
+          name="username"
+          type="text"
+          value={account.username}
+          onChange={handleChange}
+        />
         <label style={{ color: "white" }} htmlFor="Password">
           Password
         </label>
-        <input name="password" type="password" />
+        <input
+          name="password"
+          type="password"
+          value={account.password}
+          onChange={handleChange}
+        />
         <button type="submit">Login</button>
       </LoginForm>
     </Background>
