@@ -42,3 +42,4 @@ export default App;
 /* TODO: Blur border for windows https://stackoverflow.com/questions/33820493/css-how-to-blur-background-image-within-the-div */
 /* TODO: I need to set faIcons to the apps */
 /* TODO: Background resolution always adjust to current display resolution */
+/* TODO: Write a logic which swaps the desktop icons each other when I put an icon to another one */
