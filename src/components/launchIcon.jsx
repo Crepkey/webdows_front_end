@@ -6,7 +6,7 @@ import Draggable from "react-draggable";
 import Styled from "styled-components";
 
 const IconContainer = Styled.div`
-  position: absolute;
+  position: relative;
   z-index: ${props => props.zIndex};
   text-align: center;
   display: inline-block;
