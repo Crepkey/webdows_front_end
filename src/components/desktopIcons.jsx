@@ -39,6 +39,7 @@ const DesktopIcons = () => {
         iconText="Weather"
         shadow={true}
         padding="15px"
+        position={{ x: 0, y: 0 }}
       />
 
       <LaunchIcon
@@ -48,6 +49,7 @@ const DesktopIcons = () => {
         iconText="Dummy"
         shadow={true}
         padding="15px"
+        position={{ x: 115, y: 0 }}
       />
 
       <LaunchIcon
@@ -57,6 +59,7 @@ const DesktopIcons = () => {
         iconText="Fake"
         shadow={true}
         padding="15px"
+        position={{ x: 230, y: 0 }}
       />
 
       <LaunchIcon
@@ -66,6 +69,7 @@ const DesktopIcons = () => {
         iconText="Calculator"
         shadow={true}
         padding="15px"
+        position={{ x: 345, y: 0 }}
       />
       <LaunchIcon
         size={iconSize}
@@ -74,6 +78,7 @@ const DesktopIcons = () => {
         iconText="Todo"
         shadow={true}
         padding="15px"
+        position={{ x: 460, y: 0 }}
       />
     </IconsContainer>
   );

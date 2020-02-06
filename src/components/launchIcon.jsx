@@ -6,7 +6,7 @@ import Draggable from "react-draggable";
 import Styled from "styled-components";
 
 const IconContainer = Styled.div`
-  position: relative;
+  position: absolute;
   z-index: ${props => props.zIndex};
   text-align: center;
   display: inline-block;
@@ -32,17 +32,18 @@ const AppName = Styled.span`
 const LaunchIcon = props => {
   const [isIconOnTheTop, setIsIconOnTheTop] = useState(false);
 
-  const toggleIconPos = () => {
+  const toggleZIndex = position => {
     if (isIconOnTheTop) setIsIconOnTheTop(false);
     else setIsIconOnTheTop(true);
   };
 
   return (
     <Draggable
-      onStart={toggleIconPos}
-      onStop={toggleIconPos}
+      onStart={toggleZIndex}
+      onStop={(event, position) => toggleZIndex(position)}
       grid={[115, 130]}
       disabled={props.disabled}
+      position={props.position}
     >
       <IconContainer
         onClick={props.onClick}

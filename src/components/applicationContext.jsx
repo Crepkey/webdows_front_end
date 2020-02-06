@@ -14,6 +14,7 @@ export const ApplicationProvider = props => {
   const [clickCounter, setClickCounter] = useState(1000);
   const [positionOfApps, setPositionOfApps] = useState({});
   const [elementsOfTrayBar, setElementsOfTrayBar] = useState([]);
+  const [desktopIconsPos, setDesktopIconsPos] = useState([]);
 
   const startApp = (app, icon) => {
     const appName = app.type.name;
@@ -71,7 +72,7 @@ export const ApplicationProvider = props => {
 
   const deactivateIconOnTrayBar = app => {
     const currentelementsOfTrayBar = elementsOfTrayBar.filter(
-      actIcon => getAppName(actIcon.app) !== getAppName(app) /* TODO: */
+      actIcon => getAppName(actIcon.app) !== getAppName(app)
     );
     setElementsOfTrayBar(currentelementsOfTrayBar);
   };
