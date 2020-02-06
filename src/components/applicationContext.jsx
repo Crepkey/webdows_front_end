@@ -14,7 +14,6 @@ export const ApplicationProvider = props => {
   const [clickCounter, setClickCounter] = useState(1000);
   const [positionOfApps, setPositionOfApps] = useState({});
   const [elementsOfTrayBar, setElementsOfTrayBar] = useState([]);
-  const [desktopIconsPos, setDesktopIconsPos] = useState([]);
 
   const startApp = (app, icon) => {
     const appName = app.type.name;
