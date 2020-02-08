@@ -138,7 +138,7 @@ class WeatherWidget extends Component {
 
   render() {
     return (
-      <Window appName="Wheather Widget">
+      <Window appName="Weather Widget">
         <WeatherWidgetContainer>
           <CurrentWeather currentWeather={this.state.currentWeather} />
           <WeatherForecasts weatherForecasts={this.state.weatherForecasts} />
