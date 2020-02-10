@@ -10,10 +10,11 @@ import Styled from "styled-components";
 const Background = Styled.div`
   height: 100vh;
   width: auto;
-  background-color: black;
   margin: 0px;
   padding: 0px;
   opacity: 0.8;
+  text-align: center;
+  background-color: black;
 `;
 
 const PageTitle = Styled.h1`
