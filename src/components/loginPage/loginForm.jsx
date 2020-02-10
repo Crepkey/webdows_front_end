@@ -13,9 +13,14 @@ const Form = Styled.form`
 `;
 
 const LoginForm = props => {
+  const handleSubmit = e => {
+    e.preventDefault();
+    console.log("submitted");
+  };
+
   return (
     <React.Fragment>
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <h1 style={{ color: "white" }}>Login Form</h1>
         <Input
           id="username"
