@@ -1,6 +1,9 @@
 /* React */
 import React from "react";
 
+/* Comps */
+import LoginForm from "./loginForm";
+
 /* Styles */
 import Styled from "styled-components";
 
@@ -26,6 +29,7 @@ const Login = () => {
   return (
     <Background>
       <PageTitle>LOGIN</PageTitle>
+      <LoginForm />
     </Background>
   );
 };
