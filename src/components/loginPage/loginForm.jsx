@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 /* Comps */
 import Input from "../input";
@@ -13,9 +13,17 @@ const Form = Styled.form`
 `;
 
 const LoginForm = props => {
+  const [account, setAccount] = useState({});
+
   const handleSubmit = e => {
     e.preventDefault();
     console.log("submitted");
+  };
+
+  const handleChange = e => {
+    const currentAccount = { ...account };
+    currentAccount.username = e.currentTarget.value;
+    setAccount(currentAccount);
   };
 
   return (
@@ -27,6 +35,8 @@ const LoginForm = props => {
           name="username"
           htmlFor="username"
           label="Username"
+          value={account.username}
+          onChange={handleChange}
         ></Input>
         <Input
           id="password"
