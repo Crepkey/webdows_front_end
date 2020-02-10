@@ -20,9 +20,9 @@ const LoginForm = props => {
     console.log("submitted");
   };
 
-  const handleChange = e => {
+  const handleChange = ({ currentTarget: input }) => {
     const currentAccount = { ...account };
-    currentAccount.username = e.currentTarget.value;
+    currentAccount[input.name] = input.value;
     setAccount(currentAccount);
   };
 
@@ -44,6 +44,8 @@ const LoginForm = props => {
           htmlFor="username"
           label="Password"
           type="password"
+          value={account.password}
+          onChange={handleChange}
         />
         <button type="submit">Login</button>
       </Form>
