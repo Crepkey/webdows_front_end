@@ -13,10 +13,28 @@ const Form = Styled.form`
 `;
 
 const LoginForm = props => {
-  const [account, setAccount] = useState({});
+  const [account, setAccount] = useState({ username: "", password: "" });
+  const [errors, setErrors] = useState({});
+
+  const validation = () => {
+    const errors = {};
+    if (account.username.trim() === "") {
+      errors.username = "The username is required";
+    }
+    if (account.password.trim() === "") {
+      errors.password = "The password is required";
+    }
+    console.log("errors length: " + Object.keys(errors).length);
+    return Object.keys(errors).length !== 0 ? errors : null;
+  };
 
   const handleSubmit = e => {
     e.preventDefault();
+
+    const errors = validation();
+    setErrors(errors || {});
+    if (errors) return;
+
     console.log("submitted");
   };
 
@@ -35,6 +53,7 @@ const LoginForm = props => {
           name="username"
           htmlFor="username"
           label="Username"
+          error={errors.username}
           value={account.username}
           onChange={handleChange}
         ></Input>
@@ -44,6 +63,7 @@ const LoginForm = props => {
           htmlFor="username"
           label="Password"
           type="password"
+          error={errors.password}
           value={account.password}
           onChange={handleChange}
         />
