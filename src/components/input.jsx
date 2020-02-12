@@ -1,5 +1,12 @@
 import React from "react";
 
+/* Styles */
+import Styled from "styled-components";
+
+const ErrorText = Styled.span`
+  color: white;
+`;
+
 const Input = ({ name, label, value, type = "text", error, onChange }) => {
   return (
     <React.Fragment>
@@ -14,7 +21,7 @@ const Input = ({ name, label, value, type = "text", error, onChange }) => {
         error={error}
         onChange={onChange}
       />
-      {error && <span>{error}</span>}
+      {error && <ErrorText>{error}</ErrorText>}
     </React.Fragment>
   );
 };

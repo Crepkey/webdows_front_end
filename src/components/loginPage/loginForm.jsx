@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Joi from "joi-browser";
 
 /* Comps */
 import Input from "../input";
@@ -16,16 +17,33 @@ const LoginForm = props => {
   const [account, setAccount] = useState({ username: "", password: "" });
   const [errors, setErrors] = useState({});
 
+  const schema = {
+    username: Joi.string()
+      .required()
+      .label("Username"),
+    password: Joi.string()
+      .required()
+      .label("Password")
+  };
+
   const validation = () => {
+    const option = { abortEarly: false };
+    const { error } = Joi.validate(account, schema, option);
+    if (!error) return null;
+
     const errors = {};
-    if (account.username.trim() === "") {
-      errors.username = "The username is required";
+
+    for (let item of error.details) {
+      errors[item.path[0]] = item.message;
     }
-    if (account.password.trim() === "") {
-      errors.password = "The password is required";
-    }
-    console.log("errors length: " + Object.keys(errors).length);
-    return Object.keys(errors).length !== 0 ? errors : null;
+    return errors;
+  };
+
+  const validateProperty = ({ name, value }) => {
+    const inputObj = { [name]: value };
+    const fieldSchema = { [name]: schema[name] };
+    const { error } = Joi.validate(inputObj, fieldSchema);
+    return error ? error.details[0].message : null;
   };
 
   const handleSubmit = e => {
@@ -39,6 +57,12 @@ const LoginForm = props => {
   };
 
   const handleChange = ({ currentTarget: input }) => {
+    const currentErrors = { ...errors };
+    const errorMessage = validateProperty(input);
+    if (errorMessage) currentErrors[input.name] = errorMessage;
+    else delete currentErrors[input.name];
+    setErrors(currentErrors);
+
     const currentAccount = { ...account };
     currentAccount[input.name] = input.value;
     setAccount(currentAccount);
