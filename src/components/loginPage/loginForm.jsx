@@ -26,7 +26,7 @@ const LoginForm = props => {
       .label("Password")
   };
 
-  const validation = () => {
+  const validate = () => {
     const option = { abortEarly: false };
     const { error } = Joi.validate(account, schema, option);
     if (!error) return null;
@@ -49,7 +49,7 @@ const LoginForm = props => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    const errors = validation();
+    const errors = validate();
     setErrors(errors || {});
     if (errors) return;
 
@@ -91,7 +91,9 @@ const LoginForm = props => {
           value={account.password}
           onChange={handleChange}
         />
-        <button type="submit">Login</button>
+        <button disabled={validate()} type="submit">
+          Login
+        </button>
       </Form>
     </React.Fragment>
   );
