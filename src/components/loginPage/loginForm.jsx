@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+
+/* Validation and Authentication */
 import Joi from "joi-browser";
 
 /* Comps */
@@ -53,6 +55,9 @@ const LoginForm = props => {
     setErrors(errors || {});
     if (errors) return;
 
+    const hashedPassword = createHash(account.password);
+    const hashedUsername = createHash(account.username);
+
     console.log("submitted");
   };
 
@@ -66,6 +71,12 @@ const LoginForm = props => {
     const currentAccount = { ...account };
     currentAccount[input.name] = input.value;
     setAccount(currentAccount);
+  };
+
+  const createHash = input => {
+    let bcrypt = require("bcryptjs");
+    let salt = bcrypt.genSaltSync(10);
+    return bcrypt.hashSync(input, salt);
   };
 
   return (
